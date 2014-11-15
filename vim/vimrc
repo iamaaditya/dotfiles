@@ -36,7 +36,8 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'tpope/vim-rails.git'
 Plugin 'vexxor/phpdoc.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'Lokaltog/vim-powerline'
+"Plugin 'Lokaltog/vim-powerline'
+"Plugin 'Lokaltog/powerline'
 Plugin 't9md/vim-ruby-xmpfilter'
 Plugin 'sjl/gundo.vim'
 Plugin 'rking/ag.vim'
@@ -70,7 +71,10 @@ if iCanHazVundle == 0
 endif
 
 filetype plugin indent on     " required!
-"let g:Powerline_symbols = 'fancy'
+
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+let g:Powerline_symbols = 'fancy'
 "source ~/.vim/bundle/powerline/build/lib/powerline/ext/vim/source_plugin.vim
 "python from powerline.ext.vim import source_plugin; source_plugin()
 
@@ -111,7 +115,7 @@ set expandtab
 set modelines=0
 set backspace=start,indent,eol
 set t_Co=256
-set guifont=Monaco:h13
+"set guifont=Monaco:h13
 set nolist  "hide invisible characters
 set autowrite
 "set list
