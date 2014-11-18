@@ -169,15 +169,15 @@ nnoremap <leader>v :tabnew ~/dotfiles/vim/vimrc<CR>
 nnoremap <leader>l :SyntasticCheck<CR>
 
 "command P !python %
-map <C-x> :exec '!python' shellescape(@%, 1)<CR>
+map <C-j> :exec '!python' shellescape(@%, 1)<CR>
 "map <leader>c :Calc<CR> 
 "folding settings"
 set foldmethod=indent
 set foldnestmax=2
 set nofoldenable
 set foldlevel=1
-nnoremap <space> za
-vnoremap <space> zf
+nnoremap <space> zc 
+vnoremap <space> zo
 "seeing is believing key bindings
 "let g:xmpfilter_cmd = "seeing_is_believing"
 "autocmd FileType ruby nmap <buffer> <F5> <Plug>(seeing_is_believing-run)
@@ -231,4 +231,19 @@ highlight Pmenu ctermbg=gray ctermfg=black gui=bold
 " YCM configs
 let g:ycm_auto_trigger = 1
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
+" If the current buffer has never been saved, it will have no name,
+" call the file browser to save it, otherwise just save it.
 
+" Code to save the file
+inoremap <leader><leader> <Esc>:w<CR>
+nnoremap <leader><leader> <Esc>:w<CR>
+"map <Esc>s :w<CR>
+"map <Esc><Esc> :w<CR>
+"command -nargs=0 -bar Update if &modified 
+                           "\|    if empty(bufname('%'))
+                           "\|        browse confirm write
+                           "\|    else
+                           "\|        confirm write
+                           "\|    endif
+                           "\|endif
+"nnoremap <silent> <C-q> :<C-u>Update<CR>
