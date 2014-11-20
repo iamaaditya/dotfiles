@@ -51,7 +51,7 @@ Plugin 'honza/vim-snippets'
 "Plugin 'eagletmt/ghcmod-vim'
 "Plugin 'Shougo/vimproc.vim'
 "Plugin 'eagletmt/neco-ghc'
-
+Plugin 'terryma/vim-multiple-cursors'
 
 " vim-scripts repos
 Plugin 'PIV'
@@ -115,6 +115,8 @@ set expandtab
 set modelines=0
 set backspace=start,indent,eol
 set t_Co=256
+set showtabline=2
+set noshowmode
 "set guifont=Monaco:h13
 set nolist  "hide invisible characters
 set autowrite
@@ -140,7 +142,7 @@ colorscheme solarized
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 " easymotion configs
-"let g:EasyMotion_leader_key = '<Leader>'
+let g:EasyMotion_leader_key = '<Leader>'
 
 " session configs
 let g:session_autosave = 'no'
@@ -170,6 +172,8 @@ nnoremap <leader>l :SyntasticCheck<CR>
 
 "command P !python %
 map <C-j> :exec '!python' shellescape(@%, 1)<CR>
+imap <C-j> <Esc>:exec '!python' shellescape(@%, 1)<CR>
+
 "map <leader>c :Calc<CR> 
 "folding settings"
 set foldmethod=indent
@@ -235,8 +239,8 @@ let g:ycm_semantic_triggers = {'haskell' : ['.']}
 " call the file browser to save it, otherwise just save it.
 
 " Code to save the file
-inoremap <leader><leader> <Esc>:w<CR>
-nnoremap <leader><leader> <Esc>:w<CR>
+"inoremap <leader><leader> <Esc>:w<CR>
+"nnoremap <leader><leader> <Esc>:w<CR>
 "map <Esc>s :w<CR>
 "map <Esc><Esc> :w<CR>
 "command -nargs=0 -bar Update if &modified 
