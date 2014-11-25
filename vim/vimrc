@@ -18,10 +18,10 @@ call vundle#rc()
 
 Plugin 'gmarik/vundle'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'pangloss/vim-javascript'
-Plugin 'adimit/prolog.vim'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-session'
+"Plugin 'pangloss/vim-javascript'
+"Plugin 'adimit/prolog.vim'
+"Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-session'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tmhedberg/matchit'
 Plugin 'Lokaltog/vim-easymotion'
@@ -32,17 +32,17 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'c9s/bufexplorer'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'tpope/vim-rails.git'
-Plugin 'vexxor/phpdoc.vim'
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Plugin 'tpope/vim-rails.git'
+"Plugin 'vexxor/phpdoc.vim'
 Plugin 'kien/ctrlp.vim'
 "Plugin 'Lokaltog/vim-powerline'
 "Plugin 'Lokaltog/powerline'
-Plugin 't9md/vim-ruby-xmpfilter'
+"Plugin 't9md/vim-ruby-xmpfilter'
 Plugin 'sjl/gundo.vim'
 Plugin 'rking/ag.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'fatih/vim-go'
+"Plugin 'fatih/vim-go'
 " Ultrasnip (snippets)
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -63,7 +63,7 @@ Plugin 'FuzzyFinder'
 "Plugin 'camelcasemotion'
 Plugin 'L9'
 Plugin 'preview'
-
+Plugin 'shinokada/dragvisuals.vim'
 if iCanHazVundle == 0
     echo "Installing Plugins, please ignore key map error messages"
     echo ""
@@ -123,7 +123,7 @@ set autowrite
 "set list
 "set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
-"let mapleader=","       " leader is comma
+let mapleader=","       " leader is comma
 " allows cursor change in tmux mode
 if exists('$TMUX')
     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -180,8 +180,8 @@ set foldmethod=indent
 set foldnestmax=2
 set nofoldenable
 set foldlevel=1
-nnoremap <space> zc 
-vnoremap <space> zo
+nnoremap <space> za 
+vnoremap <space> zf
 "seeing is believing key bindings
 "let g:xmpfilter_cmd = "seeing_is_believing"
 "autocmd FileType ruby nmap <buffer> <F5> <Plug>(seeing_is_believing-run)
@@ -251,3 +251,30 @@ let g:ycm_semantic_triggers = {'haskell' : ['.']}
                            "\|    endif
                            "\|endif
 "nnoremap <silent> <C-q> :<C-u>Update<CR>
+
+" Code to rename the file
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        "exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>r :call RenameFile()<cr>
+let g:Powerline_symbols = 'fancy'
+let g:Powerline_dividers_override = ["\Ue0b0", "\Ue0b1", "\Ue0b2", "\Ue0b3"]
+let g:Powerline_symbols_override = { 'BRANCH': "\Ue0a0", 'LINE': "\Ue0a1", 'RO': "\Ue0a2" }
+
+" settings for dragvisuals.vim
+runtime plugin/dragvisuals.vim
+
+vmap  <expr>  <LEFT>   DVB_Drag('left')                     
+vmap  <expr>  <RIGHT>  DVB_Drag('right')                    
+vmap  <expr>  <DOWN>   DVB_Drag('down')                     
+vmap  <expr>  <UP>     DVB_Drag('up')                       
+vmap  <expr>  D        DVB_Duplicate()                      
+
+" Remove any introduced trailing whitespace after moving... 
+let g:DVB_TrimWS = 1

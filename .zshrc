@@ -45,10 +45,10 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git web-search)
+plugins=(git autojump)
 #plugins=(web-search)
 source $ZSH/oh-my-zsh.sh
-
+source ~/dotfiles/adi_zshrc.sh
 # User configuration
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/pypy-2.4.0-linux64/bin:/home/ap/mahout/bin:/usr/local/hadoop/bin:/usr/local/hadoop/sbin"
@@ -82,3 +82,4 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 if [[ -r /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh ]]; then
         source /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh 
 fi
+TERM=xterm-256color /usr/bin/tmux attach
