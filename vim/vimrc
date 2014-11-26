@@ -82,8 +82,8 @@ syntax on
 set pastetoggle=<F3>
 set ssop-=options
 set encoding=utf-8
-set history=512
-set undolevels=512
+set history=2707
+set undolevels=2512
 set colorcolumn=80
 set laststatus=2
 "set visualbell
