@@ -89,6 +89,7 @@ set laststatus=2
 "set visualbell
 set noerrorbells
 set wrapscan
+set nowrap
 set noswapfile
 "set nobackup
 set backup
@@ -122,6 +123,11 @@ set nolist  "hide invisible characters
 set autowrite
 "set list
 "set listchars=tab:>.,trail:.,extends:#,nbsp:.
+"folding settings"
+set foldmethod=indent
+set foldnestmax=2
+set nofoldenable
+set foldlevel=1
 
 let mapleader=","       " leader is comma
 " allows cursor change in tmux mode
@@ -178,13 +184,11 @@ map <C-j> :exec '!python' shellescape(@%, 1)<CR>
 imap <C-j> <Esc>:exec '!python' shellescape(@%, 1)<CR>
 
 "map <leader>c :Calc<CR> 
-"folding settings"
-set foldmethod=indent
-set foldnestmax=2
-set nofoldenable
-set foldlevel=1
-nnoremap <space> za 
-vnoremap <space> zf
+
+
+nmap <space> i_<Esc>r
+"nnoremap <space> za 
+"vnoremap <space> zf
 "seeing is believing key bindings
 "let g:xmpfilter_cmd = "seeing_is_believing"
 "autocmd FileType ruby nmap <buffer> <F5> <Plug>(seeing_is_believing-run)
