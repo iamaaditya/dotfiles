@@ -18,7 +18,7 @@ alias dayModified="find . -mtime -1"
 alias campus="ssh aprakash@129.64.2.200"
 alias erdos="ssh aprakash@erdos.cs-i.brandeis.edu"
 alias deer="ssh aprakash@deerstalker.cs.brandeis.edu"
-
+alias hpc="ssh aprakash@hpc64.brandeis.edu"
 alias html="cd /var/www/html"
 # making code place as variable
 export c=~/Dropbox/codes
