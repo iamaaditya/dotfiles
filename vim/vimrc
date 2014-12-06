@@ -42,6 +42,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'rking/ag.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'haya14busa/incsearch.vim'
 "Plugin 'fatih/vim-go'
 " Ultrasnip (snippets)
 Plugin 'SirVer/ultisnips'
@@ -185,6 +186,11 @@ imap <C-j> <Esc>:exec '!python' shellescape(@%, 1)<CR>
 
 "map <leader>c :Calc<CR> 
 
+"haya14busa incremental search
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
 
 nmap <space> i_<Esc>r
 "nnoremap <space> za 
@@ -285,3 +291,31 @@ vmap  <expr>  D        DVB_Duplicate()
 
 " Remove any introduced trailing whitespace after moving... 
 let g:DVB_TrimWS = 1
+
+" commenting it out.. instead switched to setinvcursorline permanently
+" since i find it useful at other times too
+
+set invcursorline
+" function to highlight the next search by Damian conway
+"nnoremap <silent> n   n:call HLNext(0.4)<cr>
+"nnoremap <silent> N   N:call HLNext(0.4)<cr>
+
+"function! HLNext (blinktime)
+        "set invcursorline
+        "redraw
+        "exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+        "set invcursorline
+        "redraw
+"endfunction
+
+"function! HLNext (blinktime)
+        "let [bufnum, lnum, col, off] = getpos('.')
+        "let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
+        "let target_pat = '\c\%#\%('.@/.'\)'
+        "let ring = matchadd('WhiteOnRed', target_pat, 101)
+        "redraw
+        "exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+        "call matchdelete(ring)
+        "redraw
+"endfunction
+
