@@ -9,3 +9,4 @@ ln -s ~/dotfiles/vim ~/.vim
 ln -s ~/dotfiles/vim/vimrc ~/.vimrc
 ln -s ~/dotfiles/tmux/.tmux.conf ~/
 ln -s .screenrc ~/
+ln -s ~/dotfiles/vim/ftplugin ~/ftplugin
