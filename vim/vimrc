@@ -156,8 +156,8 @@ let g:EasyMotion_leader_key = '<Leader>'
 let g:session_autosave = 'no'
 
 "Shortcuts
-let g:UltiSnipsExpandTrigger="<C-j>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsExpandTrigger="<C-;>"
+let g:UltiSnipsJumpForwardTrigger="<C-;>"
 let g:UltiSnipsJumpBackwardTrigger="<C-b>"
 let g:UltiSnipsEditSplit="vertical"
 
@@ -249,6 +249,8 @@ highlight Pmenu ctermbg=gray ctermfg=black gui=bold
 " YCM configs
 let g:ycm_auto_trigger = 1
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
 
