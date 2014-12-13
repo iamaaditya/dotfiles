@@ -10,10 +10,10 @@ ZSH
 ===
 ^ A    Move to the beginning of the line
 ^ E    Move to the end of the line
-^ [left arrow] Move one word backward (on some systems this is ALT + B)
-^ [right arrow]    Move one word forward (on some systems this is ALT + F)
-^ U (bash) Clear the characters on the line before the current cursor position
-^ U (zsh)  If you're using the zsh, this will clear the entire line
+^ ←    Move one word backward (on some systems this is ALT + B)
+^ →    Move one word forward (on some systems this is ALT + F)
+^ U    (bash) Clear the characters on the line before the current cursor position
+^ U    (zsh)  If you're using the zsh, this will clear the entire line
 ^ K    Clear the characters on the line after the current cursor position
 ESC + [backspace]   Delete the word in front of the cursor
 ^ W    Delete the word in front of the cursor
@@ -75,3 +75,29 @@ VIM (Windows split)
 :vsp filename   Open file in vertical split (also :vs and :vsplit)
 
 
+UNIX
+------
+
+dpkg --get-selections | grep -v deinstall :List of Installed Packages
+
+last                            : List of users logged in and out successfully (with use time)
+
+lastlog                         : list of all users and last succesful login time
+
+lsof                            : list all open files
+
+lsof -u ap                      : list all files of a user (ap)
+
+lsof -i TCP:22                  : list of all process on specific port (e.g 22)
+
+lsof -i -u <username>           :  Who is looking at which file (now)
+
+lsof -p 1                       : List of open files by pid
+
+lsof -i                         : List of all network connections
+
+kill -9 `lsof -t -r <username>` : Kill all activity of a particular user
+
+w                               : Uptime + Who
+
+paste <file1> <file2>           : Display files side by side separated by tab
