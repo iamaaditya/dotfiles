@@ -1,0 +1,77 @@
+Lynx
+====
+?       Help
+a v     Save Bookmark
+v       View your Bookmark
+=       See the URL (press = again to go back)
+\       HTML Source
+
+ZSH
+===
+^ A    Move to the beginning of the line
+^ E    Move to the end of the line
+^ [left arrow] Move one word backward (on some systems this is ALT + B)
+^ [right arrow]    Move one word forward (on some systems this is ALT + F)
+^ U (bash) Clear the characters on the line before the current cursor position
+^ U (zsh)  If you're using the zsh, this will clear the entire line
+^ K    Clear the characters on the line after the current cursor position
+ESC + [backspace]   Delete the word in front of the cursor
+^ W    Delete the word in front of the cursor
+ALT + D Delete the word after the cursor
+^ R    Search history
+^ G    Escape from search mode
+^ _    Undo the last change
+^ L    Clear screen
+^ S    Stop output to screen
+^ Q    Re-enable screen output
+^ C    Terminate/kill current foreground process
+^ Z    Suspend/stop current foreground process
+
+
+TMUX
+----
+
+tmux            start a new session
+tmux new        start a new session
+tmux attach     re-attach a detached session 
+tmux attach -d  attach here, deattach there
+^s d            dettach
+^s D            dettach other sessions (and not this one)
+^s , <newname>  rename a window
+^s w            list windows
+^s #            goto window number
+^s l            goto last window
+^s n            goto next window
+^s p            goto previous window
+^s ?            see keybindings
+^s s            list sessions (tmux ls)
+^s c            create another shell
+^d              exit current shell
+^s "            split pane horizontally
+^s %            split pane vertically
+^s o            switch to another pane
+^s x            kill the current pane
+^s !            close other panes except current
+^s ^o           swap locations of pane
+^s t            show time
+^s q            show numeric value of pane
+^s ←            move focus to left pane
+^s →            move focus to right pane
+^s [            enter copy mode (then use emacs select/yank keys)
+                * press CTRL-SPACE or CTRL-@ to start selecting text
+                * move cursor to end of desired text
+                * press ALT-w to copy selected text
+^s ]            paste copied text
+
+VIM (Windows split)
+------------
+
+^w, s     Horizontal splitting
+^w, v     Vertical splitting
+^w, q     Close one of the split
+^w, ^w    Switch between Windows
+^w, j/k/h/l Switch to the window of the given direction
+:sp filename    Open file in horizontal split
+:vsp filename   Open file in vertical split (also :vs and :vsplit)
+
+
