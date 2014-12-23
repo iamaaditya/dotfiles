@@ -175,6 +175,12 @@ map <C-l> :tabn<CR>
 map <C-h> :tabp<CR>
 map <C-n> :tabnew<CR>
 
+
+" make f as next page
+nnoremap f <C-f>
+
+" make 1 as quit without saving (do not force for thick fingers)
+nnoremap 1 :q<CR>
 " open vimrc
 nnoremap <leader>v :tabnew ~/dotfiles/vim/vimrc<CR>
 

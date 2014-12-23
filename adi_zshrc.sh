@@ -1,8 +1,4 @@
-# Add yourself some shortcuts to projects you often work on
-# Example:
-#
-# brainstormr=/Users/robbyrussell/Projects/development/planetargon/brainstormr
-#
+# Changes to custom zshrc by Adi Prakash#
 #
 #
 xmodmap ~/.speedswapper
@@ -10,7 +6,6 @@ alias ll="ls -lrth"
 #export TERM=xterm-256color
 #export TERM=xterm-256color
 alias tmuxa=TERM=xterm-256color /usr/bin/tmux attach
-alias ab="atom ~/.bashrc"
 alias hourModified="find . -mmin -60"
 alias hourCreated="find . -cmin -60"
 alias dayModified="find . -mtime -1"
@@ -102,7 +97,48 @@ code()
 
 }
 
+# Make a backup with current date
 bck()
 {
   cp "$1" "$1.__backup__`date`"
+}
+
+
+## DICTIONARY FUNCTIONS ##
+def () { curl dict://dict.org/d:${1}:wn; }
+dacron () { curl dict://dict.org/d:${1}:vera; }
+djargon () { curl dict://dict.org/d:${1}:jargon; }
+dfoldoc () { curl dict://dict.org/d:${1}:foldoc; }
+dthesaurus () { curl dict://dict.org/d:${1}:moby-thes; }
+
+## WIKIPEDIA SEARCH FUNCTION ##
+wiki() {
+echo -n -e "\n============================================\n\tWelcome to WikiPedia Search"; echo ""; i=1 ; for line in $(lynx --dump "http://en.wikipedia.org/w/index.php?title=Special%3ASearch&profile=default&search=$1&fulltext=Search" | grep http://en.wikipedia.org/wiki | cut -c7-); do echo $i $line; lines[$i]=$line ;  i=$(($i+1)); done ; echo -n -e "\n============================================\n\tPlease select the link to open - "; read answer; w3m ${lines[$answer]}
+}
+
+## SEP SEARCH FUNCTION ##
+plato() {
+echo -n -e "\n============================================\n\tWelcome to WikiPedia Search"; echo ""; i=1 ; for line in $(lynx --dump "http://plato.stanford.edu/search/searcher.py?query=$1" | grep http://plato.stanford.edu | cut -c7-); do echo $i $line; lines[$i]=$line ;  i=$(($i+1)); done ; echo -n -e "\n============================================\n\tPlease select the link to open - "; read answer; w3m ${lines[$answer]}
+}
+
+## EXTRACT FUNCTION ##
+extract () {
+  if [ -f $1 ] ; then
+      case $1 in
+          *.tar.bz2)   tar xvjf $1    ;;
+          *.tar.gz)    tar xvzf $1    ;;
+          *.bz2)       bunzip2 $1     ;;
+          *.rar)       rar x $1       ;;
+          *.gz)        gunzip $1      ;;
+          *.tar)       tar xvf $1     ;;
+          *.tbz2)      tar xvjf $1    ;;
+          *.tgz)       tar xvzf $1    ;;
+          *.zip)       unzip $1       ;;
+          *.Z)         uncompress $1  ;;
+          *.7z)        7z x $1        ;;
+          *)           echo "don't know how to extract '$1'..." ;;
+      esac
+  else
+      echo "'$1' is not a valid file!"
+  fi
 }
