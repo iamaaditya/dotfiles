@@ -15,6 +15,7 @@ alias erdos="ssh aprakash@erdos.cs-i.brandeis.edu"
 alias deer="ssh aprakash@deerstalker.cs.brandeis.edu"
 alias hpc="ssh aprakash@hpc64.brandeis.edu"
 alias html="cd /var/www/html"
+alias big1="ssh bigdata1@deerstalker.cs.brandeis.edu"
 # making code place as variable
 export c=~/Dropbox/codes
 #export PATH=$PATH:/opt/pypy-2.4.0-linux64/bin
