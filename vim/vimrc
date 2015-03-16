@@ -392,7 +392,8 @@ let g:VimuxUseNearest = 1
 
 vmap <Leader>vs "vy:call VimuxSlime()<CR>
 nmap <Leader>vs vip<Leader>vs<CR>
-map <Leader>vv v$"vy:call VimuxSlime()<CR>
+map <Leader>vv Bv$"vy:call VimuxSlime()<CR>
+map <Leader>va ggVG"vy:call VimuxSlime()<CR>
 map <Leader>vo :call VimuxOpenRunner()<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vg :VimuxInspectRunner<CR>
