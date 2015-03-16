@@ -3,6 +3,15 @@
 #
 xmodmap ~/.speedswapper
 alias ll="ls -lrth"
+function chpwd(){
+     ll
+    tmux rename-window ${PWD//*\//} 
+}
+
+#ll() {
+    #ls -lrth
+    #tmux rename-window ${PWD//*\//} 
+#}
 #export TERM=xterm-256color
 #export TERM=xterm-256color
 alias tmuxa=TERM=xterm-256color /usr/bin/tmux attach
@@ -28,13 +37,13 @@ export c=~/Dropbox/codes
 
 #HADOOP VARIABLES START
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-export HADOOP_INSTALL=/usr/local/hadoop
-export HADOOP_MAPRED_HOME=$HADOOP_INSTALL
-export HADOOP_COMMON_HOME=$HADOOP_INSTALL
-export HADOOP_HDFS_HOME=$HADOOP_INSTALL
-export YARN_HOME=$HADOOP_INSTALL
-export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_INSTALL/lib/native
-export HADOOP_OPTS="-Djava.library.path=$HADOOP_INSTALL/lib"
+#export HADOOP_INSTALL=/usr/local/hadoop
+#export HADOOP_MAPRED_HOME=$HADOOP_INSTALL
+#export HADOOP_COMMON_HOME=$HADOOP_INSTALL
+#export HADOOP_HDFS_HOME=$HADOOP_INSTALL
+#export YARN_HOME=$HADOOP_INSTALL
+#export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_INSTALL/lib/native
+#export HADOOP_OPTS="-Djava.library.path=$HADOOP_INSTALL/lib"
 
 
 # A shortcut function that simplifies usage of xclip.
