@@ -56,8 +56,11 @@ Plugin 'honza/vim-snippets'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mtth/scratch.vim'
 
+" Plugin to allow easy data flow b/n vim and tmux
+Plugin 'benmills/vimux'
+
 " vim-scripts repos
-Plugin 'PIV'
+"Plugin 'PIV'
 Plugin 'FuzzyFinder'
 "Plugin 'HTML-AutoCloseTag'
 "Plugin 'VimCalc'
@@ -65,7 +68,7 @@ Plugin 'FuzzyFinder'
 "Plugin 'xml.vim'
 "Plugin 'camelcasemotion'
 Plugin 'L9'
-Plugin 'preview'
+"Plugin 'preview'
 Plugin 'shinokada/dragvisuals.vim'
 if iCanHazVundle == 0
     echo "Installing Plugins, please ignore key map error messages"
@@ -82,7 +85,7 @@ let g:Powerline_symbols = 'fancy'
 "python from powerline.ext.vim import source_plugin; source_plugin()
 
 syntax on
-set pastetoggle=<F3>
+set pastetoggle=<F9>
 set ssop-=options
 set encoding=utf-8
 set history=2707
@@ -192,7 +195,8 @@ map s <Plug>(easymotion-s)
 " make 1 as quit without saving (do not force for thick fingers)
 nnoremap - :q<CR>
 " open vimrc
-nnoremap <leader>v :tabnew ~/dotfiles/vim/vimrc<CR>
+nnoremap <leader>vi :tabnew ~/dotfiles/vim/vimrc<CR>
+
 
 " syntastic check
 nnoremap <leader>l :SyntasticCheck<CR>
@@ -270,6 +274,10 @@ let g:ycm_auto_trigger = 1
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" This is to fix the ValueError:  still no compile flags, no completions yet
+" for the  C and CPP codes
+let g:ycm_global_ycm_extra_conf = "~/dotfiles/vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
 
@@ -370,3 +378,22 @@ runtime! ftplugin/man.vim
 
 " Setting the tmux pane name as vi file name
 autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window ". expand("%:t"))
+
+
+" Code for Vimux
+function! VimuxSlime()
+    call VimuxSendText(@v)
+    call VimuxSendKeys("Enter")
+endfunction
+
+"let g:VimuxWidth = "35" "default is 20
+let g:VimuxOrientation = 'v'
+let g:VimuxUseNearest = 1
+
+vmap <Leader>vs "vy:call VimuxSlime()<CR>
+nmap <Leader>vs vip<Leader>vs<CR>
+map <Leader>vv v$"vy:call VimuxSlime()<CR>
+map <Leader>vo :call VimuxOpenRunner()<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
+map <Leader>vg :VimuxInspectRunner<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
