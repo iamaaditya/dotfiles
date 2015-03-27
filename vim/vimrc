@@ -46,8 +46,8 @@ Plugin 'majutsushi/tagbar'
 Plugin 'haya14busa/incsearch.vim'
 "Plugin 'fatih/vim-go'
 " Ultrasnip (snippets)
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+"Plugin 'SirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
 "Haskell Plugins
 "Plugin 'dag/vim2hs'
 "Plugin 'eagletmt/ghcmod-vim'
@@ -56,6 +56,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mtth/scratch.vim'
 
+" plugin for the using tab for the name completion
+Plugin 'ervandew/supertab'
 " Plugin to allow easy data flow b/n vim and tmux
 Plugin 'benmills/vimux'
 
@@ -163,19 +165,21 @@ let g:EasyMotion_leader_key = '<Leader>'
 " session configs
 let g:session_autosave = 'no'
 
+" setting for the super tab to start the completion from top and not backwards
+let g:SuperTabDefaultCompletionType = "<c-n>"
 "Shortcuts
-let g:UltiSnipsExpandTrigger="<C-;>"
-let g:UltiSnipsJumpForwardTrigger="<C-;>"
-let g:UltiSnipsJumpBackwardTrigger="<C-b>"
-let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsExpandTrigger="<C-;>"
+"let g:UltiSnipsJumpForwardTrigger="<C-;>"
+"let g:UltiSnipsJumpBackwardTrigger="<C-b>"
+"let g:UltiSnipsEditSplit="vertical"
 
 " Syntastic always show the errors
 let g:syntastic_auto_loc_list=1
 
 "nerdcommenter change toggle shortcut
 map ,g :call NERDComment(0,"toggle")<CR>
-map <Bar> :NERDTreeToggle<CR>
-nmap <F8> :TagbarToggle<CR>
+map <F8> :NERDTreeToggle<CR>
+nmap <Bar> :TagbarToggle<CR>
 "vmap <C-f> :fold<CR>
 nmap <CR> :set rnu!<CR>
 map <C-c> :nohlsearch<CR>
@@ -205,6 +209,8 @@ nnoremap <leader>l :SyntasticCheck<CR>
 map <C-j> :exec '!python' shellescape(@%, 1)<CR>
 imap <C-j> <Esc>:exec '!python' shellescape(@%, 1)<CR>
 
+map <F5> :exec '!python' shellescape(@%, 1)<CR>
+imap <F5> <Esc>:exec '!python' shellescape(@%, 1)<CR>
 " Python 3 
 "map <C-m> :exec '!python3' shellescape(@%, 1)<CR>
 "imap <C-m> <Esc>:exec '!python3' shellescape(@%, 1)<CR>
@@ -271,7 +277,7 @@ highlight Pmenu ctermbg=gray ctermfg=black gui=bold
 
 " YCM configs
 let g:ycm_auto_trigger = 1
-let g:ycm_semantic_triggers = {'haskell' : ['.']}
+"let g:ycm_semantic_triggers = {'haskell' : ['.']}
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
