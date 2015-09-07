@@ -1,5 +1,13 @@
 # Changes to custom zshrc by Adi Prakash#
 #
+# most import change
+bindkey -v
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+
+export KEYTIMEOUT=1
 #
 xmodmap ~/.speedswapper
 alias ll="ls -lrth"
@@ -25,12 +33,19 @@ alias deer="ssh aprakash@deerstalker.cs.brandeis.edu"
 alias hpc="ssh aprakash@hpc64.brandeis.edu"
 alias html="cd /var/www/html"
 alias big1="ssh bigdata1@deerstalker.cs.brandeis.edu"
+alias lsd="ls -lartd */"
 # making code place as variable
 export c=~/Dropbox/codes
 #export PATH=$PATH:/opt/pypy-2.4.0-linux64/bin
 #export PATH=$PATH:/home/ap/mahout/bin
 #export PATH=$PATH:$HADOOP_INSTALL/bin
 #export PATH=$PATH:$HADOOP_INSTALL/sbin
+
+
+#CUDA Path
+export CUDA_HOME=/usr/local/cuda-7.0
+export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
+export PATH=$PATH:${CUDA_HOME}/bin
 
 #MAHOUT PATH
 #export MAHOUT_PATH=/home/ap/mahout/math/target/*.jar:/home/ap/mahout/mrlegacy/target/*.jar
