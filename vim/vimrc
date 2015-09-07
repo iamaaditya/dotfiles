@@ -1,6 +1,5 @@
 set nocompatible
 filetype off
-
 "Setting up Vundle - the vim plugin bundler
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -13,65 +12,47 @@ if !filereadable(vundle_readme)
 endif
 set rtp+=~/.vim/bundle/vundle/
 set rtp+=$GOROOT/misc/vim
-
 call vundle#rc()
-
 Plugin 'gmarik/vundle'
 Plugin 'Valloric/YouCompleteMe'
-"Plugin 'pangloss/vim-javascript'
-"Plugin 'adimit/prolog.vim'
-"Plugin 'xolox/vim-misc'
-"Plugin 'xolox/vim-session'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tmhedberg/matchit'
 Plugin 'tmhedberg/SimpylFold'
-Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'c9s/bufexplorer'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Plugin 'tpope/vim-rails.git'
-"Plugin 'vexxor/phpdoc.vim'
+" Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-commentary'
 Plugin 'kien/ctrlp.vim'
-"Plugin 'Lokaltog/vim-powerline'
-"Plugin 'Lokaltog/powerline'
-"Plugin 't9md/vim-ruby-xmpfilter'
 Plugin 'sjl/gundo.vim'
 Plugin 'rking/ag.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'haya14busa/incsearch.vim'
-"Plugin 'fatih/vim-go'
-" Ultrasnip (snippets)
-"Plugin 'SirVer/ultisnips'
-"Plugin 'honza/vim-snippets'
-"Haskell Plugins
-"Plugin 'dag/vim2hs'
-"Plugin 'eagletmt/ghcmod-vim'
-"Plugin 'Shougo/vimproc.vim'
-"Plugin 'eagletmt/neco-ghc'
+Plugin 'terryma/vim-expand-region'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mtth/scratch.vim'
+Plugin 'wellle/targets.vim'
 
 " plugin for the using tab for the name completion
 Plugin 'ervandew/supertab'
 " Plugin to allow easy data flow b/n vim and tmux
 Plugin 'benmills/vimux'
-
-" vim-scripts repos
-"Plugin 'PIV'
+" plugin to automatically generate the tags file
+" Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'FuzzyFinder'
-"Plugin 'HTML-AutoCloseTag'
-"Plugin 'VimCalc'
-"Plugin 'phpcomplete.vim'
-"Plugin 'xml.vim'
-"Plugin 'camelcasemotion'
 Plugin 'L9'
-"Plugin 'preview'
 Plugin 'shinokada/dragvisuals.vim'
+Plugin 'mhinz/vim-startify'                           " a start screen with recently modified files and vim sessions
+    let g:startify_session_persistence = 0          " automatically update sessions
+    let g:startify_session_delete_buffers = 1       " delete open buffers before loading a new session
+    let g:startify_custom_footer = [
+        \ '',
+        \ '    b   ➤ open in new buffer  :SLoad   ➤ load a session     ',
+        \ '    s,v ➤ open in split       :SSave   ➤ save a session     ',
+        \ '    t   ➤ open in tab         :SDelete ➤ delete a session   ',
+        \ '',
+        \ ]
+    let g:startify_custom_header =
+        \ map(split(system('fortune'), '\n'), '"   ". v:val') + ['']
+
 if iCanHazVundle == 0
     echo "Installing Plugins, please ignore key map error messages"
     echo ""
@@ -79,7 +60,6 @@ if iCanHazVundle == 0
 endif
 
 filetype plugin indent on     " required!
-
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 let g:Powerline_symbols = 'fancy'
@@ -87,7 +67,6 @@ let g:Powerline_symbols = 'fancy'
 "python from powerline.ext.vim import source_plugin; source_plugin()
 
 syntax on
-set pastetoggle=<F9>
 set ssop-=options
 set encoding=utf-8
 set history=2707
@@ -137,6 +116,9 @@ set foldnestmax=2
 set nofoldenable
 set foldlevel=1
 
+" since i find it useful at other times too
+set invcursorline
+
 " Folding plugin settings
 "let g:SimpylFold_docstring_preview = 1
 let g:SimpylFold_fold_docstring = 0
@@ -157,28 +139,39 @@ set background=dark
 colorscheme solarized
 
 " CtrlP settings
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-
+let g:ctrlp_user_command = 'ag %s -l --smart-case -g ""'
+" The option below works only if ctrlp default globfiles() is used to get the
+" files, not when user_command (ag above) is used 
+" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " easymotion configs
-let g:EasyMotion_leader_key = '<Leader>'
-
+" let g:EasyMotion_leader_key = '<Leader>'
 " session configs
 let g:session_autosave = 'no'
 
 " setting for the super tab to start the completion from top and not backwards
 let g:SuperTabDefaultCompletionType = "<c-n>"
-"Shortcuts
-"let g:UltiSnipsExpandTrigger="<C-;>"
-"let g:UltiSnipsJumpForwardTrigger="<C-;>"
-"let g:UltiSnipsJumpBackwardTrigger="<C-b>"
-"let g:UltiSnipsEditSplit="vertical"
 
 " Syntastic always show the errors
 let g:syntastic_auto_loc_list=1
 
-"nerdcommenter change toggle shortcut
-map ,g :call NERDComment(0,"toggle")<CR>
-map <F8> :NERDTreeToggle<CR>
+" set pastetoggle=<C-q>
+" change key bindings
+"
+" nnoremap : ;
+nnoremap ; :
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+" move to beginning/end of line
+nnoremap B ^
+nnoremap E $
+" highlight last inserted text
+nnoremap gV `[v`]
+" make the Y behave similar to D
+nnoremap Y y$
+" map ,g :call NERDComment(0,"toggle")<CR>
+map ,g gcc
+" map <F8> :NERDTreeToggle<CR>
 nmap <Bar> :TagbarToggle<CR>
 "vmap <C-f> :fold<CR>
 nmap <CR> :set rnu!<CR>
@@ -190,20 +183,27 @@ map <C-h> :tabp<CR>
 map <C-n> :tabnew<CR>
 
 " binding for folding (=)
-nmap = za
+nmap = 0za
 
-map s <Plug>(easymotion-s)
-" make f as next page
-"nnoremap f <C-f>
-"nnoremap g <C-b>
-" make 1 as quit without saving (do not force for thick fingers)
+" make - as quit without saving 
 nnoremap - :q<CR>
 " open vimrc
 nnoremap <leader>vi :tabnew ~/dotfiles/vim/vimrc<CR>
+" save using leader key
+map <leader>w :w<CR>
+" stupid to map leader (,) in insert mode, slows the typing of , and god
+" forbid we type the key after the , that is mapped to some command
+" imap <leader>w <Esc>:w<CR>
 
+map <leader>e yypgcck<CR>
 
+map <leader>d :bd<CR>
+" imap <leader>d <Esc>:bd<CR>
 " syntastic check
 nnoremap <leader>l :SyntasticCheck<CR>
+
+"replace the word under the cursor
+nnoremap <leader>f :%s/\<<C-r><C-w>\>/
 
 "command P !python %
 map <C-j> :exec '!python' shellescape(@%, 1)<CR>
@@ -221,59 +221,26 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
-
-nmap <space> i_<Esc>r
+" insert one character only and return back to normal mode
+nmap <leader>o i_<Esc>r
+nmap <space> :noh<CR>
 "nnoremap <space> za 
 "vnoremap <space> zf
-"seeing is believing key bindings
-"let g:xmpfilter_cmd = "seeing_is_believing"
-"autocmd FileType ruby nmap <buffer> <F5> <Plug>(seeing_is_believing-run)
-"autocmd FileType ruby xmap <buffer> <F5> <Plug>(seeing_is_believing-run)
-"autocmd FileType ruby imap <buffer> <F5> <Plug>(seeing_is_believing-run)
-
-cmap w!! %!sudo tee > /dev/null %
-
-" change key bindings
-nnoremap ; :
-" move vertically by visual line
-nnoremap j gj
-nnoremap k gk
-" move to beginning/end of line
-nnoremap B ^
-nnoremap E $
-" $/^ doesn't do anything
-"nnoremap $ <nop>
-"nnoremap ^ <nop>
-" highlight last inserted text
-nnoremap gV `[v`]
 nnoremap <leader>u :GundoToggle<CR>
 " open ag.vim
 nnoremap <leader>a :Ag
+nnoremap <leader>s O<Esc>j
 
-"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html,xml set listchars-=tab:>.
+" highlighted uncommnted print statements in python code
+nnoremap <leader>c /^[^#]*\s*print<CR>
 
-"php configs
-"au BufRead,BufNewFile *.php		set indentexpr= | set smartindent
-"au BufRead,BufNewFile *.phps		set filetype=php
-"au BufNewFile,BufRead *.thor set filetype=ruby
-"let g:DisableAutoPHPFolding=1
-"let b:match_ignorecase = 1
+cmap w!! %!sudo tee > /dev/null %
 
 
-"ruby configs
-"autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-"autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-"autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 "improve autocomplete menu color
 highlight Pmenu ctermbg=gray ctermfg=black gui=bold
 
-"Use filetype plugins, e.g. for PHP
-"inoremap <C-K> <ESC> :call PhpDocSingle()<CR>
-"nnoremap <C-K> :call PhpDocSingle()<CR>
-"vnoremap <C-K> :call PhpDocRange()<CR>
 
 " YCM configs
 let g:ycm_auto_trigger = 1
@@ -287,19 +254,6 @@ let g:ycm_global_ycm_extra_conf = "~/dotfiles/vim/bundle/YouCompleteMe/third_par
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
 
-" Code to save the file
-"inoremap <leader><leader> <Esc>:w<CR>
-"nnoremap <leader><leader> <Esc>:w<CR>
-"map <Esc>s :w<CR>
-"map <Esc><Esc> :w<CR>
-"command -nargs=0 -bar Update if &modified 
-                           "\|    if empty(bufname('%'))
-                           "\|        browse confirm write
-                           "\|    else
-                           "\|        confirm write
-                           "\|    endif
-                           "\|endif
-"nnoremap <silent> <C-q> :<C-u>Update<CR>
 
 " Code to rename the file
 function! RenameFile()
@@ -328,37 +282,10 @@ vmap  <expr>  D        DVB_Duplicate()
 " Remove any introduced trailing whitespace after moving... 
 let g:DVB_TrimWS = 1
 
-" commenting it out.. instead switched to setinvcursorline permanently
-" since i find it useful at other times too
-set invcursorline
-" function to highlight the next search by Damian conway
-"nnoremap <silent> n   n:call HLNext(0.4)<cr>
-"nnoremap <silent> N   N:call HLNext(0.4)<cr>
-
-"function! HLNext (blinktime)
-        "set invcursorline
-        "redraw
-        "exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
-        "set invcursorline
-        "redraw
-"endfunction
-
-"function! HLNext (blinktime)
-        "let [bufnum, lnum, col, off] = getpos('.')
-        "let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
-        "let target_pat = '\c\%#\%('.@/.'\)'
-        "let ring = matchadd('WhiteOnRed', target_pat, 101)
-        "redraw
-        "exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
-        "call matchdelete(ring)
-        "redraw
-"endfunction
 
 
 " program to open pdf files as text using pdftotext
 " run pdftotext to read PDF files
-" run pdftotext to read PDF files
-    
 fun s:readpdf()
     if (!executable("pdftotext"))
         echo "Error: pdftotext not installed or not in path"
@@ -396,11 +323,70 @@ endfunction
 let g:VimuxOrientation = 'v'
 let g:VimuxUseNearest = 1
 
+
+
+
+
 vmap <Leader>vs "vy:call VimuxSlime()<CR>
 nmap <Leader>vs vip<Leader>vs<CR>
-map <Leader>vv Bv$"vy:call VimuxSlime()<CR>
+nmap <Leader>vv "vyy:call VimuxSlime()<CR>
+map <Leader>vr Bv$"vy:call VimuxSlime()<CR>
+" map <Leader>vv ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
+map <Leader><Leader> ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
 map <Leader>va ggVG"vy:call VimuxSlime()<CR>
 map <Leader>vo :call VimuxOpenRunner()<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vg :VimuxInspectRunner<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
+
+"settings for targets.vim
+let g:targets_aiAI = 'aiAI'
+let g:targets_nlNL = 'nlNL'
+let g:targets_nlNL = 'nN  '
+let g:targets_pairs = '()b {}B [] <>'
+let g:targets_quotes = '" '' `'
+let g:targets_quotes = '"d '' `'
+let g:targets_separators = ', . ; : + - = ~ _ * # / | \ & $'
+let g:targets_tagTrigger = 't'
+let g:targets_argTrigger = 'a'
+let g:targets_argOpening = '[([]'
+let g:targets_argClosing = '[])]'
+let g:targets_argSeparator = ','
+
+" Persistent Undo
+" Put plugins and dictionaries in this dir (also on Windows)
+let vimDir = '$HOME/.vim'
+let &runtimepath.=','.vimDir
+
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let myUndoDir = expand(vimDir . '/undodir')
+    " Create dirs
+    call system('mkdir ' . vimDir)
+    call system('mkdir ' . myUndoDir)
+    let &undodir = myUndoDir
+    set undofile
+endif
+
+" Automatically enter paste mode when pasting in terminal 
+function! WrapForTmux(s)
+  if !exists('$TMUX')
+    return a:s
+  endif
+
+  let tmux_start = "\<Esc>Ptmux;"
+  let tmux_end = "\<Esc>\\"
+
+  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+endfunction
+
+let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
