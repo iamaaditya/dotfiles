@@ -47,6 +47,10 @@ export CUDA_HOME=/usr/local/cuda-7.0
 export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
 export PATH=$PATH:${CUDA_HOME}/bin
 
+#Pythonpath
+# export PYTHONPATH=/home/ap/caffe/python:/home/ap/caffe/python/caffe:$PYTHONPATH
+export PYTHONPATH=/home/ap/caffe/python:$PYTHONPATH
+
 #MAHOUT PATH
 #export MAHOUT_PATH=/home/ap/mahout/math/target/*.jar:/home/ap/mahout/mrlegacy/target/*.jar
 
