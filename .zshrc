@@ -1,6 +1,9 @@
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/pypy-2.4.0-linux64/bin"
+export ZSH=$HOME/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+source ~/dotfiles/adi_zshrc.sh
 # Path to your oh-my-zsh installation.
 export DISPLAY=:0
-export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -50,11 +53,8 @@ ZSH_THEME=""
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git autojump)
 #plugins=(web-search)
-source $ZSH/oh-my-zsh.sh
-source ~/dotfiles/adi_zshrc.sh
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/pypy-2.4.0-linux64/bin:/home/ap/mahout/bin:/usr/local/hadoop/bin:/usr/local/hadoop/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
