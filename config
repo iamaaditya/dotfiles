@@ -1,0 +1,38 @@
+Host gpgpu
+    HostName 129.64.55.198
+    Port 22
+    User ap
+
+
+Host himal
+    HostName himal.cs-i.brandeis.edu
+    Port 22
+    User ap
+
+
+Host campus
+    HostName 129.64.2.200
+    Port 22
+    User aprakash
+
+
+Host erdos
+    HostName erdos.cs-i.brandeis.edu
+    Port 22
+    User aprakash
+
+Host deer
+    HostName deerstalker.cs.brandeis.edu
+    Port 22
+    User aprakash
+
+Host hpc
+    HostName hpc64.brandeis.edu
+    Port 22
+    User aprakash
+
+Host big1
+    HostName deerstalker.cs.brandeis.edu
+    Port 22
+    User aprakash
+
