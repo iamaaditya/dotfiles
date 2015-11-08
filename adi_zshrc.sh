@@ -43,16 +43,27 @@ export c=~/Dropbox/codes
 
 
 #CUDA Path
-export CUDA_HOME=/usr/local/cuda-7.0
-export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
+export CUDA_HOME=/usr/local/cuda-7.5
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${CUDA_HOME}/lib64
 export PATH=$PATH:${CUDA_HOME}/bin
 
+#CUDNN
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ap/cuda
+
+export LIBRARY_DIRS=$LIBRARY_DIRS:/home/ap/anaconda2/lib/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ap/anaconda2/lib
+
+#OpenCV
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
 #Pythonpath
 # export PYTHONPATH=/home/ap/caffe/python:/home/ap/caffe/python/caffe:$PYTHONPATH
 export PYTHONPATH=/home/ap/caffe/python:$PYTHONPATH
 
 #MAHOUT PATH
 #export MAHOUT_PATH=/home/ap/mahout/math/target/*.jar:/home/ap/mahout/mrlegacy/target/*.jar
+
+# Anaconda path
+export PATH="/home/ap/anaconda2/bin:$PATH"
 
 #HADOOP VARIABLES START
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
@@ -114,8 +125,8 @@ cdd()
   cd "$1" ; l
 }
 
-alias hll="hdfs dfs -ls"
-alias hh="hdfs dfs"
+# alias hll="hdfs dfs -ls"
+# alias hh="hdfs dfs"
 
 code()
 {
