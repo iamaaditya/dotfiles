@@ -16,12 +16,14 @@ function chpwd(){
     tmux rename-window ${PWD//*\//} 
 }
 
+
 #ll() {
     #ls -lrth
     #tmux rename-window ${PWD//*\//} 
 #}
 #export TERM=xterm-256color
 #export TERM=xterm-256color
+alias vi='vim'
 alias tmuxa=TERM=xterm-256color /usr/bin/tmux attach
 alias hourModified="find . -mmin -60"
 alias hourCreated="find . -cmin -60"
@@ -182,3 +184,5 @@ extract () {
       echo "'$1' is not a valid file!"
   fi
 }
+export CAFFE_ROOT=/home/ap/caffe/build
+export PYTHONPATH=$CAFFE_ROOT/python:$PYTHONPATH
