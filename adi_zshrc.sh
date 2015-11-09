@@ -45,12 +45,15 @@ export c=~/Dropbox/codes
 
 
 #CUDA Path
-export CUDA_HOME=/usr/local/cuda-7.5
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${CUDA_HOME}/lib64
+export CUDA_HOME=/usr/local/cuda-7.0
+export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
 export PATH=$PATH:${CUDA_HOME}/bin
 
 #CUDNN
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ap/cuda
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ap/cuda
+
+#bazel (from google)
+export PATH=$PATH:~/bazel/output
 
 export LIBRARY_DIRS=$LIBRARY_DIRS:/home/ap/anaconda2/lib/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ap/anaconda2/lib
@@ -68,7 +71,9 @@ export PYTHONPATH=/home/ap/caffe/python:$PYTHONPATH
 export PATH="/home/ap/anaconda2/bin:$PATH"
 
 #HADOOP VARIABLES START
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+# export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+
 #export HADOOP_INSTALL=/usr/local/hadoop
 #export HADOOP_MAPRED_HOME=$HADOOP_INSTALL
 #export HADOOP_COMMON_HOME=$HADOOP_INSTALL
@@ -116,7 +121,7 @@ cb() {
 # Copy contents of a file
 function cbf() { cat "$1" | cb; }
 # Copy SSH public key
-alias cbssh="cbf ~/.ssh/id_rsa.pub"
+# alias cbssh="cbf ~/.ssh/id_rsa.pub"
 # Copy current working directory
 alias cbwd="pwd | cb"
 # Copy most recent command in bash history
