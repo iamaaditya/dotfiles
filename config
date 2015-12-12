@@ -1,8 +1,17 @@
-Host gpgpu
-    HostName 129.64.55.198
+Host gpgpu1
+    HostName gpgpu.cs-i.brandeis.edu
     Port 22
     User ap
 
+Host gpgpu
+    HostName 129.64.46.87
+    Port 22
+    User ap
+
+Host montera
+    HostName montera.cs.brandeis.edu
+    Port 22
+    User aprakash
 
 Host himal
     HostName himal.cs-i.brandeis.edu
