@@ -16,6 +16,9 @@ function chpwd(){
     tmux rename-window ${PWD//*\//} 
 }
 
+alias ggpush="git push origin master"
+alias gcm="git commit -am "
+alias gst="git status"
 
 #ll() {
     #ls -lrth
@@ -45,7 +48,7 @@ export c=~/Dropbox/codes
 
 
 #CUDA Path
-export CUDA_HOME=/usr/local/cuda-7.5
+export CUDA_HOME=/usr/local/cuda-7.0
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${CUDA_HOME}/lib64
 export PATH=$PATH:${CUDA_HOME}/bin
 
