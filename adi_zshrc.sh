@@ -7,6 +7,9 @@ bindkey '^N' down-history
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
+# https://raw.githubusercontent.com/rupa/z/master/z.sh (like autojump)
+source ~/dotfiles/z.sh
+
 export KEYTIMEOUT=1
 #
 xmodmap ~/.speedswapper
@@ -18,7 +21,7 @@ function chpwd(){
 
 alias ggpush="git push origin master"
 alias gcm="git commit -am "
-alias gst="git status"
+alias gst="git status -sb"
 
 #ll() {
     #ls -lrth
@@ -194,3 +197,4 @@ extract () {
 }
 export CAFFE_ROOT=/home/ap/caffe/build
 export PYTHONPATH=$CAFFE_ROOT/python:$PYTHONPATH
+eval `dircolors ~/dotfiles/dir_colors`
