@@ -1,7 +1,0 @@
-bundle/*
-sessions
-!bundle/vundle
-!bundle/vundle/*
-!bundle/vundle/autoload/*
-!bundle/vundle/doc/*
-!bundle/vundle/test/*
