@@ -9,9 +9,24 @@ bindkey '^r' history-incremental-search-backward
 
 # https://raw.githubusercontent.com/rupa/z/master/z.sh (like autojump)
 source ~/dotfiles/z.sh
-
 export KEYTIMEOUT=1
 #
+
+# History related settings
+#set history size
+export HISTSIZE=10000
+#save history after logout
+export SAVEHIST=10000
+#history file
+export HISTFILE=~/.zhistory
+#append into history file
+setopt INC_APPEND_HISTORY
+#save only one command if 2 common are same and consistent
+setopt HIST_IGNORE_DUPS
+#add timestamp for each entry
+setopt EXTENDED_HISTORY 
+
+
 xmodmap ~/.speedswapper
 alias ll="ls -lrth"
 function chpwd(){
@@ -44,25 +59,26 @@ alias big1="ssh bigdata1@deerstalker.cs.brandeis.edu"
 alias lsd="ls -lartd */"
 # making code place as variable
 export c=~/Dropbox/codes
-#export PATH=$PATH:/opt/pypy-2.4.0-linux64/bin
-#export PATH=$PATH:/home/ap/mahout/bin
-#export PATH=$PATH:$HADOOP_INSTALL/bin
-#export PATH=$PATH:$HADOOP_INSTALL/sbin
 
 
 #CUDA Path
 export CUDA_HOME=/usr/local/cuda-7.0
+export CUDA_ROOT=/usr/local/cuda-7.0
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${CUDA_HOME}/lib64
 export PATH=$PATH:${CUDA_HOME}/bin
+export PYTHON_INCLUDE_DIRS=$PYTHON_INCLUDE_DIRS:/usr/include/python2.7 
+export PYTHON_LIBRARY=$PYTHON_LIBRARY:/usr/lib/python2.7/config/libpython2.7.so
+export PYTHON_LIBRARIES=$PYTHON_LIBRARIES:/usr/lib/python2.7/config/libpython2.7.so
 
 #CUDNN
-# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ap/cuda
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ap/cuda_cudnn7.0
 
 #bazel (from google)
 export PATH=$PATH:~/bazel/output
 
 export LIBRARY_DIRS=$LIBRARY_DIRS:/home/ap/anaconda2/lib/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ap/anaconda2/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_HOME
 
 #OpenCV
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
@@ -70,23 +86,12 @@ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
 # export PYTHONPATH=/home/ap/caffe/python:/home/ap/caffe/python/caffe:$PYTHONPATH
 export PYTHONPATH=/home/ap/caffe/python:$PYTHONPATH
 
-#MAHOUT PATH
-#export MAHOUT_PATH=/home/ap/mahout/math/target/*.jar:/home/ap/mahout/mrlegacy/target/*.jar
 
 # Anaconda path
-export PATH="/home/ap/anaconda2/bin:$PATH"
+# export PATH="/home/ap/anaconda2/bin:$PATH"
 
-#HADOOP VARIABLES START
 # export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
-
-#export HADOOP_INSTALL=/usr/local/hadoop
-#export HADOOP_MAPRED_HOME=$HADOOP_INSTALL
-#export HADOOP_COMMON_HOME=$HADOOP_INSTALL
-#export HADOOP_HDFS_HOME=$HADOOP_INSTALL
-#export YARN_HOME=$HADOOP_INSTALL
-#export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_INSTALL/lib/native
-#export HADOOP_OPTS="-Djava.library.path=$HADOOP_INSTALL/lib"
 
 
 # A shortcut function that simplifies usage of xclip.
