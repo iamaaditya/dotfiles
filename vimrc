@@ -63,8 +63,9 @@ endif
 
 filetype plugin indent on     " required!
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-let g:Powerline_symbols = 'fancy'
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" let g:Powerline_symbols = 'fancy'
 "source ~/.vim/bundle/powerline/build/lib/powerline/ext/vim/source_plugin.vim
 "python from powerline.ext.vim import source_plugin; source_plugin()
 
