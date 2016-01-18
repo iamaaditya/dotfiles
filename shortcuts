@@ -63,6 +63,24 @@ tmux attach -d  attach here, deattach there
                 * press ALT-w to copy selected text
 ^s ]            paste copied text
 
+TMUX Plugins
+------------
+
+    Tmux CopyCat
+    -----------
+    prefix + / - regex search (strings work too)
+    prefix + ctrl-f - simple file search
+    prefix + ctrl-g - jumping over git status files (best used after git status command)
+    prefix + alt-h - jumping over SHA-1 hashes (best used after git log command)
+    prefix + ctrl-u - url search (http, ftp and git urls)
+    prefix + ctrl-d - number search (mnemonic d, as digit)
+    prefix + alt-i - ip address search
+
+    Enter - copy
+    n - jump to next match
+    N - jump to previous match
+    
+
 VIM (Windows split)
 ------------
 
@@ -73,6 +91,15 @@ VIM (Windows split)
 ^w, j/k/h/l Switch to the window of the given direction
 :sp filename    Open file in horizontal split
 :vsp filename   Open file in vertical split (also :vs and :vsplit)
+
+VIM INSERT MODE
+-------------
+^ + w : delete prev word
+^ + u : delete current line
+^ + [ : quit insert mode (same like ESC)
+^ + r : Paste from register
+^ + n : Vim's auto completion (forward)
+^ + p : Vim's auto completion (backward)
 
 
 UNIX

@@ -1,9 +1,9 @@
-Host gpgpu1
+Host gpgpu
     HostName gpgpu.cs-i.brandeis.edu
     Port 22
     User ap
 
-Host gpgpu
+Host gpgpu1
     HostName 129.64.46.87
     Port 22
     User ap
