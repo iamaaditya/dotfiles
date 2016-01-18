@@ -23,6 +23,7 @@ alias ggpush="git push origin master"
 alias gcm="git commit -am "
 alias gst="git status -sb"
 
+alias reddit="python ~/Dropbox/codes/Python/TIL/r.py"
 #ll() {
     #ls -lrth
     #tmux rename-window ${PWD//*\//} 
