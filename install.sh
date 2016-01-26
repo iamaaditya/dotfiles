@@ -11,3 +11,6 @@ ln -s ~/dotfiles/tmux/.tmux.conf ~/
 ln -s ~/dotfiles/theanorc ~/.theanorc
 # ln -s .screenrc ~/
 # ln -s ~/dotfiles/vim/ftplugin ~/ftplugin
+
+# Dir colors
+eval `dircolors ~/dotfiles/dir_colors`
