@@ -32,6 +32,10 @@ Plugin 'mtth/scratch.vim'
 Plugin 'wellle/targets.vim'
 Plugin 'scrooloose/nerdtree'
 
+" Plugin to automatically generate ctags & exuberant tags
+Plugin 'xolox/vim-easytags'
+Plugin 'xolox/vim-misc'
+
 " Plugin clever f, extends usage of f, F , t And T
 Plugin 'rhysd/clever-f.vim'
 " plugin for the using tab for the name completion
@@ -205,6 +209,8 @@ map <leader>w :w<CR>
 " Make copy of previous line and comment the previous one, like backup line
 map <leader>e yypgcck<CR>
 
+
+" map <leader>j %!python -m json.tool<CR>
 map <leader>d :bd<CR>
 " imap <leader>d <Esc>:bd<CR>
 " syntastic check
@@ -320,7 +326,7 @@ autocmd BufReadPost,FileReadPost *.pdf call s:readpdf()
 runtime! ftplugin/man.vim
 
 " Setting the tmux pane name as vi file name
-autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window ". expand("%:t"))
+"autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window ". expand("%:t"))
 
 
 " Code for Vimux
