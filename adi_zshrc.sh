@@ -29,6 +29,10 @@ setopt EXTENDED_HISTORY
 
 xmodmap ~/.speedswapper
 alias ll="ls -lrth --color=auto"
+alias nv="nvidia-smi"
+alias f="find . -name"
+alias t="/home/ap/helper_libs/todo.txt_cli-2.10/todo.sh"
+
 function chpwd(){
      ll
     tmux rename-window ${PWD//*\//} 
@@ -80,6 +84,7 @@ export PATH=$PATH:~/bazel/output
 export LIBRARY_DIRS=$LIBRARY_DIRS:/home/ap/anaconda2/lib/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ap/anaconda2/lib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_HOME
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ap/torch/install/include/
 
 #OpenCV
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
@@ -204,3 +209,15 @@ extract () {
 export CAFFE_ROOT=/home/ap/caffe/build
 export PYTHONPATH=$CAFFE_ROOT/python:$PYTHONPATH
 eval `dircolors ~/dotfiles/dir_colors`
+
+
+# print the date with the command execution
+preexec () {
+  DATE=`date +"%H:%M:%S on %Y-%m-%d"`
+  C=$(($COLUMNS-24))
+  echo -e "\033[1A\033[${C}C ${DATE} "
+}
+
+
+. /home/ap/torch/install/bin/torch-activate
+

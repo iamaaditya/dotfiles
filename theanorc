@@ -1,11 +1,12 @@
 [global]
 floatX = float32
-device = gpu0
+device = gpu3
 optimizer_including=cudnn
 allow_gc= False
+mode = FAST_RUN
 
 [nvcc]
 fastmath = True
 
 [lib]
-cnmem = 0.95
+cnmem = 1
