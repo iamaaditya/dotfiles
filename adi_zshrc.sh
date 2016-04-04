@@ -43,6 +43,9 @@ alias gcm="git commit -am "
 alias gst="git status -sb"
 
 alias reddit="python ~/Dropbox/codes/Python/TIL/r.py"
+alias top5="ps aux | sort -rk 3,3 | head -n 6"
+alias top5_="ps -eo pcpu,pid,user,args --no-headers| sort -t. -nk1,2 -k4,4 -r |head -n 5"
+
 #ll() {
     #ls -lrth
     #tmux rename-window ${PWD//*\//} 
@@ -64,6 +67,7 @@ alias big1="ssh bigdata1@deerstalker.cs.brandeis.edu"
 alias lsd="ls -lartd */"
 # making code place as variable
 export c=~/Dropbox/codes
+
 
 
 #CUDA Path
@@ -91,6 +95,9 @@ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
 #Pythonpath
 # export PYTHONPATH=/home/ap/caffe/python:/home/ap/caffe/python/caffe:$PYTHONPATH
 export PYTHONPATH=/home/ap/caffe/python:$PYTHONPATH
+
+export OMP_NUM_THREADS=`nproc`
+export PYTHONPATH="$PYTHONPATH:~/deepy/"
 
 
 # Anaconda path
