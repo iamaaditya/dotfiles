@@ -32,6 +32,10 @@ Plugin 'mtth/scratch.vim'
 Plugin 'wellle/targets.vim'
 Plugin 'scrooloose/nerdtree'
 
+" Plugin to automatically generate ctags & exuberant tags
+Plugin 'xolox/vim-easytags'
+Plugin 'xolox/vim-misc'
+
 " Plugin clever f, extends usage of f, F , t And T
 Plugin 'rhysd/clever-f.vim'
 " plugin for the using tab for the name completion
@@ -205,6 +209,8 @@ map <leader>w :w<CR>
 " Make copy of previous line and comment the previous one, like backup line
 map <leader>e yypgcck<CR>
 
+
+" map <leader>j %!python -m json.tool<CR>
 map <leader>d :bd<CR>
 " imap <leader>d <Esc>:bd<CR>
 " syntastic check
@@ -243,6 +249,7 @@ nnoremap <leader>s O<Esc>j
 nnoremap <leader>c /^[^#]*\s*print<CR>
 
 cmap w!! %!sudo tee > /dev/null %
+
 
 map gn :bn<cr>
 map gp :bp<cr>
@@ -320,7 +327,7 @@ autocmd BufReadPost,FileReadPost *.pdf call s:readpdf()
 runtime! ftplugin/man.vim
 
 " Setting the tmux pane name as vi file name
-autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window ". expand("%:t"))
+"autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window ". expand("%:t"))
 
 
 " Code for Vimux
@@ -337,17 +344,26 @@ let g:VimuxUseNearest = 1
 
 
 
+" vimux vs send the paragraph
 vmap <Leader>vs "vy:call VimuxSlime()<CR>
 nmap <Leader>vs vip<Leader>vs<CR>
-nmap <Leader>vv "vyy:call VimuxSlime()<CR>
+" vmux vs send the line
+nmap <Leader>vv "vyy:call VimuxSlime()<CR>j
 map <Leader>vr Bv$"vy:call VimuxSlime()<CR>
 " map <Leader>vv ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
 " map <Leader><Leader> ,w:VimuxRunCommand("rm ./Map; gcc Map.c -o Map -ansi ; ./Map")<CR>
+
+" run the whole file
 map <Leader><Leader> ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
+" vimux send the whole page (all)
 map <Leader>va ggVG"vy:call VimuxSlime()<CR>
+" vimux open 
 map <Leader>vo :call VimuxOpenRunner()<CR>
+" vimux close
 map <Leader>vq :VimuxCloseRunner<CR>
+" vimux inspect (transfer control to the vimux pane)
 map <Leader>vg :VimuxInspectRunner<CR>
+" vimux run previous command
 map <Leader>vl :VimuxRunLastCommand<CR>
 
 "settings for targets.vim
