@@ -250,6 +250,7 @@ nnoremap <leader>c /^[^#]*\s*print<CR>
 
 cmap w!! %!sudo tee > /dev/null %
 
+
 map gn :bn<cr>
 map gp :bp<cr>
 map gd :bd<cr> 
@@ -343,17 +344,26 @@ let g:VimuxUseNearest = 1
 
 
 
+" vimux vs send the paragraph
 vmap <Leader>vs "vy:call VimuxSlime()<CR>
 nmap <Leader>vs vip<Leader>vs<CR>
-nmap <Leader>vv "vyy:call VimuxSlime()<CR>
+" vmux vs send the line
+nmap <Leader>vv "vyy:call VimuxSlime()<CR>j
 map <Leader>vr Bv$"vy:call VimuxSlime()<CR>
 " map <Leader>vv ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
 " map <Leader><Leader> ,w:VimuxRunCommand("rm ./Map; gcc Map.c -o Map -ansi ; ./Map")<CR>
+
+" run the whole file
 map <Leader><Leader> ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
+" vimux send the whole page (all)
 map <Leader>va ggVG"vy:call VimuxSlime()<CR>
+" vimux open 
 map <Leader>vo :call VimuxOpenRunner()<CR>
+" vimux close
 map <Leader>vq :VimuxCloseRunner<CR>
+" vimux inspect (transfer control to the vimux pane)
 map <Leader>vg :VimuxInspectRunner<CR>
+" vimux run previous command
 map <Leader>vl :VimuxRunLastCommand<CR>
 
 "settings for targets.vim
