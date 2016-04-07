@@ -32,6 +32,8 @@ alias ll="ls -lrth --color=auto"
 alias nv="nvidia-smi"
 alias f="find . -name"
 alias t="/home/ap/helper_libs/todo.txt_cli-2.10/todo.sh"
+alias tt="/usr/bin/time"
+alias vtop="vtop --theme becca"
 
 function chpwd(){
      ll
@@ -41,6 +43,7 @@ function chpwd(){
 alias ggpush="git push origin master"
 alias gcm="git commit -am "
 alias gst="git status -sb"
+alias glog='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 
 alias reddit="python ~/Dropbox/codes/Python/TIL/r.py"
 alias top5="ps aux | sort -rk 3,3 | head -n 6"
@@ -228,3 +231,4 @@ preexec () {
 
 . /home/ap/torch/install/bin/torch-activate
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
