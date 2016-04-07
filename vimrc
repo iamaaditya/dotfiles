@@ -21,6 +21,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
 " Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-repeat'
+Plugin 'svermeulen/vim-easyclip'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'rking/ag.vim'
@@ -44,8 +46,11 @@ Plugin 'ervandew/supertab'
 Plugin 'benmills/vimux'
 " plugin to automatically generate the tags file
 " Plugin 'ludovicchabant/vim-gutentags'
+
+Plugin 'justinmk/vim-sneak'
 Plugin 'FuzzyFinder'
 Plugin 'L9'
+
 Plugin 'shinokada/dragvisuals.vim'
 Plugin 'mhinz/vim-startify'                           " a start screen with recently modified files and vim sessions
     let g:startify_session_persistence = 0          " automatically update sessions
@@ -168,7 +173,7 @@ let g:syntastic_python_flake8_args='--ignore=E101,E111,E112,E113,E114,E115,E116,
 " change key bindings
 "
 " nnoremap : ;
-nnoremap ; :
+" nnoremap ; :
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
@@ -327,7 +332,7 @@ autocmd BufReadPost,FileReadPost *.pdf call s:readpdf()
 runtime! ftplugin/man.vim
 
 " Setting the tmux pane name as vi file name
-"autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window ". expand("%:t"))
+autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window ". expand("%:t"))
 
 
 " Code for Vimux
@@ -339,8 +344,6 @@ endfunction
 "let g:VimuxWidth = "35" "default is 20
 let g:VimuxOrientation = 'v'
 let g:VimuxUseNearest = 1
-
-
 
 
 
