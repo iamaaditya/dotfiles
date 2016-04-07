@@ -22,7 +22,7 @@ let searchalias l = "lucky"
 let qmark a = ["http://www.reddit.com/r/todayilearned", "http://www.reddit.com/r/programming"]
 let qmark b = ["http://www.reddit.com/", "https://github.com/", "https://mail.google.com/mail/u/0/?shva=1#inbox", "https://news.ycombinator.com/"]
 
-let fullpagescrollpercent=97
+let fullpagescrollpercent=90
 
 set showtabindices
 set completeonopen 
