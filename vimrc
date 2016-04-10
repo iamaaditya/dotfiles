@@ -34,6 +34,18 @@ Plugin 'mtth/scratch.vim'
 Plugin 'wellle/targets.vim'
 Plugin 'scrooloose/nerdtree'
 
+" altternate to powerline but ended up not using 
+" Plugin 'bling/vim-airline'
+
+"awesome plugin, which tablularises by given separator 
+" :Tab /<symbol>
+Plugin 'godlygeek/tabular'
+
+" Pytho nmode for vim supports pylint, rope, pydoc, pyflakes,
+" execute one line using ,r
+" MORE HEADACHE than USE
+" Plugin 'klen/python-mode'
+
 " Plugin to automatically generate ctags & exuberant tags
 Plugin 'xolox/vim-easytags'
 Plugin 'xolox/vim-misc'
@@ -245,7 +257,11 @@ nmap <leader>o i_<Esc>r
 nmap <space> :noh<CR>
 "nnoremap <space> za 
 "vnoremap <space> zf
+
+" settigns for gundo
 nnoremap <leader>u :GundoToggle<CR>
+let g:gundo_width=100
+let g:gundo_preview_height=60
 " open ag.vim
 nnoremap <leader>a :Ag<space>
 nnoremap <leader>s O<Esc>j
@@ -255,6 +271,15 @@ nnoremap <leader>c /^[^#]*\s*print<CR>
 
 cmap w!! %!sudo tee > /dev/null %
 
+
+nmap s <Plug>Sneak_s
+nmap S <Plug>Sneak_S
+" visual-mode
+xmap s <Plug>Sneak_s
+xmap S <Plug>Sneak_S
+" operator-pending-mode
+omap s <Plug>Sneak_s
+omap S <Plug>Sneak_S
 
 map gn :bn<cr>
 map gp :bp<cr>
@@ -287,10 +312,11 @@ function! RenameFile()
         redraw!
     endif
 endfunction
-map <leader>r :call RenameFile()<cr>
+" map <leader>r :call RenameFile()<cr>
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_dividers_override = ["\Ue0b0", "\Ue0b1", "\Ue0b2", "\Ue0b3"]
 let g:Powerline_symbols_override = { 'BRANCH': "\Ue0a0", 'LINE': "\Ue0a1", 'RO': "\Ue0a2" }
+
 
 " settings for dragvisuals.vim
 runtime plugin/dragvisuals.vim
@@ -351,13 +377,13 @@ let g:VimuxUseNearest = 1
 vmap <Leader>vs "vy:call VimuxSlime()<CR>
 nmap <Leader>vs vip<Leader>vs<CR>
 " vmux vs send the line
-nmap <Leader>vv "vyy:call VimuxSlime()<CR>j
+nmap <Leader><Leader> "vyy:call VimuxSlime()<CR>j
 map <Leader>vr Bv$"vy:call VimuxSlime()<CR>
 " map <Leader>vv ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
 " map <Leader><Leader> ,w:VimuxRunCommand("rm ./Map; gcc Map.c -o Map -ansi ; ./Map")<CR>
 
 " run the whole file
-map <Leader><Leader> ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
+map <Leader>vf ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
 " vimux send the whole page (all)
 map <Leader>va ggVG"vy:call VimuxSlime()<CR>
 " vimux open 
