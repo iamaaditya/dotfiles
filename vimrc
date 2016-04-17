@@ -59,6 +59,9 @@ Plugin 'benmills/vimux'
 " plugin to automatically generate the tags file
 " Plugin 'ludovicchabant/vim-gutentags'
 
+" Plugin to visually show location in the file in the status bar (see right)
+Plugin 'naddeoa/vim-visual-page-percent'
+
 Plugin 'justinmk/vim-sneak'
 Plugin 'FuzzyFinder'
 Plugin 'L9'
@@ -95,12 +98,12 @@ set ssop-=options
 set encoding=utf-8
 set history=2707
 set undolevels=2512
-set colorcolumn=80
+" set colorcolumn=80
 set laststatus=2
 "set visualbell
 set noerrorbells
 set wrapscan
-set wrap
+set nowrap
 " set nowrap
 set noswapfile
 "set nobackup
@@ -163,6 +166,9 @@ let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
+" setting for vim-visual-page-percent
+set statusline+=%{VisualPercent()}
+
 " CtrlP settings
 let g:ctrlp_user_command = 'ag %s -l --smart-case -g ""'
 " The option below works only if ctrlp default globfiles() is used to get the
@@ -195,7 +201,11 @@ nnoremap E $
 " highlight last inserted text
 nnoremap gV `[v`]
 " make the Y behave similar to D
+
+
 nnoremap Y y$
+" 
+"map M m$
 " map ,g :call NERDComment(0,"toggle")<CR>
 map ,g gcc
 map <leader>t :NERDTreeToggle<CR>
