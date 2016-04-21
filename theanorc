@@ -1,6 +1,6 @@
 [global]
 floatX = float32
-device = gpu3
+device = gpu2
 optimizer_including=cudnn
 allow_gc= False
 mode = FAST_RUN
