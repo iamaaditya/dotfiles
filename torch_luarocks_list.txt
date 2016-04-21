@@ -1,0 +1,89 @@
+Installed rocks:
+----------------
+
+argcheck scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+cudnn scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+cunn scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+cunnx scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+cutorch scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+cwrap scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+dok scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+env scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+fftw3 scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+fn 0-0 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+gnuplot scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+graph scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+graphicsmagick 1.scm-0 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+hdf5 20-0 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+image 1.1.alpha-0 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+lbase64 20120820-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+loadcaffe 1.0-0 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+logroll 0-0 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+lua-cjson 2.1devel-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+luacrypto 0.3.2-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+luaffi scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+luafilesystem 1.6.3-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+nn scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+nngraph scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+nnx 0.1-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+optim 1.0.5-0 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+paths scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+penlight scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+pprint 0-0 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+qtlua scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+qttorch scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+signal scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+sundown scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+sys 1.1-0 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+threads scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+torch scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+torchffi 1.1.alpha-0 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+totem 0-0 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+trepl scm-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+util 0-0 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+uuid 0.2-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+xlua 1.0-0 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
+xxhash v1.0-1 (installed) - /home/ap/torch/install/lib/luarocks/rocks
+
