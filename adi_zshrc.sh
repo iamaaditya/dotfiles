@@ -69,7 +69,7 @@ alias html="cd /var/www/html"
 alias big1="ssh bigdata1@deerstalker.cs.brandeis.edu"
 alias lsd="ls -lartd */"
 # making code place as variable
-export c=~/Dropbox/codes
+# export c=~/Dropbox/codes
 
 
 

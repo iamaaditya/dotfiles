@@ -95,7 +95,7 @@ set ssop-=options
 set encoding=utf-8
 set history=2707
 set undolevels=2512
-set colorcolumn=80
+" set colorcolumn=80
 set laststatus=2
 "set visualbell
 set noerrorbells
@@ -143,6 +143,9 @@ set foldlevel=1
 
 " since i find it useful at other times too
 set invcursorline
+
+" for the vimdiff hide the common lines
+set diffopt=filler,context:0
 
 " Folding plugin settings
 "let g:SimpylFold_docstring_preview = 1
@@ -196,6 +199,7 @@ nnoremap E $
 nnoremap gV `[v`]
 " make the Y behave similar to D
 nnoremap Y y$
+map M m$
 " map ,g :call NERDComment(0,"toggle")<CR>
 map ,g gcc
 map <leader>t :NERDTreeToggle<CR>
