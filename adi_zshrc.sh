@@ -163,7 +163,7 @@ dthesaurus () { curl dict://dict.org/d:${1}:moby-thes; }
 
 ## WIKIPEDIA SEARCH FUNCTION ##
 wiki() {
-echo -n -e "\n============================================\n\tWelcome to WikiPedia Search"; echo ""; i=1 ; for line in $(lynx --dump "http://en.wikipedia.org/w/index.php?title=Special%3ASearch&profile=default&search=$1&fulltext=Search" | grep http://en.wikipedia.org/wiki | cut -c7-); do echo $i $line; lines[$i]=$line ;  i=$(($i+1)); done ; echo -n -e "\n============================================\n\tPlease select the link to open - "; read answer; w3m ${lines[$answer]}
+echo -n -e "\n============================================\n\tWelcome to WikiPedia Search"; echo ""; i=1 ; for line in $(lynx --dump "http://en.wikipedia.org/w/index.php?title=Special%3ASearch&profile=default&search=$1&fulltext=Search" | grep http://en.wikipedia.org/wiki | cut -c7-); do echo $i $line; lines[ $i ]=$line ;  i=$(($i+1)); done ; echo -n -e "\n============================================\n\tPlease select the link to open - "; read answer; w3m ${lines[ $answer ]}
 }
 
 ## SEP SEARCH FUNCTION ##
@@ -211,7 +211,7 @@ preexec () {
 
 # configuration for hstr
 export HH_CONFIG=hicolor        # get more colors
-bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
+bindkey -s "\C-r" "hh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
 
 # fasd
 eval "$(fasd --init auto)"
