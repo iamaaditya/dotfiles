@@ -15,7 +15,7 @@ set rtp+=$GOROOT/misc/vim
 call vundle#rc()
 Plugin 'gmarik/vundle'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
@@ -33,6 +33,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mtth/scratch.vim'
 Plugin 'wellle/targets.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'vim-scripts/mru.vim'
 
 " altternate to powerline but ended up not using 
 " Plugin 'bling/vim-airline'
@@ -92,6 +93,7 @@ Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 let g:Powerline_symbols = 'fancy'
 "source ~/.vim/bundle/powerline/build/lib/powerline/ext/vim/source_plugin.vim
 "python from powerline.ext.vim import source_plugin; source_plugin()
+let $PAGER=''
 
 syntax on
 set ssop-=options
@@ -133,6 +135,7 @@ set backspace=start,indent,eol
 set t_Co=256
 set showtabline=2
 set noshowmode
+set scrolloff=999
 "set guifont=Monaco:h13
 set nolist  "hide invisible characters
 set autowrite
@@ -145,7 +148,10 @@ set nofoldenable
 set foldlevel=1
 
 " since i find it useful at other times too
-set invcursorline
+" set invcursorline
+set cursorline
+autocmd InsertEnter * highlight CursorLine guibg=#000050 guifg=fg
+autocmd InsertLeave * highlight CursorLine guibg=#004000 guifg=fg
 
 " for the vimdiff hide the common lines
 set diffopt=filler,context:0
@@ -188,9 +194,9 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 " Syntastic always show the errors
 let g:syntastic_auto_loc_list=1
 let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_flake8_args='--ignore=E101,E111,E112,E113,E114,E115,E116,E121,E122,E123,E124,E125,E126,E127,E128,E129,E131,E133,E201,E202,E203,E211,E221,E222,E223,E224,E225,E226,E227,E228,E231,E241,E242,E251,E261,E262,E265,E266,E271,E272,E273,E274,E301,E302,E303,E304,E401,E402,E501,E502,E701,E702,E703,E704,E711,E712,E713,E714,E721,E731,E901,E902,W191,W291,W292,W293,W391,W503,W601,W602,W603,W604,F401'
+" let g:syntastic_python_flake8_args='--ignore=E101,E111,E112,E113,E114,E115,E116,E121,E122,E123,E124,E125,E126,E127,E128,E129,E131,E133,E201,E202,E203,E211,E221,E222,E223,E224,E225,E226,E227,E228,E231,E241,E242,E251,E261,E262,E265,E266,E271,E272,E273,E274,E301,E302,E303,E304,E401,E402,E501,E502,E701,E702,E703,E704,E711,E712,E713,E714,E721,E731,E901,E902,W191,W291,W292,W293,W391,W503,W601,W602,W603,W604,F401'
 
-" set pastetoggle=<C-q>
+set pastetoggle=<F6>
 " change key bindings
 "
 " nnoremap : ;
@@ -253,8 +259,8 @@ nnoremap <leader>f :%s/\<<C-r><C-w>\>/
 map <C-j> :exec '!python' shellescape(@%, 1)<CR>
 imap <C-j> <Esc>:exec '!python' shellescape(@%, 1)<CR>
 
-map <F5> :exec '!python' shellescape(@%, 1)<CR>
-imap <F5> <Esc>:exec '!python' shellescape(@%, 1)<CR>
+" map <F5> :exec '!python' shellescape(@%, 1)<CR>
+" imap <F5> <Esc>:exec '!python' shellescape(@%, 1)<CR>
 " Python 3 
 "map <C-m> :exec '!python3' shellescape(@%, 1)<CR>
 "imap <C-m> <Esc>:exec '!python3' shellescape(@%, 1)<CR>
@@ -389,6 +395,11 @@ let g:VimuxUseNearest = 1
 " vimux vs send the paragraph
 vmap <Leader>vs "vy:call VimuxSlime()<CR>
 nmap <Leader>vs vip<Leader>vs<CR>
+"
+" make shift enter to run the current line and go to new line
+" imap <S-CR> <Esc>"vyy:call VimuxSlime()<CR>ji
+imap <F5> <Esc>"vyy:call VimuxSlime()<CR>ji
+nmap <F5> "vyy:call VimuxSlime()<CR>j
 " vmux vs send the line
 nmap <Leader><Leader> "vyy:call VimuxSlime()<CR>j
 map <Leader>vr Bv$"vy:call VimuxSlime()<CR>

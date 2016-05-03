@@ -10,7 +10,7 @@ bindkey '^r' history-incremental-search-backward
 # https://raw.githubusercontent.com/rupa/z/master/z.sh (like autojump)
 source ~/dotfiles/z.sh
 source ~/dotfiles/aliases.sh
-
+source ~/dotfiles/my_functions.sh
 export KEYTIMEOUT=1
 
 
@@ -46,6 +46,11 @@ function chpwd(){
 # making code place as variable
 # export c=~/Dropbox/codes
 
+# makes VIM as the viewer (pager) for the man pages
+export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
+    vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
+    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
 
 #CUDA Path
@@ -210,7 +215,8 @@ preexec () {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # configuration for hstr
-export HH_CONFIG=hicolor        # get more colors
+export HH_CONFIG=hicolor,rawhistory        # get more colors
+
 bindkey -s "\C-r" "hh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
 
 # fasd

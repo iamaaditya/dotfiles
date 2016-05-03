@@ -9,7 +9,6 @@ alias tm="TERM=xterm-256color /usr/bin/tmux"
 
 alias df="pydf"
 alias top="htop"
-alias less="most"
 # alias tail="multitail"
 
 alias ggpush="git push origin master"
@@ -43,6 +42,7 @@ alias c="pygmentize -g"
 
 alias e="dirs -v | head -10"
 
+alias fl="find . -name"
 
 # fasd
 alias v='f -e vim'
@@ -59,3 +59,29 @@ alias ec='~/ec'
 
 # Make pretty
 alias prt='~/dotfiles/make_pretty.sh'
+
+# Switch Tmux sessions
+alias sw='~/dotfiles/switch-create-attach.sh'
+
+# show directories
+alias dir='ls -ld */'
+
+# open in vim the selected file
+alias va='~/dotfiles/select_file.sh'
+
+# facebook fpp
+alias fpp='~/helper_libs/fpp'
+
+# search in history
+alias hag='history | ag '
+
+
+# compare jsons
+alias cj='python ~/submissions_vqa/code/compare_jsons.py -files '
+
+# aliases for CUDA_VISIBLE_DEVICES
+alias c0=CUDA_VISIBLE_DEVICES=0
+alias c1=CUDA_VISIBLE_DEVICES=1
+alias c2=CUDA_VISIBLE_DEVICES=2
+alias c3=CUDA_VISIBLE_DEVICES=3
+
