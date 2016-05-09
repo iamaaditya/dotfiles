@@ -29,7 +29,7 @@ setopt HIST_IGNORE_DUPS
 setopt EXTENDED_HISTORY 
 
 
-xmodmap ~/.speedswapper
+# xmodmap ~/.speedswapper
 
 function chpwd(){
      ll
