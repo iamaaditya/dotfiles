@@ -34,6 +34,7 @@ Plugin 'mtth/scratch.vim'
 Plugin 'wellle/targets.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/mru.vim'
+Plugin 'wakatime/vim-wakatime'
 
 " altternate to powerline but ended up not using 
 " Plugin 'bling/vim-airline'
