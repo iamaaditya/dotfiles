@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -e
+export TERM=xterm-256color
+# tm="TERM=xterm-256color /usr/bin/tmux "
 
 # Switch to previous session if no session name is provided
 # https://gist.github.com/mislav/4525198
