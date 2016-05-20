@@ -8,8 +8,10 @@ alias vtop="vtop --theme becca"
 alias tm="TERM=xterm-256color /usr/bin/tmux"
 
 alias df="pydf"
-alias top="htop"
+# alias top="htop"
 # alias tail="multitail"
+
+alias wnv="watch -d -n 5 -t -c nvidia-smi"
 
 alias ggpush="git push origin master"
 alias gcm="git commit -am "
@@ -21,6 +23,7 @@ alias gitorigin="git remote show origin"
 alias reddit="python ~/Dropbox/codes/Python/TIL/r.py"
 alias top5="ps aux | sort -rk 3,3 | head -n 6"
 alias top5_="ps -eo pcpu,pid,user,args --no-headers| sort -t. -nk1,2 -k4,4 -r |head -n 5"
+alias tp="top -b -n 1 -p "
 
 
 

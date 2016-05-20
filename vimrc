@@ -136,7 +136,7 @@ set backspace=start,indent,eol
 set t_Co=256
 set showtabline=2
 set noshowmode
-set scrolloff=999
+" set scrolloff=999
 "set guifont=Monaco:h13
 set nolist  "hide invisible characters
 set autowrite
@@ -153,6 +153,7 @@ set foldlevel=1
 set cursorline
 autocmd InsertEnter * highlight CursorLine guibg=#000050 guifg=fg
 autocmd InsertLeave * highlight CursorLine guibg=#004000 guifg=fg
+autocmd BufEnter * silent! lcd %:p:h
 
 " for the vimdiff hide the common lines
 set diffopt=filler,context:0
@@ -212,6 +213,9 @@ nnoremap E $
 nnoremap gV `[v`]
 " make the Y behave similar to D
 
+" center the next or previous find
+nmap n :norm! nzzzv<CR>
+nmap N :norm! Nzzzv<CR>
 
 nnoremap Y y$
 " map M m$
@@ -274,7 +278,8 @@ map g/ <Plug>(incsearch-stay)
 
 " insert one character only and return back to normal mode
 nmap <leader>o i_<Esc>r
-nmap <space> :noh<CR>
+nmap <space> <C-f>
+nmap <S-space> <C-b>
 "nnoremap <space> za 
 "vnoremap <space> zf
 

@@ -11,6 +11,11 @@ bindkey '^r' history-incremental-search-backward
 source ~/dotfiles/z.sh
 source ~/dotfiles/aliases.sh
 source ~/dotfiles/my_functions.sh
+source ~/helper_libs/bash-wakatime/bash-wakatime.sh
+# source ~/.oh-my-zsh/custom/plugins/zsh-wakatime/zsh-wakatime.plugin.zsh
+plugins=(zsh-wakatime)
+# source ~/.oh-my-zsh/oh-my-zsh.sh
+
 export KEYTIMEOUT=1
 
 
@@ -168,7 +173,8 @@ dthesaurus () { curl dict://dict.org/d:${1}:moby-thes; }
 
 ## WIKIPEDIA SEARCH FUNCTION ##
 wiki() {
-echo -n -e "\n============================================\n\tWelcome to WikiPedia Search"; echo ""; i=1 ; for line in $(lynx --dump "http://en.wikipedia.org/w/index.php?title=Special%3ASearch&profile=default&search=$1&fulltext=Search" | grep http://en.wikipedia.org/wiki | cut -c7-); do echo $i $line; lines[ $i ]=$line ;  i=$(($i+1)); done ; echo -n -e "\n============================================\n\tPlease select the link to open - "; read answer; w3m ${lines[ $answer ]}
+# echo -n -e "\n============================================\n\tWelcome to WikiPedia Search"; echo ""; i=1 ; for line in $(lynx --dump "https://en.wikipedia.org/w/index.php?title=Special%3ASearch&profile=default&search=$1&fulltext=Search" | grep http://en.wikipedia.org/wiki | cut -c7-); do echo $i $line; lines[ $i ]=$line ;  i=$(($i+1)); done ; echo -n -e "\n============================================\n\tPlease select the link to open - "; read answer; w3m ${lines[ $answer ]}
+lynx --dump https://en.wikipedia.org/wiki/$1 | sed 's/\[[^]]*\]//g' | less
 }
 
 ## SEP SEARCH FUNCTION ##
