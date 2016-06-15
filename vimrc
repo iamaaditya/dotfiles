@@ -94,7 +94,7 @@ Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 let g:Powerline_symbols = 'fancy'
 "source ~/.vim/bundle/powerline/build/lib/powerline/ext/vim/source_plugin.vim
 "python from powerline.ext.vim import source_plugin; source_plugin()
-let $PAGER=''
+" let $PAGER=''
 
 syntax on
 set ssop-=options
@@ -198,7 +198,7 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_python_checkers=['flake8']
 " let g:syntastic_python_flake8_args='--ignore=E101,E111,E112,E113,E114,E115,E116,E121,E122,E123,E124,E125,E126,E127,E128,E129,E131,E133,E201,E202,E203,E211,E221,E222,E223,E224,E225,E226,E227,E228,E231,E241,E242,E251,E261,E262,E265,E266,E271,E272,E273,E274,E301,E302,E303,E304,E401,E402,E501,E502,E701,E702,E703,E704,E711,E712,E713,E714,E721,E731,E901,E902,W191,W291,W292,W293,W391,W503,W601,W602,W603,W604,F401'
 
-set pastetoggle=<F6>
+set pastetoggle=<F3>
 " change key bindings
 "
 " nnoremap : ;
@@ -250,6 +250,7 @@ map <leader>w :w<CR>
 " Make copy of previous line and comment the previous one, like backup line
 map <leader>e yypgcck<CR>
 
+map <leader>m :MRU<CR>
 
 " map <leader>j %!python -m json.tool<CR>
 map <leader>d :bd<CR>
@@ -257,12 +258,18 @@ map <leader>d :bd<CR>
 " syntastic check
 nnoremap <leader>l :SyntasticCheck<CR>
 
+
+
 "replace the word under the cursor
+
 nnoremap <leader>f :%s/\<<C-r><C-w>\>/
 
 "command P !python %
 map <C-j> :exec '!python' shellescape(@%, 1)<CR>
 imap <C-j> <Esc>:exec '!python' shellescape(@%, 1)<CR>
+
+map <F1> :YcmCompleter GetDoc<CR>
+imap <F1> <Esc>:YcmCompleter GetDoc<CR>
 
 " map <F5> :exec '!python' shellescape(@%, 1)<CR>
 " imap <F5> <Esc>:exec '!python' shellescape(@%, 1)<CR>
@@ -293,6 +300,7 @@ nnoremap <leader>s O<Esc>j
 
 " highlighted uncommnted print statements in python code
 nnoremap <leader>c /^[^#]*\s*print<CR>
+nnoremap <leader>b :Startify<CR>
 
 cmap w!! %!sudo tee > /dev/null %
 
@@ -306,9 +314,9 @@ xmap S <Plug>Sneak_S
 omap s <Plug>Sneak_s
 omap S <Plug>Sneak_S
 
-map gn :bn<cr>
-map gp :bp<cr>
-map gd :bd<cr> 
+map gn :bn<CR>
+map gp :bp<CR>
+map gd :bd<CR> 
 
 "improve autocomplete menu color
 highlight Pmenu ctermbg=gray ctermfg=black gui=bold

@@ -7,18 +7,6 @@ bindkey '^N' down-history
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
-# https://raw.githubusercontent.com/rupa/z/master/z.sh (like autojump)
-source ~/dotfiles/z.sh
-source ~/dotfiles/aliases.sh
-source ~/dotfiles/my_functions.sh
-source ~/helper_libs/bash-wakatime/bash-wakatime.sh
-# source ~/.oh-my-zsh/custom/plugins/zsh-wakatime/zsh-wakatime.plugin.zsh
-plugins=(zsh-wakatime)
-# source ~/.oh-my-zsh/oh-my-zsh.sh
-
-export KEYTIMEOUT=1
-
-
 # History related settings
 #set history size
 export HISTSIZE=10000
@@ -26,6 +14,21 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 #history file
 export HISTFILE=~/.zhistory
+
+
+# https://raw.githubusercontent.com/rupa/z/master/z.sh (like autojump)
+source ~/dotfiles/z.sh
+source ~/dotfiles/aliases.sh
+source ~/dotfiles/my_functions.sh
+source ~/helper_libs/bash-wakatime/bash-wakatime.sh
+# source ~/dotfiles/history.sh # works only with BASH and not ZSH 
+# source ~/.oh-my-zsh/custom/plugins/zsh-wakatime/zsh-wakatime.plugin.zsh
+plugins=(zsh-wakatime)
+# source ~/.oh-my-zsh/oh-my-zsh.sh
+
+export KEYTIMEOUT=1
+
+
 #append into history file
 setopt INC_APPEND_HISTORY
 #save only one command if 2 common are same and consistent
@@ -52,10 +55,10 @@ function chpwd(){
 # export c=~/Dropbox/codes
 
 # makes VIM as the viewer (pager) for the man pages
-export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
-    vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
-    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
-    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+# export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
+    # vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    # -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
+    # -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
 
 #CUDA Path
