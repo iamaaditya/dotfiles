@@ -1,0 +1,39 @@
+ #!              & "Shebang header for python scripts" b
+ ifmain          & "ifmain" b
+ with            & "with" b
+ for             & "for loop" b
+ class           & "class with docstrings" b
+ slotclass       & "class with slots and docstrings" b
+ contain         & "methods for emulating a container type" b
+ context         & "context manager methods" b
+ attr            & "methods for customizing attribute access" b
+ desc            & "methods implementing descriptors" b
+ cmp             & "methods implementing rich comparison"
+ repr            & "methods implementing string representation"
+ numeric         & "methods for emulating a numeric type" b
+ def             & "function with docstrings" b
+ defc            & "class method with docstrings" b
+ defs            & "static method with docstrings" b
+ /(^|(?<=\W))\./ & "self." r
+ from            & "from module import name" b
+ roprop          & "Read Only Property" b
+ rwprop          & "Read write property" b
+ if              & "If" b
+ ife             & "If / Else" b
+ ifee            & "If / Elif / Else" b
+ try             & "Try / Except" b
+ trye            & "Try / Except / Else" b
+ tryf            & "Try / Except / Finally" b
+ tryef           & "Try / Except / Else / Finally" b
+ ae              & "Assert equal" b
+ at              & "Assert True" b
+ af              & "Assert False" b
+ aae             & "Assert almost equal" b
+ ar              & "Assert raises" b
+ an              & "Assert is None" b
+ ann             & "Assert is not None" b
+ testcase        & "pyunit testcase" b
+ "               & "triple quoted string (double quotes)" b
+ '               & "triple quoted string (single quotes)" b
+ doc             & "doc block (triple quotes)"
+ pmdoc           & "pocoo style module doc string" b
