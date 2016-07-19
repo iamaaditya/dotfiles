@@ -230,3 +230,5 @@ bindkey -s "\C-r" "hh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
 
 # fasd
 eval "$(fasd --init auto)"
+
+export PYLEARN2_DATA_PATH=~/data

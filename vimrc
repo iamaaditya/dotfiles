@@ -36,6 +36,15 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/mru.vim'
 Plugin 'wakatime/vim-wakatime'
 
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+" Plugin for latex support
+Plugin 'lervag/vimtex'
+
+" Plugin for folding in latex
+Plugin 'matze/vim-tex-fold'
+
 " altternate to powerline but ended up not using 
 " Plugin 'bling/vim-airline'
 
@@ -158,6 +167,7 @@ autocmd BufEnter * silent! lcd %:p:h
 " for the vimdiff hide the common lines
 set diffopt=filler,context:0
 
+nmap <leader>i <plug>(vimtex-cmd-create)
 " Folding plugin settings
 "let g:SimpylFold_docstring_preview = 1
 let g:SimpylFold_fold_docstring = 0
@@ -264,12 +274,16 @@ nnoremap <leader>l :SyntasticCheck<CR>
 
 nnoremap <leader>f :%s/\<<C-r><C-w>\>/
 
+" map <F1> :exec '!make' <CR>
+" imap <F1> :exec '!make' <CR>
+map <F1> :silent make\|redraw!\|cc<CR>
+imap <F1> :silent make\|redraw!\|cc<CR>
 "command P !python %
-map <C-j> :exec '!python' shellescape(@%, 1)<CR>
-imap <C-j> <Esc>:exec '!python' shellescape(@%, 1)<CR>
+"map <C-j> :exec '!python' shellescape(@%, 1)<CR>
+"imap <C-j> <Esc>:exec '!python' shellescape(@%, 1)<CR>
 
-map <F1> :YcmCompleter GetDoc<CR>
-imap <F1> <Esc>:YcmCompleter GetDoc<CR>
+map <F2> :YcmCompleter GetDoc<CR>
+imap <F2> <Esc>:YcmCompleter GetDoc<CR>
 
 " map <F5> :exec '!python' shellescape(@%, 1)<CR>
 " imap <F5> <Esc>:exec '!python' shellescape(@%, 1)<CR>
@@ -484,3 +498,14 @@ function! XTermPasteBegin()
 endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+
+" settings for ultisnips
+"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
