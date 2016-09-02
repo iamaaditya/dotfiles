@@ -88,3 +88,4 @@ alias c1=CUDA_VISIBLE_DEVICES=1
 alias c2=CUDA_VISIBLE_DEVICES=2
 alias c3=CUDA_VISIBLE_DEVICES=3
 
+alias pypy='/home/ap/helper_libs/pypy-c-jit-86749-24d11640c483-linux64/bin/pypy'

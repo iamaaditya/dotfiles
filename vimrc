@@ -285,8 +285,8 @@ imap <F1> :silent make\|redraw!\|cc<CR>
 map <F2> :YcmCompleter GetDoc<CR>
 imap <F2> <Esc>:YcmCompleter GetDoc<CR>
 
-" map <F5> :exec '!python' shellescape(@%, 1)<CR>
-" imap <F5> <Esc>:exec '!python' shellescape(@%, 1)<CR>
+map <F5> :exec '!python' shellescape(@%, 1)<CR>
+imap <F5> <Esc>:exec '!python' shellescape(@%, 1)<CR>
 " Python 3 
 "map <C-m> :exec '!python3' shellescape(@%, 1)<CR>
 "imap <C-m> <Esc>:exec '!python3' shellescape(@%, 1)<CR>
@@ -299,8 +299,8 @@ map g/ <Plug>(incsearch-stay)
 
 " insert one character only and return back to normal mode
 nmap <leader>o i_<Esc>r
-nmap <space> <C-f>
-nmap <S-space> <C-b>
+"nmap <space> <C-f>
+"nmap <S-space> <C-b>
 "nnoremap <space> za 
 "vnoremap <space> zf
 
