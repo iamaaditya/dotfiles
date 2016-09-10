@@ -22,7 +22,7 @@ Plugin 'tpope/vim-surround'
 " Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
-Plugin 'svermeulen/vim-easyclip'
+" Plugin 'svermeulen/vim-easyclip'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'rking/ag.vim'
@@ -71,14 +71,39 @@ Plugin 'benmills/vimux'
 " Plugin 'ludovicchabant/vim-gutentags'
 
 " Plugin to visually show location in the file in the status bar (see right)
-Plugin 'naddeoa/vim-visual-page-percent'
+" Plugin 'naddeoa/vim-visual-page-percent'
 
 Plugin 'justinmk/vim-sneak'
 Plugin 'FuzzyFinder'
 Plugin 'L9'
 
+" increases the utility of space to enchance the repeat command. Use space to
+" repeat
+Plugin 'spiiph/vim-space'
+
+"add buffers at the tabline
+Plugin 'ap/vim-buftabline'
+let g:buftabline_numbers = 1
+
+
+" add things to status line
+Plugin 'maciakl/vim-neatstatus'
+
+" Plugin interactive scratchpad (show live results for python)
+Plugin 'metakirby5/codi.vim'
+
+" Plugin emacs like orgmode in Vim
+Plugin 'jceb/vim-orgmode'
+
+Plugin 'tpope/vim-speeddating'
+
+" Plugin to manage fold, indent and objects (paragraphs) for python
+Plugin 'tweekmonster/braceless.vim'
+autocmd FileType python BracelessEnable +indent +fold 
+
 Plugin 'shinokada/dragvisuals.vim'
 Plugin 'mhinz/vim-startify'                           " a start screen with recently modified files and vim sessions
+    let g:startify_files_number = 20
     let g:startify_session_persistence = 0          " automatically update sessions
     let g:startify_session_delete_buffers = 1       " delete open buffers before loading a new session
     let g:startify_custom_footer = [
@@ -99,13 +124,15 @@ endif
 
 filetype plugin indent on     " required!
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-let g:Powerline_symbols = 'fancy'
+" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" let g:Powerline_symbols = 'fancy'
 "source ~/.vim/bundle/powerline/build/lib/powerline/ext/vim/source_plugin.vim
 "python from powerline.ext.vim import source_plugin; source_plugin()
 " let $PAGER=''
 
 syntax on
+" enables mouse scroll when using iterm
+set mouse=a
 set ssop-=options
 set encoding=utf-8
 set history=2707
@@ -172,6 +199,7 @@ nmap <leader>i <plug>(vimtex-cmd-create)
 "let g:SimpylFold_docstring_preview = 1
 let g:SimpylFold_fold_docstring = 0
 let mapleader=","       " leader is comma
+" let localleader=","
 
 " allows cursor change in tmux mode
 if exists('$TMUX')
@@ -188,7 +216,7 @@ set background=dark
 colorscheme solarized
 
 " setting for vim-visual-page-percent
-set statusline+=%{VisualPercent()}
+" set statusline+=%{VisualPercent()}
 
 " CtrlP settings
 let g:ctrlp_user_command = 'ag %s -l --smart-case -g ""'
@@ -509,3 +537,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
+
+" copy to buffer
+vmap <leader>c :w! ~/.vimbuffer<CR>
+nmap <leader>c :.w! ~/.vimbuffer<CR>
+" paste from buffer
+map <leader>p :r ~/.vimbuffer<CR>
+
+let maplocalleader = "\\"
