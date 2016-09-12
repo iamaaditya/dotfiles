@@ -64,7 +64,7 @@ Plugin 'xolox/vim-misc'
 " Plugin clever f, extends usage of f, F , t And T
 Plugin 'rhysd/clever-f.vim'
 " plugin for the using tab for the name completion
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab'
 " Plugin to allow easy data flow b/n vim and tmux
 Plugin 'benmills/vimux'
 " plugin to automatically generate the tags file
@@ -80,14 +80,19 @@ Plugin 'L9'
 " increases the utility of space to enchance the repeat command. Use space to
 " repeat
 Plugin 'spiiph/vim-space'
-
+"
 "add buffers at the tabline
-Plugin 'ap/vim-buftabline'
-let g:buftabline_numbers = 1
+" Plugin 'ap/vim-buftabline'
+" let g:buftabline_numbers = 1
+"
+Plugin 'bling/vim-bufferline'
 
 
 " add things to status line
-Plugin 'maciakl/vim-neatstatus'
+" Plugin 'maciakl/vim-neatstatus'
+hi CursorLine ctermbg=black cterm=none
+au InsertEnter * set cursorline
+au InsertLeave * set nocursorline
 
 " Plugin interactive scratchpad (show live results for python)
 Plugin 'metakirby5/codi.vim'
@@ -138,7 +143,7 @@ set encoding=utf-8
 set history=2707
 set undolevels=2512
 " set colorcolumn=80
-set laststatus=2
+set laststatus=0
 "set visualbell
 set noerrorbells
 set wrapscan
@@ -170,7 +175,7 @@ set expandtab
 set modelines=0
 set backspace=start,indent,eol
 set t_Co=256
-set showtabline=2
+set showtabline=0
 set noshowmode
 " set scrolloff=999
 "set guifont=Monaco:h13
