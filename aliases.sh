@@ -29,7 +29,7 @@ alias tp="top -b -n 1 -p "
 
 # alias vi='vim'
 # now is the time
-alias vi='nvim'
+alias vi='vim'
 alias tmuxa=TERM=xterm-256color /usr/bin/tmux attach
 alias hourModified="find . -mmin -60"
 alias hourCreated="find . -cmin -60"
@@ -94,4 +94,11 @@ alias pypy='/home/ap/helper_libs/pypy-c-jit-86749-24d11640c483-linux64/bin/pypy'
 
 nvp() { 
     ps f -o user,pgrp,pid,pcpu,pmem,start,time,command -p `lsof -n -w -t /dev/nvidia*`
+}
+
+alias whogpu='python ~/dotfiles/who_is_using_gpu.py'
+alias kb='~/dotfiles/kanban'
+
+function p {
+    echo "\n\n---------------------------------\n"
 }

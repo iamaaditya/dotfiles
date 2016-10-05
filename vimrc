@@ -25,7 +25,8 @@ Plugin 'tpope/vim-repeat'
 " Plugin 'svermeulen/vim-easyclip'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
-Plugin 'rking/ag.vim'
+" Plugin 'rking/ag.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'terryma/vim-expand-region'
@@ -46,7 +47,9 @@ Plugin 'lervag/vimtex'
 Plugin 'matze/vim-tex-fold'
 
 " altternate to powerline but ended up not using 
-" Plugin 'bling/vim-airline'
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline_theme='durant'
 
 "awesome plugin, which tablularises by given separator 
 " :Tab /<symbol>
@@ -85,14 +88,15 @@ Plugin 'spiiph/vim-space'
 " Plugin 'ap/vim-buftabline'
 " let g:buftabline_numbers = 1
 "
-Plugin 'bling/vim-bufferline'
+" Plugin 'bling/vim-bufferline'
 
 
 " add things to status line
 " Plugin 'maciakl/vim-neatstatus'
-hi CursorLine ctermbg=black cterm=none
-au InsertEnter * set cursorline
-au InsertLeave * set nocursorline
+" hi CursorLine ctermbg=black cterm=none
+hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
+" au InsertLeave * set cursorline
+" au InsertEnter * set nocursorline
 
 " Plugin interactive scratchpad (show live results for python)
 Plugin 'metakirby5/codi.vim'
@@ -130,8 +134,8 @@ endif
 filetype plugin indent on     " required!
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 " Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-" let g:Powerline_symbols = 'fancy'
-"source ~/.vim/bundle/powerline/build/lib/powerline/ext/vim/source_plugin.vim
+let g:Powerline_symbols = 'fancy'
+" source ~/.vim/bundle/powerline/build/lib/powerline/ext/vim/source_plugin.vim
 "python from powerline.ext.vim import source_plugin; source_plugin()
 " let $PAGER=''
 
@@ -143,7 +147,7 @@ set encoding=utf-8
 set history=2707
 set undolevels=2512
 " set colorcolumn=80
-set laststatus=0
+set laststatus=2
 "set visualbell
 set noerrorbells
 set wrapscan
@@ -267,6 +271,8 @@ nnoremap Y y$
 map ,g gcc
 map <leader>t :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
+let NERDTreeIgnore = ['\.out$']
+let g:NERDTreeWinSize = 20
 nmap <Bar> :TagbarToggle<CR>
 "vmap <C-f> :fold<CR>
 nmap <CR> :set rnu!<CR>
@@ -284,6 +290,17 @@ nmap = 0za
 nnoremap - :q<CR>
 " open vimrc
 nnoremap <leader>vi :tabnew ~/dotfiles/vimrc<CR>
+"
+" command -nargs=0 -bar Update if &modified 
+"                            \|    if empty(bufname('%'))
+"                            \|        browse confirm write
+"                            \|    else
+"                            \|        confirm write
+"                            \|    endif
+"                            \|endif
+nnoremap <C-k> :up<CR>
+inoremap <C-k> <Esc>:up<CR>i
+
 " save using leader key
 map <leader>w :w<CR>
 " stupid to map leader (,) in insert mode, slows the typing of , and god
@@ -315,6 +332,9 @@ imap <F1> :silent make\|redraw!\|cc<CR>
 "map <C-j> :exec '!python' shellescape(@%, 1)<CR>
 "imap <C-j> <Esc>:exec '!python' shellescape(@%, 1)<CR>
 
+" map <C-j> :!gcc -o %.out %; ./%.out<CR>
+" imap <C-j> :!gcc -o %.out %; ./%.out<CR>
+
 map <F2> :YcmCompleter GetDoc<CR>
 imap <F2> <Esc>:YcmCompleter GetDoc<CR>
 
@@ -340,9 +360,12 @@ nmap <leader>o i_<Esc>r
 " settigns for gundo
 nnoremap <leader>u :GundoToggle<CR>
 let g:gundo_width=100
-let g:gundo_preview_height=60
+let g:gundo_preview_height=100
 " open ag.vim
-nnoremap <leader>a :Ag<space>
+" changed from ag.vim to ack.vim as ag is deprecated
+" Wed 28 Sep 2016 02:38:25 PM EDT 
+let g:ackprg = 'ag --vimgrep'
+nnoremap <leader>a :Ack<space>
 nnoremap <leader>s O<Esc>j
 
 " highlighted uncommnted print statements in python code
@@ -351,6 +374,9 @@ nnoremap <leader>b :Startify<CR>
 
 cmap w!! %!sudo tee > /dev/null %
 
+" insert date on Wed 28 Sep 2016 02:37:09 PM EDT5
+nnoremap <F4> "=strftime("%c")<CR>P
+inoremap <F4> <C-R>=strftime("%c")<CR>
 
 nmap s <Plug>Sneak_s
 nmap S <Plug>Sneak_S
@@ -452,10 +478,20 @@ let g:VimuxOrientation = 'v'
 let g:VimuxUseNearest = 1
 
 
+function! VimuxSlimeGCC()
+    call VimuxSendText()
+    call VimuxSendKeys("Enter")
+endfunction
 
 " vimux vs send the paragraph
 vmap <Leader>vs "vy:call VimuxSlime()<CR>
 nmap <Leader>vs vip<Leader>vs<CR>
+
+
+map <C-j> <C-k>:VimuxRunCommand("clear; p; gcc " .bufname("%") ."; ./a.out; p")<CR>
+imap <C-j> <Esc><C-k>:VimuxRunCommand("p; gcc " .bufname("%") ."; ./a.out; p")<CR>i
+" map <Leader>vc map <C-j> :!gcc -o %.out %; ./%.out<CR>
+
 "
 " make shift enter to run the current line and go to new line
 " imap <S-CR> <Esc>"vyy:call VimuxSlime()<CR>ji
@@ -550,3 +586,9 @@ nmap <leader>c :.w! ~/.vimbuffer<CR>
 map <leader>p :r ~/.vimbuffer<CR>
 
 let maplocalleader = "\\"
+
+
+" make the 's' and 'S' insert a single character
+nnoremap s :exec "normal i".nr2char(getchar())."\e"<CR>
+nnoremap S :exec "normal a".nr2char(getchar())."\e"<CR>
+
