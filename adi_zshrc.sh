@@ -15,13 +15,16 @@ export SAVEHIST=10000
 #history file
 export HISTFILE=~/.zhistory
 
+export EDITOR=vim
 
 # https://raw.githubusercontent.com/rupa/z/master/z.sh (like autojump)
 source ~/dotfiles/z.sh
 source ~/dotfiles/aliases.sh
 source ~/dotfiles/my_functions.sh
 source ~/helper_libs/bash-wakatime/bash-wakatime.sh
+source ~/dotfiles/antigen.zsh
 # source ~/dotfiles/history.sh # works only with BASH and not ZSH 
+
 # source ~/.oh-my-zsh/custom/plugins/zsh-wakatime/zsh-wakatime.plugin.zsh
 plugins=(zsh-wakatime)
 # source ~/.oh-my-zsh/oh-my-zsh.sh
@@ -90,6 +93,8 @@ export PYTHONPATH=/home/ap/caffe/python:$PYTHONPATH
 
 export OMP_NUM_THREADS=`nproc`
 export PYTHONPATH="$PYTHONPATH:~/deepy/"
+export PYTHONPATH="$PYTHONPATH:~/image_compression/vmaf/python"
+
 
 
 # Anaconda path
@@ -264,3 +269,14 @@ codi() {
     hi NonText ctermfg=0 |\
     Codi $syntax" "$@"
 }
+
+# Antigen commands
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle https://github.com/sakshamsharma/zpyi zpyi.zsh
+# antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle command-not-found
+
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=9'
+bindkey '^ ' autosuggest-accept
