@@ -29,7 +29,7 @@ alias tp="top -b -n 1 -p "
 
 # alias vi='vim'
 # now is the time
-alias vi='nvim'
+alias vi='vim'
 alias tmuxa=TERM=xterm-256color /usr/bin/tmux attach
 alias hourModified="find . -mmin -60"
 alias hourCreated="find . -cmin -60"
@@ -97,3 +97,9 @@ nvp() {
 }
 
 alias sap='sudo apt-get install -y '
+alias whogpu='python ~/dotfiles/who_is_using_gpu.py'
+alias kb='~/dotfiles/kanban'
+
+function p {
+    echo "\n\n---------------------------------\n"
+}
