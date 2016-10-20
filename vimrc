@@ -47,8 +47,8 @@ Plugin 'lervag/vimtex'
 Plugin 'matze/vim-tex-fold'
 
 " altternate to powerline but ended up not using 
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'bling/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
 let g:airline_theme='durant'
 
 "awesome plugin, which tablularises by given separator 
@@ -88,22 +88,21 @@ Plugin 'spiiph/vim-space'
 " Plugin 'ap/vim-buftabline'
 " let g:buftabline_numbers = 1
 "
-" Plugin 'bling/vim-bufferline'
+Plugin 'bling/vim-bufferline'
 
 
 " add things to status line
 " Plugin 'maciakl/vim-neatstatus'
 " hi CursorLine ctermbg=black cterm=none
-hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
-" au InsertLeave * set cursorline
-" au InsertEnter * set nocursorline
+" hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
+au InsertLeave * set cursorline
+au InsertEnter * set nocursorline
 
 " Plugin interactive scratchpad (show live results for python)
 Plugin 'metakirby5/codi.vim'
 
 " Plugin emacs like orgmode in Vim
 Plugin 'jceb/vim-orgmode'
-
 Plugin 'tpope/vim-speeddating'
 
 " Plugin to manage fold, indent and objects (paragraphs) for python
@@ -147,7 +146,7 @@ set encoding=utf-8
 set history=2707
 set undolevels=2512
 " set colorcolumn=80
-set laststatus=2
+set laststatus=0
 "set visualbell
 set noerrorbells
 set wrapscan
@@ -164,6 +163,7 @@ set autoindent
 set copyindent
 set showmatch
 set ruler
+set rulerformat=%f
 set hlsearch
 set wildmenu
 set incsearch
@@ -196,8 +196,8 @@ set foldlevel=1
 " since i find it useful at other times too
 " set invcursorline
 set cursorline
-autocmd InsertEnter * highlight CursorLine guibg=#000050 guifg=fg
-autocmd InsertLeave * highlight CursorLine guibg=#004000 guifg=fg
+" autocmd InsertEnter * highlight CursorLine guibg=#000050 guifg=fg
+" autocmd InsertLeave * highlight CursorLine guibg=#004000 guifg=fg
 autocmd BufEnter * silent! lcd %:p:h
 
 " for the vimdiff hide the common lines
@@ -271,7 +271,7 @@ nnoremap Y y$
 map ,g gcc
 map <leader>t :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
-let NERDTreeIgnore = ['\.out$']
+let NERDTreeIgnore = ['\.out$', '\.bin$', '\.pyc$']
 let g:NERDTreeWinSize = 20
 nmap <Bar> :TagbarToggle<CR>
 "vmap <C-f> :fold<CR>
@@ -352,6 +352,7 @@ map g/ <Plug>(incsearch-stay)
 
 " insert one character only and return back to normal mode
 nmap <leader>o i_<Esc>r
+nmap <space> :noh<CR>
 "nmap <space> <C-f>
 "nmap <S-space> <C-b>
 "nnoremap <space> za 
@@ -359,8 +360,8 @@ nmap <leader>o i_<Esc>r
 
 " settigns for gundo
 nnoremap <leader>u :GundoToggle<CR>
-let g:gundo_width=100
-let g:gundo_preview_height=100
+let g:gundo_width=50
+let g:gundo_preview_height=20
 " open ag.vim
 " changed from ag.vim to ack.vim as ag is deprecated
 " Wed 28 Sep 2016 02:38:25 PM EDT 
@@ -591,4 +592,8 @@ let maplocalleader = "\\"
 " make the 's' and 'S' insert a single character
 nnoremap s :exec "normal i".nr2char(getchar())."\e"<CR>
 nnoremap S :exec "normal a".nr2char(getchar())."\e"<CR>
+
+map <Space> :noh<CR>
+" hi CursorLine cterm=NONE ctermbg=black ctermfg=white guibg=darkblue guifg=white
+hi CursorLine gui=underline cterm=underline
 
