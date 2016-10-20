@@ -168,7 +168,7 @@ code()
 # Make a backup with current date
 bck()
 {
-  cp "$1" "$1.__backup__`date`"
+  cp "$1" "$1.__backup__`date +%d-%h-%Y`"
 }
 
 
@@ -274,9 +274,13 @@ codi() {
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle https://github.com/sakshamsharma/zpyi zpyi.zsh
+# antigen bundle https://github.com/sakshamsharma/zpyi zpyi.zsh
 # antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle command-not-found
+# antigen bundle command-not-found
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=9'
 bindkey '^ ' autosuggest-accept
+
+
+export PATH=$PATH:~/.cargo/bin
+export PYTHONSTARTUP=/home/ap/dotfiles/startup.py

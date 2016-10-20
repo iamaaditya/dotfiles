@@ -29,7 +29,9 @@ alias tp="top -b -n 1 -p "
 
 # alias vi='vim'
 # now is the time
-alias vi='vim'
+alias vim='/usr/local/bin/vim'
+alias vi='/usr/local/bin/vim'
+# alias vi='vim'
 alias tmuxa=TERM=xterm-256color /usr/bin/tmux attach
 alias hourModified="find . -mmin -60"
 alias hourCreated="find . -cmin -60"
@@ -61,6 +63,7 @@ alias cuts='~/command_line_libs/cuts/cuts'
 alias eplot='~/eplot -p'
 alias ec='~/ec'
 
+alias vp='vi *.py'
 
 # Make pretty
 alias prt='~/dotfiles/make_pretty.sh'
@@ -89,6 +92,7 @@ alias c0=CUDA_VISIBLE_DEVICES=0
 alias c1=CUDA_VISIBLE_DEVICES=1
 alias c2=CUDA_VISIBLE_DEVICES=2
 alias c3=CUDA_VISIBLE_DEVICES=3
+alias cnull=CUDA_VISIBLE_DEVICES=''
 
 alias pypy='/home/ap/helper_libs/pypy-c-jit-86749-24d11640c483-linux64/bin/pypy'
 
@@ -101,4 +105,8 @@ alias kb='~/dotfiles/kanban'
 
 function p {
     echo "\n\n---------------------------------\n"
+}
+
+function count_files {
+    find -maxdepth 1 -type d | while read -r dir; do printf "%s:\t" "$dir"; find "$dir" -type f | wc -l; done
 }
