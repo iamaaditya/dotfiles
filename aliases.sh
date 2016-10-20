@@ -100,6 +100,7 @@ nvp() {
     ps f -o user,pgrp,pid,pcpu,pmem,start,time,command -p `lsof -n -w -t /dev/nvidia*`
 }
 
+alias sap='sudo apt-get install -y '
 alias whogpu='python ~/dotfiles/who_is_using_gpu.py'
 alias kb='~/dotfiles/kanban'
 
