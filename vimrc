@@ -14,7 +14,7 @@ set rtp+=~/.vim/bundle/vundle/
 set rtp+=$GOROOT/misc/vim
 call vundle#rc()
 Plugin 'gmarik/vundle'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 " Plugin 'tpope/vim-fugitive'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'scrooloose/syntastic'
@@ -45,6 +45,12 @@ Plugin 'lervag/vimtex'
 
 " Plugin for folding in latex
 Plugin 'matze/vim-tex-fold'
+
+" Plugin to run the terminal commands in async
+Plugin 'skywind3000/asyncrun.vim'
+
+" Plugin to auto-complete 
+Plugin 'maralla/completor.vim'
 
 " altternate to powerline but ended up not using 
 " Plugin 'bling/vim-airline'
