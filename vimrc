@@ -30,7 +30,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'terryma/vim-expand-region'
-Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mtth/scratch.vim'
 Plugin 'wellle/targets.vim'
 Plugin 'scrooloose/nerdtree'
@@ -41,10 +41,11 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 " Plugin for latex support
-Plugin 'lervag/vimtex'
+" Plugin 'lervag/vimtex'
+Plugin 'vim-latex/vim-latex'
 
 " Plugin for folding in latex
-Plugin 'matze/vim-tex-fold'
+" Plugin 'matze/vim-tex-fold'
 
 " Plugin to run the terminal commands in async
 Plugin 'skywind3000/asyncrun.vim'
@@ -73,7 +74,7 @@ Plugin 'xolox/vim-misc'
 " Plugin clever f, extends usage of f, F , t And T
 Plugin 'rhysd/clever-f.vim'
 " plugin for the using tab for the name completion
-" Plugin 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 " Plugin to allow easy data flow b/n vim and tmux
 Plugin 'benmills/vimux'
 " plugin to automatically generate the tags file
@@ -96,13 +97,15 @@ Plugin 'spiiph/vim-space'
 "
 Plugin 'bling/vim-bufferline'
 
+" better solarized using erb
+Plugin 'ericbn/vim-solarized'
 
 " add things to status line
 " Plugin 'maciakl/vim-neatstatus'
 " hi CursorLine ctermbg=black cterm=none
 " hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
-au InsertLeave * set cursorline
-au InsertEnter * set nocursorline
+" au InsertLeave * set cursorline
+" au InsertEnter * set nocursorline
 
 " Plugin interactive scratchpad (show live results for python)
 Plugin 'metakirby5/codi.vim'
@@ -136,7 +139,9 @@ if iCanHazVundle == 0
     :BundleInstall
 endif
 
-filetype plugin indent on     " required!
+filetype plugin on     " required!
+filetype indent on
+filetype plugin indent on
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 " Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 let g:Powerline_symbols = 'fancy'
@@ -201,7 +206,7 @@ set foldlevel=1
 
 " since i find it useful at other times too
 " set invcursorline
-set cursorline
+" set cursorline
 " autocmd InsertEnter * highlight CursorLine guibg=#000050 guifg=fg
 " autocmd InsertLeave * highlight CursorLine guibg=#004000 guifg=fg
 autocmd BufEnter * silent! lcd %:p:h
@@ -226,8 +231,9 @@ else
 endif
 
 " theme configs
-let g:solarized_termcolors=256
-set background=dark
+" let g:solarized_termcolors=256
+" set background=dark
+set background=light
 colorscheme solarized
 
 " setting for vim-visual-page-percent
@@ -358,7 +364,7 @@ map g/ <Plug>(incsearch-stay)
 
 " insert one character only and return back to normal mode
 nmap <leader>o i_<Esc>r
-nmap <space> :noh<CR>
+" nmap <space> :noh<CR>
 "nmap <space> <C-f>
 "nmap <S-space> <C-b>
 "nnoremap <space> za 
@@ -378,6 +384,7 @@ nnoremap <leader>s O<Esc>j
 " highlighted uncommnted print statements in python code
 nnoremap <leader>c /^[^#]*\s*print<CR>
 nnoremap <leader>b :Startify<CR>
+nnoremap <leader>r :b#<CR>
 
 cmap w!! %!sudo tee > /dev/null %
 
@@ -410,7 +417,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " This is to fix the ValueError:  still no compile flags, no completions yet
 " for the  C and CPP codes
-let g:ycm_global_ycm_extra_conf = "~/dotfiles/vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+" let g:ycm_global_ycm_extra_conf = "~/dotfiles/vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
 
@@ -495,8 +502,8 @@ vmap <Leader>vs "vy:call VimuxSlime()<CR>
 nmap <Leader>vs vip<Leader>vs<CR>
 
 
-map <C-j> <C-k>:VimuxRunCommand("clear; p; gcc " .bufname("%") ."; ./a.out; p")<CR>
-imap <C-j> <Esc><C-k>:VimuxRunCommand("p; gcc " .bufname("%") ."; ./a.out; p")<CR>i
+" map <C-j> <C-k>:VimuxRunCommand("clear; p; gcc " .bufname("%") ."; ./a.out; p")<CR>
+" imap <C-j> <Esc><C-k>:VimuxRunCommand("p; gcc " .bufname("%") ."; ./a.out; p")<CR>i
 " map <Leader>vc map <C-j> :!gcc -o %.out %; ./%.out<CR>
 
 "
@@ -599,7 +606,24 @@ let maplocalleader = "\\"
 nnoremap s :exec "normal i".nr2char(getchar())."\e"<CR>
 nnoremap S :exec "normal a".nr2char(getchar())."\e"<CR>
 
-map <Space> :noh<CR>
+" map <Space> :noh<CR>
 " hi CursorLine cterm=NONE ctermbg=black ctermfg=white guibg=darkblue guifg=white
-hi CursorLine gui=underline cterm=underline
+" hi CursorLine gui=underline cterm=underline
 
+
+" redirect g search output to scratch
+command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=nofile | put! a
+
+
+" Truncate digits
+" %s/\d\+\.\d\+/\=printf('%.2f',str2float(submatch(0)))/g
+"
+" Change the colors of the search higlight
+hi Search cterm=NONE ctermbg=lightblue ctermfg=black
+
+" Resize the windows using keyboard shortcut
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
+" indent whole file
+nnoremap <F7> mzgg=G`z

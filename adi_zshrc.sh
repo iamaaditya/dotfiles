@@ -272,8 +272,8 @@ codi() {
 
 # Antigen commands
 
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
+# antigen bundle git@github.com:zsh-users/zsh-syntax-highlighting
+antigen bundle git@github.com:zsh-users/zsh-autosuggestions.git
 # antigen bundle https://github.com/sakshamsharma/zpyi zpyi.zsh
 # antigen bundle zsh-users/zsh-history-substring-search
 # antigen bundle command-not-found
@@ -284,3 +284,8 @@ bindkey '^ ' autosuggest-accept
 
 export PATH=$PATH:~/.cargo/bin
 export PYTHONSTARTUP=/home/ap/dotfiles/startup.py
+
+tohimal() {
+    rsync -azP $1/ himal:$1
+}
+

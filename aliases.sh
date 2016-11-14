@@ -30,6 +30,7 @@ alias tp="top -b -n 1 -p "
 # alias vi='vim'
 # now is the time
 alias vim='/usr/local/bin/vim'
+alias vimdiff='/usr/local/bin/vimdiff'
 alias vi='/usr/local/bin/vim'
 # alias vi='vim'
 alias tmuxa=TERM=xterm-256color /usr/bin/tmux attach
@@ -111,3 +112,7 @@ function p {
 function count_files {
     find -maxdepth 1 -type d | while read -r dir; do printf "%s:\t" "$dir"; find "$dir" -type f | wc -l; done
 }
+
+alias wc_recursive="find -maxdepth 1 -type d | while read -r dir; do printf "%s:\t" "$dir"; find "$dir" -type f | wc -l; done"
+
+alias ps_by_time="ps -eo start_time,pid,euser,args:100 --sort start_time"
