@@ -118,3 +118,5 @@ alias wc_recursive="find -maxdepth 1 -type d | while read -r dir; do printf "%s:
 alias ps_by_time="ps -eo start_time,pid,euser,args:100 --sort start_time"
 
 alias mv_ten="ls . | shuf -n 10 | xargs -I '{}' mv '{}' ../../test/`basename $PWD`/"
+
+alias lp='ll *.py'

@@ -224,12 +224,12 @@ autocmd BufEnter * silent! lcd %:p:h
 " for the vimdiff hide the common lines
 set diffopt=filler,context:0
 
-nmap <leader>i <plug>(vimtex-cmd-create)
 " Folding plugin settings
 "let g:SimpylFold_docstring_preview = 1
 let g:SimpylFold_fold_docstring = 0
 let mapleader=","       " leader is comma
 " let localleader=","
+nmap <leader>i <plug>(vimtex-cmd-create)
 
 " allows cursor change in tmux mode
 if exists('$TMUX')
@@ -277,8 +277,8 @@ nnoremap j gj
 nnoremap k gk
 " move to beginning/end of line
 " STOP changing the default one key behaviours !
-" nnoremap B ^
-" nnoremap E $
+nnoremap H ^
+nnoremap L $
 " highlight last inserted text
 nnoremap gV `[v`]
 " make the Y behave similar to D
@@ -333,7 +333,8 @@ map <leader>w :w<CR>
 map <leader>e yypgcck<CR>
 
 map <leader>m :MRU<CR>
-
+" FIXME
+map <leader>j OFIXME<ESC>,gj
 " map <leader>j %!python -m json.tool<CR>
 map <leader>d :bd<CR>
 " imap <leader>d <Esc>:bd<CR>
@@ -641,3 +642,7 @@ nnoremap <F7> mzgg=G`z
 
 " mappings for org-mode
 let g:org_agenda_files=['~/org/*.org']
+
+nnoremap m ]m
+nnoremap M [m
+
