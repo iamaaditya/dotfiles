@@ -116,3 +116,5 @@ function count_files {
 alias wc_recursive="find -maxdepth 1 -type d | while read -r dir; do printf "%s:\t" "$dir"; find "$dir" -type f | wc -l; done"
 
 alias ps_by_time="ps -eo start_time,pid,euser,args:100 --sort start_time"
+
+alias mv_ten="ls . | shuf -n 10 | xargs -I '{}' mv '{}' ../../test/`basename $PWD`/"
