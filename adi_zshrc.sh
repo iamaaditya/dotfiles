@@ -103,7 +103,8 @@ export PYTHONPATH="$PYTHONPATH:~/image_compression/vmaf/python"
 
 # export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 # export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
-export JAVA_HOME/usr/bin/
+# export JAVA_HOME=/usr/bin/
+export JAVA_HOME=/usr/local/lib/jvm/java-8-oracle
 
 
 # A shortcut function that simplifies usage of xclip.
@@ -168,7 +169,7 @@ code()
 }
 
 # Make a backup with current date
-bck()
+backup()
 {
   cp "$1" "$1.__backup__`date +%d-%h-%Y`"
 }
