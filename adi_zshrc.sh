@@ -20,6 +20,7 @@ export EDITOR=vim
 # https://raw.githubusercontent.com/rupa/z/master/z.sh (like autojump)
 source ~/dotfiles/z.sh
 source ~/dotfiles/aliases.sh
+source ~/dotfiles/git_aliases.sh
 source ~/dotfiles/my_functions.sh
 source ~/helper_libs/bash-wakatime/bash-wakatime.sh
 source ~/dotfiles/antigen.zsh
@@ -101,7 +102,8 @@ export PYTHONPATH="$PYTHONPATH:~/image_compression/vmaf/python"
 # export PATH="/home/ap/anaconda2/bin:$PATH"
 
 # export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+# export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+export JAVA_HOME/usr/bin/
 
 
 # A shortcut function that simplifies usage of xclip.
@@ -289,3 +291,6 @@ tohimal() {
     rsync -azP $1/ himal:$1
 }
 
+
+# for Android NDK
+export NDK_ROOT=/home/ap/helper_libs/android-ndk-r13b/

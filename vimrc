@@ -28,6 +28,10 @@ Plugin 'sjl/gundo.vim'
 " Plugin 'rking/ag.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar'
+    nmap <Bar> :TagbarToggle<CR>
+    let g:tagbar_width=20
+    let g:tagbar_show_linenumbers=1
+
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'terryma/vim-expand-region'
 " Plugin 'terryma/vim-multiple-cursors'
@@ -69,6 +73,8 @@ Plugin 'godlygeek/tabular'
 
 " Plugin to automatically generate ctags & exuberant tags
 Plugin 'xolox/vim-easytags'
+    let g:easytags_async = 1
+    let g:easytags_suppress_report = 1
 Plugin 'xolox/vim-misc'
 
 " Plugin clever f, extends usage of f, F , t And T
@@ -117,6 +123,9 @@ Plugin 'tpope/vim-speeddating'
 " Plugin to manage fold, indent and objects (paragraphs) for python
 Plugin 'tweekmonster/braceless.vim'
 autocmd FileType python BracelessEnable +indent +fold 
+
+" Plugin to select calendar in vim-org mode
+Plugin 'mattn/calendar-vim'
 
 Plugin 'shinokada/dragvisuals.vim'
 Plugin 'mhinz/vim-startify'                           " a start screen with recently modified files and vim sessions
@@ -203,6 +212,7 @@ set autowrite
 set foldnestmax=2
 set nofoldenable
 set foldlevel=1
+set shortmess=at
 
 " since i find it useful at other times too
 " set invcursorline
@@ -266,8 +276,9 @@ set pastetoggle=<F3>
 nnoremap j gj
 nnoremap k gk
 " move to beginning/end of line
-nnoremap B ^
-nnoremap E $
+" STOP changing the default one key behaviours !
+" nnoremap B ^
+" nnoremap E $
 " highlight last inserted text
 nnoremap gV `[v`]
 " make the Y behave similar to D
@@ -285,7 +296,6 @@ map <leader>t :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['\.out$', '\.bin$', '\.pyc$']
 let g:NERDTreeWinSize = 20
-nmap <Bar> :TagbarToggle<CR>
 "vmap <C-f> :fold<CR>
 nmap <CR> :set rnu!<CR>
 map <C-c> :nohlsearch<CR>
@@ -383,7 +393,8 @@ nnoremap <leader>s O<Esc>j
 
 " highlighted uncommnted print statements in python code
 nnoremap <leader>c /^[^#]*\s*print<CR>
-nnoremap <leader>b :Startify<CR>
+nnoremap <leader>b :bu 
+" nnoremap <leader>b :Startify<CR>
 nnoremap <leader>r :b#<CR>
 
 cmap w!! %!sudo tee > /dev/null %
@@ -603,7 +614,7 @@ let maplocalleader = "\\"
 
 
 " make the 's' and 'S' insert a single character
-nnoremap s :exec "normal i".nr2char(getchar())."\e"<CR>
+" nnoremap s :exec "normal i".nr2char(getchar())."\e"<CR>
 nnoremap S :exec "normal a".nr2char(getchar())."\e"<CR>
 
 " map <Space> :noh<CR>
@@ -627,3 +638,6 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " indent whole file
 nnoremap <F7> mzgg=G`z
+
+" mappings for org-mode
+let g:org_agenda_files=['~/org/*.org']
