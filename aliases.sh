@@ -5,7 +5,9 @@ alias ff="find . -name"
 alias t="/home/ap/helper_libs/todo.txt_cli-2.10/todo.sh"
 alias tt="/usr/bin/time"
 alias vtop="vtop --theme becca"
+# alias tm="TERM=xterm-256color /usr/bin/tmux-next"
 alias tm="TERM=xterm-256color /usr/bin/tmux"
+
 
 alias df="pydf"
 # alias top="htop"
@@ -30,10 +32,11 @@ alias tp="top -b -n 1 -p "
 # alias vi='vim'
 # now is the time
 alias vim='/usr/local/bin/vim'
-alias vimdiff='/usr/local/bin/vimdiff'
+# alias vimdiff='/usr/local/bin/vimdiff'
+alias vimdiff='vim -d'
 alias vi='/usr/local/bin/vim'
 # alias vi='vim'
-alias tmuxa=TERM=xterm-256color /usr/bin/tmux attach
+# alias tmuxa=TERM=xterm-256color /usr/bin/tmux attach
 alias hourModified="find . -mmin -60"
 alias hourCreated="find . -cmin -60"
 alias dayModified="find . -mtime -1"
@@ -120,3 +123,8 @@ alias ps_by_time="ps -eo start_time,pid,euser,args:100 --sort start_time"
 alias mv_ten="ls . | shuf -n 10 | xargs -I '{}' mv '{}' ../../test/`basename $PWD`/"
 
 alias lp='ll *.py'
+alias grep_all="git branch -a | tr -d \* | xargs git grep"
+
+findtime() {
+ find . -name $1 -printf "%T+\t%p\n" | sort
+}

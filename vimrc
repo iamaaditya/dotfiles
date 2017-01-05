@@ -1,5 +1,8 @@
 set nocompatible
 filetype off
+set clipboard=exclude:.*
+
+let mapleader="\<Space>"       " leader is comma
 "Setting up Vundle - the vim plugin bundler
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -23,17 +26,22 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 " Plugin 'svermeulen/vim-easyclip'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 " Plugin 'rking/ag.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar'
     nmap <Bar> :TagbarToggle<CR>
-    let g:tagbar_width=20
+    let g:tagbar_width=40
     let g:tagbar_show_linenumbers=1
 
 Plugin 'haya14busa/incsearch.vim'
+
 Plugin 'terryma/vim-expand-region'
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+
 " Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mtth/scratch.vim'
 Plugin 'wellle/targets.vim'
@@ -60,7 +68,7 @@ Plugin 'maralla/completor.vim'
 " altternate to powerline but ended up not using 
 " Plugin 'bling/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
-let g:airline_theme='durant'
+" let g:airline_theme='durant'
 
 "awesome plugin, which tablularises by given separator 
 " :Tab /<symbol>
@@ -95,7 +103,8 @@ Plugin 'L9'
 
 " increases the utility of space to enchance the repeat command. Use space to
 " repeat
-Plugin 'spiiph/vim-space'
+" # remvoing as it hijacks ; and breaks sneak
+" Plugin 'spiiph/vim-space'
 "
 "add buffers at the tabline
 " Plugin 'ap/vim-buftabline'
@@ -110,8 +119,9 @@ Plugin 'ericbn/vim-solarized'
 " Plugin 'maciakl/vim-neatstatus'
 " hi CursorLine ctermbg=black cterm=none
 " hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
-" au InsertLeave * set cursorline
-" au InsertEnter * set nocursorline
+set cursorline
+au InsertLeave * set cursorline
+au InsertEnter * set nocursorline
 
 " Plugin interactive scratchpad (show live results for python)
 Plugin 'metakirby5/codi.vim'
@@ -120,16 +130,20 @@ Plugin 'metakirby5/codi.vim'
 Plugin 'jceb/vim-orgmode'
 Plugin 'tpope/vim-speeddating'
 
-" Plugin to manage fold, indent and objects (paragraphs) for python
-Plugin 'tweekmonster/braceless.vim'
-autocmd FileType python BracelessEnable +indent +fold 
+" plugin to show history of yanks
+"
+" Plugin 'maxbrunsfeld/vim-yankstack'
+" nmap <leader>p <Plug>yankstack_substitute_older_paste
+" nmap <leader>P <Plug>yankstack_substitute_newer_paste
+
+Plugin 'vim-scripts/YankRing.vim'
 
 " Plugin to select calendar in vim-org mode
 Plugin 'mattn/calendar-vim'
 
-Plugin 'shinokada/dragvisuals.vim'
+" Plugin 'shinokada/dragvisuals.vim'
 Plugin 'mhinz/vim-startify'                           " a start screen with recently modified files and vim sessions
-    let g:startify_files_number = 20
+    let g:startify_files_number = 30
     let g:startify_session_persistence = 0          " automatically update sessions
     let g:startify_session_delete_buffers = 1       " delete open buffers before loading a new session
     let g:startify_custom_footer = [
@@ -141,6 +155,8 @@ Plugin 'mhinz/vim-startify'                           " a start screen with rece
         \ ]
     let g:startify_custom_header =
         \ map(split(system('fortune'), '\n'), '"   ". v:val') + ['']
+
+" Plugin 'vim-scripts/bufmap.vim'
 
 if iCanHazVundle == 0
     echo "Installing Plugins, please ignore key map error messages"
@@ -166,8 +182,7 @@ set encoding=utf-8
 set history=2707
 set undolevels=2512
 " set colorcolumn=80
-set laststatus=0
-"set visualbell
+set laststatus=2 "set visualbell
 set noerrorbells
 set wrapscan
 set nowrap
@@ -183,7 +198,7 @@ set autoindent
 set copyindent
 set showmatch
 set ruler
-set rulerformat=%f
+" set rulerformat=%f
 set hlsearch
 set wildmenu
 set incsearch
@@ -201,7 +216,7 @@ set backspace=start,indent,eol
 set t_Co=256
 set showtabline=0
 set noshowmode
-" set scrolloff=999
+set scrolloff=10
 "set guifont=Monaco:h13
 set nolist  "hide invisible characters
 set autowrite
@@ -227,7 +242,6 @@ set diffopt=filler,context:0
 " Folding plugin settings
 "let g:SimpylFold_docstring_preview = 1
 let g:SimpylFold_fold_docstring = 0
-let mapleader=","       " leader is comma
 " let localleader=","
 nmap <leader>i <plug>(vimtex-cmd-create)
 
@@ -248,9 +262,12 @@ colorscheme solarized
 
 " setting for vim-visual-page-percent
 " set statusline+=%{VisualPercent()}
+set statusline=%<\ %n:%F\ %m%r%y%=%-35.(L:\ %l\ /\ %L,\ C:\ %c%V\ (%P)%)
 
 " CtrlP settings
+let g:ctrlp_map = '<C-o>'
 let g:ctrlp_user_command = 'ag %s -l --smart-case -g ""'
+
 " The option below works only if ctrlp default globfiles() is used to get the
 " files, not when user_command (ag above) is used 
 " let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
@@ -291,7 +308,8 @@ nnoremap Y y$
 " map M m$
 " 
 " map ,g :call NERDComment(0,"toggle")<CR>
-map ,g gcc
+" map ,g gcc
+
 map <leader>t :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['\.out$', '\.bin$', '\.pyc$']
@@ -305,8 +323,8 @@ map <C-l> :tabn<CR>
 map <C-h> :tabp<CR>
 map <C-n> :tabnew<CR>
 
-" binding for folding (=)
-nmap = 0za
+" binding for folding (,)
+nmap , 0za
 
 " make - as quit without saving 
 nnoremap - :q<CR>
@@ -334,7 +352,9 @@ map <leader>e yypgcck<CR>
 
 map <leader>m :MRU<CR>
 " FIXME
-map <leader>j OFIXME<ESC>,gj
+" map <leader>j OFIXME<ESC>,gj
+map <leader>j :!python %<CR>
+
 " map <leader>j %!python -m json.tool<CR>
 map <leader>d :bd<CR>
 " imap <leader>d <Esc>:bd<CR>
@@ -389,14 +409,14 @@ let g:gundo_preview_height=20
 " changed from ag.vim to ack.vim as ag is deprecated
 " Wed 28 Sep 2016 02:38:25 PM EDT 
 let g:ackprg = 'ag --vimgrep'
-nnoremap <leader>a :Ack<space>
+nnoremap <leader>a :Ack<space> <C-r>/
 nnoremap <leader>s O<Esc>j
 
 " highlighted uncommnted print statements in python code
 nnoremap <leader>c /^[^#]*\s*print<CR>
 nnoremap <leader>b :bu 
 " nnoremap <leader>b :Startify<CR>
-nnoremap <leader>r :b#<CR>
+nnoremap <leader>r :up<CR>:b#<CR>
 
 cmap w!! %!sudo tee > /dev/null %
 
@@ -416,6 +436,7 @@ omap S <Plug>Sneak_S
 map gn :bn<CR>
 map gp :bp<CR>
 map gd :bd<CR> 
+map gb :ls<CR>:buffer<Space>
 
 "improve autocomplete menu color
 highlight Pmenu ctermbg=gray ctermfg=black gui=bold
@@ -513,7 +534,7 @@ endfunction
 vmap <Leader>vs "vy:call VimuxSlime()<CR>
 nmap <Leader>vs vip<Leader>vs<CR>
 
-
+map <leader>vv :VimuxRunCommand("")
 " map <C-j> <C-k>:VimuxRunCommand("clear; p; gcc " .bufname("%") ."; ./a.out; p")<CR>
 " imap <C-j> <Esc><C-k>:VimuxRunCommand("p; gcc " .bufname("%") ."; ./a.out; p")<CR>i
 " map <Leader>vc map <C-j> :!gcc -o %.out %; ./%.out<CR>
@@ -645,4 +666,43 @@ let g:org_agenda_files=['~/org/*.org']
 
 nnoremap m ]m
 nnoremap M [m
+        
+" Capitalise first letter of every word
+map <F9> :s/\v<(.)(\w*)/\u\1\L\2/g
+
+" C-n as next buffer
+" current not C-p as that is for CtrlP
+nnoremap <C-n> :bnext<CR>
+nnoremap <leader>1 :bu 1<CR>
+nnoremap <leader>2 :bu 2<CR>
+nnoremap <leader>3 :bu 3<CR>
+nnoremap <leader>4 :bu 4<CR>
+nnoremap <leader>5 :bu 5<CR>
+nnoremap <leader>6 :bu 6<CR>
+nnoremap <leader>7 :bu 7<CR>
+nnoremap <leader>8 :bu 8<CR>
+nnoremap <leader>9 :bu 9<CR>
+
+map <C-s> :w<CR>
+
+map <leader><leader> <C-w><C-w>
+
+vnoremap <leader>i c[<C-r>"]()<Esc>i
+
+" vp doesn't replace paste buffer
+function! RestoreRegister()
+  let @" = s:restore_reg
+  return ''
+endfunction
+function! s:Repl()
+  let s:restore_reg = @"
+  return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()
+
+map q: :q
+map <leader>g gcc
+map <leader><Enter> za
+map <C-j> :w<CR>:VimuxRunCommand("run " .bufname("%"))<CR>
+imap <C-j> <Esc>:w<CR>:VimuxRunCommand("run " .bufname("%"))<CR>
 
