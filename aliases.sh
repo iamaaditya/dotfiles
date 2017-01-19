@@ -128,3 +128,7 @@ alias grep_all="git branch -a | tr -d \* | xargs git grep"
 findtime() {
  find . -name $1 -printf "%T+\t%p\n" | sort
 }
+
+run(){
+    CUDA_VISIBLE_DEVICES=4 python $1 2>/dev/null
+}

@@ -295,3 +295,5 @@ tohimal() {
 
 # for Android NDK
 export NDK_ROOT=/home/ap/helper_libs/android-ndk-r13b/
+
+export PYTHONDONTWRITEBYTECODE=1

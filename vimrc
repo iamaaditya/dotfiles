@@ -123,6 +123,8 @@ set cursorline
 au InsertLeave * set cursorline
 au InsertEnter * set nocursorline
 
+
+
 " Plugin interactive scratchpad (show live results for python)
 Plugin 'metakirby5/codi.vim'
 
@@ -545,7 +547,7 @@ map <leader>vv :VimuxRunCommand("")
 imap <F5> <Esc>"vyy:call VimuxSlime()<CR>ji
 nmap <F5> "vyy:call VimuxSlime()<CR>j
 " vmux vs send the line
-nmap <Leader><Leader> "vyy:call VimuxSlime()<CR>j
+nmap <Leader>vv "vyy:call VimuxSlime()<CR>j
 map <Leader>vr Bv$"vy:call VimuxSlime()<CR>
 " map <Leader>vv ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
 " map <Leader><Leader> ,w:VimuxRunCommand("rm ./Map; gcc Map.c -o Map -ansi ; ./Map")<CR>
@@ -664,8 +666,10 @@ nnoremap <F7> mzgg=G`z
 " mappings for org-mode
 let g:org_agenda_files=['~/org/*.org']
 
-nnoremap m ]m
-nnoremap M [m
+" nnoremap m ]m
+" nnoremap M [m
+map <tab> }
+map <s-tab> {
         
 " Capitalise first letter of every word
 map <F9> :s/\v<(.)(\w*)/\u\1\L\2/g
@@ -703,6 +707,9 @@ vmap <silent> <expr> p <sid>Repl()
 map q: :q
 map <leader>g gcc
 map <leader><Enter> za
-map <C-j> :w<CR>:VimuxRunCommand("run " .bufname("%"))<CR>
-imap <C-j> <Esc>:w<CR>:VimuxRunCommand("run " .bufname("%"))<CR>
+" map <C-j> :w<CR>:VimuxRunCommand("run " .bufname("%"))<CR>
+" imap <C-j> <Esc>:w<CR>:VimuxRunCommand("run " .bufname("%"))<CR>
+
+map <C-j> :up<CR>:VimuxRunCommand("run " .expand('%:p'))<CR>
+imap <C-j> <Esc><leader>w:VimuxRunCommand("run " .expand('%:p'))<CR>
 
