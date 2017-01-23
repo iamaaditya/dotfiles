@@ -130,5 +130,5 @@ findtime() {
 }
 
 run(){
-    CUDA_VISIBLE_DEVICES=4 python $1 2>/dev/null
+    CUDA_VISIBLE_DEVICES=4 python $1 
 }
