@@ -132,3 +132,9 @@ findtime() {
 run(){
     CUDA_VISIBLE_DEVICES=4 python $1 
 }
+
+bashcompinit(){
+            # undefined
+            builtin autoload -XU
+}
+
