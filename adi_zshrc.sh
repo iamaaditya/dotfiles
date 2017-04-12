@@ -85,6 +85,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ap/anaconda2/lib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_HOME
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ap/torch/install/include/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 
 #OpenCV
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig

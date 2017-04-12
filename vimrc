@@ -1,6 +1,7 @@
 set nocompatible
 filetype off
-set clipboard=exclude:.*
+" set clipboard=exclude:.*
+set clipboard=
 
 let mapleader="\<Space>"       " leader is comma
 "Setting up Vundle - the vim plugin bundler
@@ -139,6 +140,8 @@ Plugin 'tpope/vim-speeddating'
 " nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
 Plugin 'vim-scripts/YankRing.vim'
+let g:yankring_clipboard_monitor=0
+nnoremap ,zp :YRPaste<CR>
 
 " Plugin to select calendar in vim-org mode
 Plugin 'mattn/calendar-vim'
@@ -713,3 +716,5 @@ map <leader><Enter> za
 map <C-j> :up<CR>:VimuxRunCommand("run " .expand('%:p'))<CR>
 imap <C-j> <Esc><leader>w:VimuxRunCommand("run " .expand('%:p'))<CR>
 
+imap <C-g> <Plug>IMAP_JumpForward
+nmap <C-g> <Plug>IMAP_JumpForward

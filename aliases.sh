@@ -130,7 +130,7 @@ findtime() {
 }
 
 run(){
-    CUDA_VISIBLE_DEVICES=4 python $1 
+    CUDA_VISIBLE_DEVICES=3 python $1 
 }
 
 bashcompinit(){
@@ -138,3 +138,16 @@ bashcompinit(){
             builtin autoload -XU
 }
 
+alias ds="du -sh * | sort -h"
+
+alias ax="axel -n 20 -a"
+
+count_uniq(){
+cat $1 | tr " " "\n" | sort | uniq| wc -l
+}
+
+fix_backspace(){
+    cat $1 | col -b | tee $1_
+    /bin/mv $1_ $1
+}
+alias fbs=fix_backspace
