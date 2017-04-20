@@ -151,3 +151,4 @@ fix_backspace(){
     /bin/mv $1_ $1
 }
 alias fbs=fix_backspace
+alias pp=ptipython
