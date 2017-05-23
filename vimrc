@@ -270,6 +270,8 @@ colorscheme solarized
 set statusline=%<\ %n:%F\ %m%r%y%=%-35.(L:\ %l\ /\ %L,\ C:\ %c%V\ (%P)%)
 
 " CtrlP settings
+map <C-k> :CtrlPMRUFiles<CR>
+imap <C-k> <Esc>:CtrlPMRUFiles<CR>
 let g:ctrlp_map = '<C-o>'
 let g:ctrlp_user_command = 'ag %s -l --smart-case -g ""'
 
@@ -320,7 +322,8 @@ let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['\.out$', '\.bin$', '\.pyc$']
 let g:NERDTreeWinSize = 20
 "vmap <C-f> :fold<CR>
-nmap <CR> :set rnu!<CR>
+set rnu
+" nmap <CR> :set rnu!<CR>
 map <C-c> :nohlsearch<CR>
 "map <C-S-l> :set rl<CR>
 "map <C-S-k> :set norl<CR>
@@ -343,8 +346,8 @@ nnoremap <leader>vi :tabnew ~/dotfiles/vimrc<CR>
 "                            \|        confirm write
 "                            \|    endif
 "                            \|endif
-nnoremap <C-k> :up<CR>
-inoremap <C-k> <Esc>:up<CR>i
+" nnoremap <C-k> :up<CR>
+" inoremap <C-k> <Esc>:up<CR>i
 
 " save using leader key
 map <leader>w :w<CR>
@@ -718,3 +721,5 @@ imap <C-j> <Esc><leader>w:VimuxRunCommand("run " .expand('%:p'))<CR>
 
 imap <C-g> <Plug>IMAP_JumpForward
 nmap <C-g> <Plug>IMAP_JumpForward
+
+
