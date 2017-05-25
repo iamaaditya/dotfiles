@@ -187,7 +187,7 @@ set encoding=utf-8
 set history=2707
 set undolevels=2512
 " set colorcolumn=80
-set laststatus=2 "set visualbell
+set laststatus=1 "set visualbell
 set noerrorbells
 set wrapscan
 set nowrap
@@ -337,7 +337,7 @@ nmap , 0za
 " make - as quit without saving 
 nnoremap - :q<CR>
 " open vimrc
-nnoremap <leader>vi :tabnew ~/dotfiles/vimrc<CR>
+nnoremap <leader>vi :tabnew ~/.vimrc<CR>
 "
 " command -nargs=0 -bar Update if &modified 
 "                            \|    if empty(bufname('%'))
@@ -495,31 +495,31 @@ let g:DVB_TrimWS = 1
 
 " program to open pdf files as text using pdftotext
 " run pdftotext to read PDF files
-fun s:readpdf()
-    if (!executable("pdftotext"))
-        echo "Error: pdftotext not installed or not in path"
-        return
-    endif
+" fun s:readpdf()
+"     if (!executable("pdftotext"))
+"         echo "Error: pdftotext not installed or not in path"
+"         return
+"     endif
 
-    let tmp = tempname()
-    " invoke: pdftotext sourcefile.pdf tempfile
-    call system ("pdftotext '" . escape (expand("<afile>"), "'") . "' " . tmp)
-    setlocal nobin
-    execute "silent '[-1r " . tmp
-    " clean up the temporary file
-    call delete(tmp)
+"     let tmp = tempname()
+"     " invoke: pdftotext sourcefile.pdf tempfile
+"     call system ("pdftotext '" . escape (expand("<afile>"), "'") . "' " . tmp)
+"     setlocal nobin
+"     execute "silent '[-1r " . tmp
+"     " clean up the temporary file
+"     call delete(tmp)
 
-    " make the buffer unwritable: we don't want to clobber the PDF file!
-    set nowrite
-endfun
+"     " make the buffer unwritable: we don't want to clobber the PDF file!
+"     set nowrite
+" endfun
 
-autocmd BufReadPost,FileReadPost *.pdf call s:readpdf()
+" autocmd BufReadPost,FileReadPost *.pdf call s:readpdf()
 
 " Adding ability to read Man pages from vimrc
 runtime! ftplugin/man.vim
 
 " Setting the tmux pane name as vi file name
-autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window ". expand("%:t"))
+autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window ". expand("%:p:."))
 
 
 " Code for Vimux
@@ -719,7 +719,12 @@ map <leader><Enter> za
 map <C-j> :up<CR>:VimuxRunCommand("run " .expand('%:p'))<CR>
 imap <C-j> <Esc><leader>w:VimuxRunCommand("run " .expand('%:p'))<CR>
 
+map <C-l> :up<CR>:VimuxRunCommand("!! ")<CR>
+imap <C-l> <Esc><leader>w:VimuxRunCommand("!! ")<CR>
+
 imap <C-g> <Plug>IMAP_JumpForward
 nmap <C-g> <Plug>IMAP_JumpForward
 
 
+" fixes the colors of the matching parenthesis/braces
+hi MatchParen cterm=underline ctermbg=white ctermfg=black
