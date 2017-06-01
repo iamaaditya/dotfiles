@@ -152,3 +152,19 @@ fix_backspace(){
 }
 alias fbs=fix_backspace
 alias pp=ptipython
+
+latest(){
+    l=$(ls -Art | tail -n 1)
+    tail -F $l
+}
+alias lt=latest
+
+
+organize(){
+  for x in *; do
+    d=$(date -r "$x" +%m-%d)
+    mkdir -p "$d"
+    mv -- "$x" "$d/"
+  done
+}
+
