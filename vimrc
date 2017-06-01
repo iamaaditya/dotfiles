@@ -21,7 +21,7 @@ Plugin 'gmarik/vundle'
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'tpope/vim-fugitive'
 Plugin 'tmhedberg/SimpylFold'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
 " Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-commentary'
@@ -43,15 +43,23 @@ vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
 
+Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plugin 'zchee/deoplete-jedi'
+let g:deoplete#enable_at_startup = 1
+autocmd CompleteDone * pclose!
+let g:deoplete#auto_complete_delay = 10
+" closes the preview window after completion is done
+
+
 " Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mtth/scratch.vim'
 Plugin 'wellle/targets.vim'
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/mru.vim'
 Plugin 'wakatime/vim-wakatime'
 
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
 
 " Plugin for latex support
 " Plugin 'lervag/vimtex'
@@ -64,7 +72,7 @@ Plugin 'vim-latex/vim-latex'
 Plugin 'skywind3000/asyncrun.vim'
 
 " Plugin to auto-complete 
-Plugin 'maralla/completor.vim'
+" Plugin 'maralla/completor.vim'
 
 " altternate to powerline but ended up not using 
 " Plugin 'bling/vim-airline'
@@ -108,10 +116,13 @@ Plugin 'L9'
 " Plugin 'spiiph/vim-space'
 "
 "add buffers at the tabline
-" Plugin 'ap/vim-buftabline'
-" let g:buftabline_numbers = 1
+Plugin 'ap/vim-buftabline'
+let g:buftabline_show = 1 " 0 no show, 1 show only if more than 1 buf, 2 always show
+let g:buftabline_numbers = 1
+let g:buftabline_indicators = 1
+let g:buftabline_separators = 1
 "
-Plugin 'bling/vim-bufferline'
+" Plugin 'bling/vim-bufferline'
 
 " better solarized using erb
 Plugin 'ericbn/vim-solarized'
@@ -337,7 +348,7 @@ nmap , 0za
 " make - as quit without saving 
 nnoremap - :q<CR>
 " open vimrc
-nnoremap <leader>vi :tabnew ~/.vimrc<CR>
+nnoremap <leader>vi :e ~/.vimrc<CR>
 "
 " command -nargs=0 -bar Update if &modified 
 "                            \|    if empty(bufname('%'))
@@ -417,7 +428,7 @@ let g:gundo_preview_height=20
 " changed from ag.vim to ack.vim as ag is deprecated
 " Wed 28 Sep 2016 02:38:25 PM EDT 
 let g:ackprg = 'ag --vimgrep'
-nnoremap <leader>a :Ack<space> <C-r>/
+nnoremap <leader>a :Ack<space> 
 nnoremap <leader>s O<Esc>j
 
 " highlighted uncommnted print statements in python code
@@ -719,8 +730,10 @@ map <leader><Enter> za
 map <C-j> :up<CR>:VimuxRunCommand("run " .expand('%:p'))<CR>
 imap <C-j> <Esc><leader>w:VimuxRunCommand("run " .expand('%:p'))<CR>
 
-map <C-l> :up<CR>:VimuxRunCommand("!! ")<CR>
-imap <C-l> <Esc><leader>w:VimuxRunCommand("!! ")<CR>
+map <C-l> :up<CR>:VimuxRunCommand("!! ")<CR>:VimuxRunCommand(" ")<CR>
+
+imap <C-l> <Esc><leader>w:VimuxRunCommand("!! ")<CR>:VimuxRunCommand(" ")<CR>i
+
 
 imap <C-g> <Plug>IMAP_JumpForward
 nmap <C-g> <Plug>IMAP_JumpForward
@@ -728,3 +741,9 @@ nmap <C-g> <Plug>IMAP_JumpForward
 
 " fixes the colors of the matching parenthesis/braces
 hi MatchParen cterm=underline ctermbg=white ctermfg=black
+
+" let g:bufferline_echo = 0
+" autocmd VimEnter *
+" 	\ let &statusline='%{bufferline#refresh_status()}'
+" 	  \ .bufferline#get_status_string()
+
