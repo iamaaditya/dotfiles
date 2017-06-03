@@ -38,9 +38,9 @@ Plugin 'majutsushi/tagbar'
 
 Plugin 'haya14busa/incsearch.vim'
 
-Plugin 'terryma/vim-expand-region'
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
+" Plugin 'terryma/vim-expand-region'
+" vmap v <Plug>(expand_region_expand)
+" vmap <C-v> <Plug>(expand_region_shrink)
 
 
 Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -281,8 +281,8 @@ colorscheme solarized
 set statusline=%<\ %n:%F\ %m%r%y%=%-35.(L:\ %l\ /\ %L,\ C:\ %c%V\ (%P)%)
 
 " CtrlP settings
-map <C-k> :CtrlPMRUFiles<CR>
-imap <C-k> <Esc>:CtrlPMRUFiles<CR>
+map <C-O> :CtrlPMRUFiles<CR>
+imap <C-O> <Esc>:CtrlPMRUFiles<CR>
 let g:ctrlp_map = '<C-o>'
 let g:ctrlp_user_command = 'ag %s -l --smart-case -g ""'
 
@@ -338,9 +338,9 @@ set rnu
 map <C-c> :nohlsearch<CR>
 "map <C-S-l> :set rl<CR>
 "map <C-S-k> :set norl<CR>
-map <C-l> :tabn<CR>
-map <C-h> :tabp<CR>
-map <C-n> :tabnew<CR>
+" map <C-l> :tabn<CR>
+" map <C-h> :tabp<CR>
+" map <C-n> :tabnew<CR>
 
 " binding for folding (,)
 nmap , 0za
@@ -721,18 +721,17 @@ function! s:Repl()
 endfunction
 vmap <silent> <expr> p <sid>Repl()
 
-map q: :q
+" map q: :q
 map <leader>g gcc
 map <leader><Enter> za
 " map <C-j> :w<CR>:VimuxRunCommand("run " .bufname("%"))<CR>
 " imap <C-j> <Esc>:w<CR>:VimuxRunCommand("run " .bufname("%"))<CR>
 
-map <C-j> :up<CR>:VimuxRunCommand("run " .expand('%:p'))<CR>
-imap <C-j> <Esc><leader>w:VimuxRunCommand("run " .expand('%:p'))<CR>
+map vj :up<CR>:VimuxRunCommand("run " .expand('%:p'))<CR>
+imap vj <Esc><leader>w:VimuxRunCommand("run " .expand('%:p'))<CR>
 
-map <C-l> :up<CR>:VimuxRunCommand("!! ")<CR>:VimuxRunCommand(" ")<CR>
-
-imap <C-l> <Esc><leader>w:VimuxRunCommand("!! ")<CR>:VimuxRunCommand(" ")<CR>i
+map vl :up<CR>:VimuxRunCommand("!! ")<CR>:VimuxRunCommand(" ")<CR>
+imap vl <Esc><leader>w:VimuxRunCommand("!! ")<CR>:VimuxRunCommand(" ")<CR>i
 
 
 imap <C-g> <Plug>IMAP_JumpForward
@@ -747,3 +746,4 @@ hi MatchParen cterm=underline ctermbg=white ctermfg=black
 " 	\ let &statusline='%{bufferline#refresh_status()}'
 " 	  \ .bufferline#get_status_string()
 
+Plugin 'christoomey/vim-tmux-navigator'
