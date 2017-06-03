@@ -34,7 +34,7 @@ alias tp="top -b -n 1 -p "
 alias vim='/usr/local/bin/vim'
 # alias vimdiff='/usr/local/bin/vimdiff'
 alias vimdiff='vim -d'
-alias vi='/usr/local/bin/vim'
+# alias vi='/usr/local/bin/vim'
 # alias vi='vim'
 # alias tmuxa=TERM=xterm-256color /usr/bin/tmux attach
 alias hourModified="find . -mmin -60"

@@ -56,7 +56,7 @@ Plugin 'mtth/scratch.vim'
 Plugin 'wellle/targets.vim'
 " Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/mru.vim'
-Plugin 'wakatime/vim-wakatime'
+" Plugin 'wakatime/vim-wakatime'
 
 " Plugin 'SirVer/ultisnips'
 " Plugin 'honza/vim-snippets'
