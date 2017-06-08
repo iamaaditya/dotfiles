@@ -168,3 +168,4 @@ organize(){
   done
 }
 
+# alias tag="~/dotfiles/tag"
