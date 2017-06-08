@@ -158,19 +158,19 @@ nnoremap ,zp :YRPaste<CR>
 Plugin 'mattn/calendar-vim'
 
 " Plugin 'shinokada/dragvisuals.vim'
-Plugin 'mhinz/vim-startify'                           " a start screen with recently modified files and vim sessions
-    let g:startify_files_number = 30
-    let g:startify_session_persistence = 0          " automatically update sessions
-    let g:startify_session_delete_buffers = 1       " delete open buffers before loading a new session
-    let g:startify_custom_footer = [
-        \ '',
-        \ '    b   ➤ open in new buffer  :SLoad   ➤ load a session     ',
-        \ '    s,v ➤ open in split       :SSave   ➤ save a session     ',
-        \ '    t   ➤ open in tab         :SDelete ➤ delete a session   ',
-        \ '',
-        \ ]
-    let g:startify_custom_header =
-        \ map(split(system('fortune'), '\n'), '"   ". v:val') + ['']
+" Plugin 'mhinz/vim-startify'                           " a start screen with recently modified files and vim sessions
+"     let g:startify_files_number = 30
+"     let g:startify_session_persistence = 0          " automatically update sessions
+"     let g:startify_session_delete_buffers = 1       " delete open buffers before loading a new session
+"     let g:startify_custom_footer = [
+"         \ '',
+"         \ '    b   ➤ open in new buffer  :SLoad   ➤ load a session     ',
+"         \ '    s,v ➤ open in split       :SSave   ➤ save a session     ',
+"         \ '    t   ➤ open in tab         :SDelete ➤ delete a session   ',
+"         \ '',
+"         \ ]
+"     let g:startify_custom_header =
+"         \ map(split(system('fortune'), '\n'), '"   ". v:val') + ['']
 
 " Plugin 'vim-scripts/bufmap.vim'
 
@@ -259,7 +259,7 @@ set diffopt=filler,context:0
 "let g:SimpylFold_docstring_preview = 1
 let g:SimpylFold_fold_docstring = 0
 " let localleader=","
-nmap <leader>i <plug>(vimtex-cmd-create)
+" nmap <leader>i <plug>(vimtex-cmd-create)
 
 " allows cursor change in tmux mode
 if exists('$TMUX')
@@ -281,8 +281,6 @@ colorscheme solarized
 set statusline=%<\ %n:%F\ %m%r%y%=%-35.(L:\ %l\ /\ %L,\ C:\ %c%V\ (%P)%)
 
 " CtrlP settings
-map <C-O> :CtrlPMRUFiles<CR>
-imap <C-O> <Esc>:CtrlPMRUFiles<CR>
 let g:ctrlp_map = '<C-o>'
 let g:ctrlp_user_command = 'ag %s -l --smart-case -g ""'
 
@@ -328,10 +326,10 @@ nnoremap Y y$
 " map ,g :call NERDComment(0,"toggle")<CR>
 " map ,g gcc
 
-map <leader>t :NERDTreeToggle<CR>
-let NERDTreeHighlightCursorline=1
-let NERDTreeIgnore = ['\.out$', '\.bin$', '\.pyc$']
-let g:NERDTreeWinSize = 20
+" map <leader>t :NERDTreeToggle<CR>
+" let NERDTreeHighlightCursorline=1
+" let NERDTreeIgnore = ['\.out$', '\.bin$', '\.pyc$']
+" let g:NERDTreeWinSize = 20
 "vmap <C-f> :fold<CR>
 set rnu
 " nmap <CR> :set rnu!<CR>
@@ -570,6 +568,7 @@ map <Leader>vr Bv$"vy:call VimuxSlime()<CR>
 " map <Leader><Leader> ,w:VimuxRunCommand("rm ./Map; gcc Map.c -o Map -ansi ; ./Map")<CR>
 
 " run the whole file
+map <Leader>vr ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
 map <Leader>vf ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
 " vimux send the whole page (all)
 map <Leader>va ggVG"vy:call VimuxSlime()<CR>
@@ -581,6 +580,7 @@ map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vg :VimuxInspectRunner<CR>
 " vimux run previous command
 map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vp :VimuxPromptCommand<CR>
 
 "settings for targets.vim
 let g:targets_aiAI = 'aiAI'
@@ -709,7 +709,7 @@ map <C-s> :w<CR>
 map <leader><leader> <C-w><C-w>
 
 vnoremap <leader>i c[<C-r>"]()<Esc>i
-
+"
 " vp doesn't replace paste buffer
 function! RestoreRegister()
   let @" = s:restore_reg
@@ -727,11 +727,9 @@ map <leader><Enter> za
 " map <C-j> :w<CR>:VimuxRunCommand("run " .bufname("%"))<CR>
 " imap <C-j> <Esc>:w<CR>:VimuxRunCommand("run " .bufname("%"))<CR>
 
-map vj :up<CR>:VimuxRunCommand("run " .expand('%:p'))<CR>
-imap vj <Esc><leader>w:VimuxRunCommand("run " .expand('%:p'))<CR>
+map <leader>j :up<CR>:VimuxRunCommand("run " .expand('%:p'))<CR>
 
-map vl :up<CR>:VimuxRunCommand("!! ")<CR>:VimuxRunCommand(" ")<CR>
-imap vl <Esc><leader>w:VimuxRunCommand("!! ")<CR>:VimuxRunCommand(" ")<CR>i
+map <leader>l :up<CR>:VimuxRunCommand("!! ")<CR>:VimuxRunCommand(" ")<CR>
 
 
 imap <C-g> <Plug>IMAP_JumpForward
@@ -747,3 +745,14 @@ hi MatchParen cterm=underline ctermbg=white ctermfg=black
 " 	  \ .bufferline#get_status_string()
 
 Plugin 'christoomey/vim-tmux-navigator'
+
+
+map <C-b> :CtrlPMRUFiles<CR>
+" imap <C-b> <Esc>:CtrlPMRUFiles<CR>
+
+
+
+map ! <leader>vp
+map <F3> <leader>vl
+
+Plugin 'kshenoy/vim-signature'
