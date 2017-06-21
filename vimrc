@@ -150,9 +150,9 @@ Plugin 'tpope/vim-speeddating'
 " nmap <leader>p <Plug>yankstack_substitute_older_paste
 " nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
-Plugin 'vim-scripts/YankRing.vim'
-let g:yankring_clipboard_monitor=0
-nnoremap ,zp :YRPaste<CR>
+" Plugin 'vim-scripts/YankRing.vim'
+" let g:yankring_clipboard_monitor=0
+" nnoremap ,zp :YRPaste<CR>
 
 " Plugin to select calendar in vim-org mode
 Plugin 'mattn/calendar-vim'
@@ -274,7 +274,7 @@ endif
 " let g:solarized_termcolors=256
 " set background=dark
 set background=light
-colorscheme solarized
+colorscheme desert
 
 " setting for vim-visual-page-percent
 " set statusline+=%{VisualPercent()}
@@ -387,7 +387,7 @@ nnoremap <leader>f :%s/\<<C-r><C-w>\>/
 " map <F1> :exec '!make' <CR>
 " imap <F1> :exec '!make' <CR>
 map <F1> :silent make\|redraw!\|cc<CR>
-imap <F1> :silent make\|redraw!\|cc<CR>
+" imap <F1> :silent make\|redraw!\|cc<CR>
 "command P !python %
 "map <C-j> :exec '!python' shellescape(@%, 1)<CR>
 "imap <C-j> <Esc>:exec '!python' shellescape(@%, 1)<CR>
@@ -395,11 +395,11 @@ imap <F1> :silent make\|redraw!\|cc<CR>
 " map <C-j> :!gcc -o %.out %; ./%.out<CR>
 " imap <C-j> :!gcc -o %.out %; ./%.out<CR>
 
-map <F2> :YcmCompleter GetDoc<CR>
-imap <F2> <Esc>:YcmCompleter GetDoc<CR>
+" map <F2> :YcmCompleter GetDoc<CR>
+" imap <F2> <Esc>:YcmCompleter GetDoc<CR>
 
 map <F5> :exec '!python' shellescape(@%, 1)<CR>
-imap <F5> <Esc>:exec '!python' shellescape(@%, 1)<CR>
+" imap <F5> <Esc>:exec '!python' shellescape(@%, 1)<CR>
 " Python 3 
 "map <C-m> :exec '!python3' shellescape(@%, 1)<CR>
 "imap <C-m> <Esc>:exec '!python3' shellescape(@%, 1)<CR>
@@ -551,7 +551,7 @@ endfunction
 vmap <Leader>vs "vy:call VimuxSlime()<CR>
 nmap <Leader>vs vip<Leader>vs<CR>
 
-map <leader>vv :VimuxRunCommand("")
+nmap <leader>vv :VimuxRunCommand("")
 " map <C-j> <C-k>:VimuxRunCommand("clear; p; gcc " .bufname("%") ."; ./a.out; p")<CR>
 " imap <C-j> <Esc><C-k>:VimuxRunCommand("p; gcc " .bufname("%") ."; ./a.out; p")<CR>i
 " map <Leader>vc map <C-j> :!gcc -o %.out %; ./%.out<CR>
@@ -559,7 +559,7 @@ map <leader>vv :VimuxRunCommand("")
 "
 " make shift enter to run the current line and go to new line
 " imap <S-CR> <Esc>"vyy:call VimuxSlime()<CR>ji
-imap <F5> <Esc>"vyy:call VimuxSlime()<CR>ji
+" imap <F5> <Esc>"vyy:call VimuxSlime()<CR>ji
 nmap <F5> "vyy:call VimuxSlime()<CR>j
 " vmux vs send the line
 nmap <Leader>vv "vyy:call VimuxSlime()<CR>j
@@ -568,19 +568,19 @@ map <Leader>vr Bv$"vy:call VimuxSlime()<CR>
 " map <Leader><Leader> ,w:VimuxRunCommand("rm ./Map; gcc Map.c -o Map -ansi ; ./Map")<CR>
 
 " run the whole file
-map <Leader>vr ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
-map <Leader>vf ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
+nmap <Leader>vr ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
+nmap <Leader>vf ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
 " vimux send the whole page (all)
-map <Leader>va ggVG"vy:call VimuxSlime()<CR>
+nmap <Leader>va ggVG"vy:call VimuxSlime()<CR>
 " vimux open 
-map <Leader>vo :call VimuxOpenRunner()<CR>
+nmap <Leader>vo :call VimuxOpenRunner()<CR>
 " vimux close
-map <Leader>vq :VimuxCloseRunner<CR>
+nmap <Leader>vq :VimuxCloseRunner<CR>
 " vimux inspect (transfer control to the vimux pane)
-map <Leader>vg :VimuxInspectRunner<CR>
+nmap <Leader>vg :VimuxInspectRunner<CR>
 " vimux run previous command
-map <Leader>vl :VimuxRunLastCommand<CR>
-map <Leader>vp :VimuxPromptCommand<CR>
+nmap <Leader>vl :VimuxRunLastCommand<CR>
+nmap <Leader>vp :VimuxPromptCommand<CR>
 
 "settings for targets.vim
 let g:targets_aiAI = 'aiAI'
@@ -646,8 +646,8 @@ let g:UltiSnipsEditSplit="vertical"
 
 
 " copy to buffer
-vmap <leader>c :w! ~/.vimbuffer<CR>
-nmap <leader>c :.w! ~/.vimbuffer<CR>
+vmap <leader>y :w! ~/.vimbuffer<CR>
+nmap <leader>y :.w! ~/.vimbuffer<CR>
 " paste from buffer
 map <leader>p :r ~/.vimbuffer<CR>
 
@@ -727,12 +727,12 @@ map <leader><Enter> za
 " map <C-j> :w<CR>:VimuxRunCommand("run " .bufname("%"))<CR>
 " imap <C-j> <Esc>:w<CR>:VimuxRunCommand("run " .bufname("%"))<CR>
 
-map <leader>j :up<CR>:VimuxRunCommand("run " .expand('%:p'))<CR>
+nmap <leader>j :up<CR>:VimuxRunCommand("run " .expand('%:p'))<CR>
 
-map <leader>l :up<CR>:VimuxRunCommand("!! ")<CR>:VimuxRunCommand(" ")<CR>
+nmap <leader>l :up<CR>:VimuxRunCommand("!! ")<CR>:VimuxRunCommand(" ")<CR>
 
 
-imap <C-g> <Plug>IMAP_JumpForward
+" imap <C-g> <Plug>IMAP_JumpForward
 nmap <C-g> <Plug>IMAP_JumpForward
 
 
