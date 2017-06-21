@@ -169,3 +169,7 @@ organize(){
 }
 
 # alias tag="~/dotfiles/tag"
+
+alias delete_zero="find . -size  0 -print0 | xargs -0 rm"
+
+alias lw='~/dotfiles/line_watch.sh'

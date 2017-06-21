@@ -22,7 +22,7 @@ source ~/dotfiles/z.sh
 source ~/dotfiles/aliases.sh
 source ~/dotfiles/git_aliases.sh
 source ~/dotfiles/my_functions.sh
-source ~/helper_libs/bash-wakatime/bash-wakatime.sh
+# source ~/helper_libs/bash-wakatime/bash-wakatime.sh
 source ~/dotfiles/antigen.zsh
 # source ~/dotfiles/installed_libs.sh
 # source ~/dotfiles/history.sh # works only with BASH and not ZSH 
@@ -67,7 +67,7 @@ eval `dircolors ~/dotfiles/dir_colors`
 
 
 
-. /home/ap/torch/install/bin/torch-activate
+# . /home/ap/torch/install/bin/torch-activate
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -115,7 +115,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=9'
 bindkey '^ ' autosuggest-accept
 
 
-export PYTHONSTARTUP=/home/ap/dotfiles/startup.py
+export PYTHONSTARTUP=$HOME/dotfiles/startup.py
 
 tohimal() {
     rsync -azP $1/ himal:$1
