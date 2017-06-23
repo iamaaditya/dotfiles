@@ -756,3 +756,9 @@ map ! <leader>vp
 map <F3> <leader>vl
 
 Plugin 'kshenoy/vim-signature'
+
+
+Plugin 'rakr/vim-one'
+let g:airline_theme='one'
+colorscheme one
+set background=light
