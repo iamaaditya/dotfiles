@@ -35,7 +35,7 @@ alias vim='/usr/local/bin/vim'
 # alias vimdiff='/usr/local/bin/vimdiff'
 alias vimdiff='vim -d'
 # alias vi='/usr/local/bin/vim'
-# alias vi='vim'
+alias vi='nvim'
 # alias tmuxa=TERM=xterm-256color /usr/bin/tmux attach
 alias hourModified="find . -mmin -60"
 alias hourCreated="find . -cmin -60"
@@ -106,6 +106,7 @@ nvp() {
 
 alias sap='sudo apt-get install -y '
 alias whogpu='python ~/dotfiles/who_is_using_gpu.py'
+alias wg='python ~/dotfiles/who_is_using_gpu.py'
 alias kb='~/dotfiles/kanban'
 
 function p {
@@ -150,6 +151,13 @@ fix_backspace(){
     cat $1 | col -b | tee $1_
     /bin/mv $1_ $1
 }
+
+fix_backspace_many(){
+    for var in "$@"
+    do
+        fix_backspace $var
+    done
+}
 alias fbs=fix_backspace
 alias pp=ptipython
 
@@ -173,3 +181,4 @@ organize(){
 alias delete_zero="find . -size  0 -print0 | xargs -0 rm"
 
 alias lw='~/dotfiles/line_watch.sh'
+
