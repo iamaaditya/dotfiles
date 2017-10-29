@@ -23,7 +23,7 @@ source ~/dotfiles/aliases.sh
 source ~/dotfiles/git_aliases.sh
 source ~/dotfiles/my_functions.sh
 # source ~/helper_libs/bash-wakatime/bash-wakatime.sh
-source ~/dotfiles/antigen.zsh
+# source ~/dotfiles/antigen.zsh
 # source ~/dotfiles/installed_libs.sh
 # source ~/dotfiles/history.sh # works only with BASH and not ZSH 
 
@@ -104,7 +104,7 @@ codi() {
 # Antigen commands
 
 # antigen bundle git@github.com:zsh-users/zsh-syntax-highlighting
-antigen bundle git@github.com:zsh-users/zsh-autosuggestions.git
+# antigen bundle git@github.com:zsh-users/zsh-autosuggestions.git
 # antigen bundle rzzen/calc.plugin.zsh
 
 # antigen bundle https://github.com/sakshamsharma/zpyi zpyi.zsh
@@ -130,3 +130,6 @@ if (( $+commands[tag] )); then
   tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
   alias ag=tag
 fi
+
+# antigen theme minimal
+unsetopt correct_all

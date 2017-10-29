@@ -1,0 +1,7 @@
+" fix the github blog link
+"function! fix_github_link()
+"    %s:* \(.*\)<\(.*\)>:* [\1](\2):gc
+" endfunction
+"
+set background=dark
+colorscheme desert

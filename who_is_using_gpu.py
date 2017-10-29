@@ -40,12 +40,12 @@ for line in out_ps:
     data.append(nv_data + line_data)
 
 
-for h in header: print '{0: <10}'.format(h),
+for h in header: print '{0: <7}'.format(h),
 print ' '
-for h in header_line: print '{0: <10}'.format(h),
+for h in header_line: print '{0: <7}'.format(h),
 print ' '
 
 for data_item in data:
-    for d in data_item: print '{0: <10}'.format(d),
+    for d in data_item: print '{0: <7}'.format(d),
     print ''
 

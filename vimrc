@@ -20,7 +20,7 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'tpope/vim-fugitive'
-Plugin 'tmhedberg/SimpylFold'
+" Plugin 'tmhedberg/SimpylFold'
 " Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
 " Plugin 'tomtom/tcomment_vim'
@@ -89,10 +89,11 @@ Plugin 'godlygeek/tabular'
 " Plugin 'klen/python-mode'
 
 " Plugin to automatically generate ctags & exuberant tags
-Plugin 'xolox/vim-easytags'
-    let g:easytags_async = 1
-    let g:easytags_suppress_report = 1
-Plugin 'xolox/vim-misc'
+" Plugin 'xolox/vim-easytags'
+"     let g:easytags_autorecurse = 1
+"     let g:easytags_async = 1
+"     let g:easytags_suppress_report = 1
+" Plugin 'xolox/vim-misc'
 
 " Plugin clever f, extends usage of f, F , t And T
 Plugin 'rhysd/clever-f.vim'
@@ -564,12 +565,12 @@ nmap <F5> "vyy:call VimuxSlime()<CR>j
 " vmux vs send the line
 nmap <Leader>vv "vyy:call VimuxSlime()<CR>j
 map <Leader>vr Bv$"vy:call VimuxSlime()<CR>
-" map <Leader>vv ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
+map <Leader>vv <Leader>w:VimuxRunCommand("run " .bufname("%"))<CR>
 " map <Leader><Leader> ,w:VimuxRunCommand("rm ./Map; gcc Map.c -o Map -ansi ; ./Map")<CR>
 
 " run the whole file
-nmap <Leader>vr ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
-nmap <Leader>vf ,w:VimuxRunCommand("%run " .bufname("%"))<CR>
+nmap <Leader>vr <Leader>w:VimuxRunCommand("run " .bufname("%"))<CR>
+nmap <Leader>vf <Leader>w:VimuxRunCommand("run " .bufname("%"))<CR>
 " vimux send the whole page (all)
 nmap <Leader>va ggVG"vy:call VimuxSlime()<CR>
 " vimux open 
@@ -671,7 +672,6 @@ command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=
 " %s/\d\+\.\d\+/\=printf('%.2f',str2float(submatch(0)))/g
 "
 " Change the colors of the search higlight
-hi Search cterm=NONE ctermbg=lightblue ctermfg=black
 
 " Resize the windows using keyboard shortcut
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
@@ -762,3 +762,4 @@ Plugin 'rakr/vim-one'
 let g:airline_theme='one'
 colorscheme one
 set background=light
+hi Search cterm=NONE ctermbg=lightblue ctermfg=black
