@@ -763,3 +763,9 @@ let g:airline_theme='one'
 colorscheme one
 set background=light
 hi Search cterm=NONE ctermbg=lightblue ctermfg=black
+
+
+Plugin 'rhysd/vim-grammarous'
+let g:grammarous#show_first_error = 1
+
+set clipboard+=unnamedplus

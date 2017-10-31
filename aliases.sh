@@ -131,7 +131,7 @@ findtime() {
 }
 
 run(){
-    CUDA_VISIBLE_DEVICES=3 python $1 
+    CUDA_VISIBLE_DEVICES=3 python3 $1 
 }
 
 bashcompinit(){
