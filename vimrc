@@ -769,3 +769,5 @@ Plugin 'rhysd/vim-grammarous'
 let g:grammarous#show_first_error = 1
 
 set clipboard+=unnamedplus
+
+nnoremap <silent> ,s "=nr2char(getchar())<cr>P

@@ -56,7 +56,7 @@ alias e="dirs -v | head -10"
 alias fl="find . -name"
 
 # fasd
-alias v='f -e vim'
+alias v='f -e nvim'
 
 
 # cuts https://github.com/arielf/cuts
@@ -131,7 +131,7 @@ findtime() {
 }
 
 run(){
-    CUDA_VISIBLE_DEVICES=3 python3 $1 
+    CUDA_VISIBLE_DEVICES=3 python $1 
 }
 
 bashcompinit(){

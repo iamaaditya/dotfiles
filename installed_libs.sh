@@ -27,8 +27,9 @@ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
 export PYTHONPATH=/home/ap/caffe/python:$PYTHONPATH
 
 export OMP_NUM_THREADS=`nproc`
-export PYTHONPATH="$PYTHONPATH:~/deepy/"
-export PYTHONPATH="$PYTHONPATH:~/image_compression/vmaf/python"
+# export PYTHONPATH="$PYTHONPATH:~/deepy/"
+export PYTHONPATH="$PYTHONPATH:/home/ap/image_compression/vmaf/python"
+export PYTHONPATH="$PYTHONPATH:/home/ap/cleverhans/"
 
 
 
