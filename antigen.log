@@ -1,0 +1,189 @@
+total 68K
+-rw-rw-r-- 1 ap ap    7 Oct 16 22:20 VERSION
+-rw-rw-r-- 1 ap ap   49 Oct 16 22:20 URL
+drwxrwxr-x 2 ap ap 4.0K Oct 16 22:20 script
+-rw-rw-r-- 1 ap ap 5.7K Oct 16 22:20 README.md
+-rw-rw-r-- 1 ap ap  872 Oct 16 22:20 Makefile
+-rw-rw-r-- 1 ap ap 1.1K Oct 16 22:20 LICENSE
+-rw-rw-r-- 1 ap ap   52 Oct 16 22:20 DESCRIPTION
+-rw-rw-r-- 1 ap ap 1.1K Oct 16 22:20 CHANGELOG.md
+-rw-rw-r-- 1 ap ap  14K Oct 16 22:20 zsh-autosuggestions.zsh
+-rw-rw-r-- 1 ap ap   40 Oct 16 22:20 zsh-autosuggestions.plugin.zsh
+drwxrwxr-x 4 ap ap 4.0K Oct 16 22:20 vendor
+drwxrwxr-x 4 ap ap 4.0K Oct 16 22:20 test
+drwxrwxr-x 3 ap ap 4.0K Oct 16 22:20 src
+62cdba4e0f7e1028dd52a6dcfe79b5bbb0d51b65
+total 68K
+-rw-rw-r-- 1 ap ap    7 Oct 16 22:20 VERSION
+-rw-rw-r-- 1 ap ap   49 Oct 16 22:20 URL
+drwxrwxr-x 2 ap ap 4.0K Oct 16 22:20 script
+-rw-rw-r-- 1 ap ap 5.7K Oct 16 22:20 README.md
+-rw-rw-r-- 1 ap ap  872 Oct 16 22:20 Makefile
+-rw-rw-r-- 1 ap ap 1.1K Oct 16 22:20 LICENSE
+-rw-rw-r-- 1 ap ap   52 Oct 16 22:20 DESCRIPTION
+-rw-rw-r-- 1 ap ap 1.1K Oct 16 22:20 CHANGELOG.md
+-rw-rw-r-- 1 ap ap  14K Oct 16 22:20 zsh-autosuggestions.zsh
+-rw-rw-r-- 1 ap ap   40 Oct 16 22:20 zsh-autosuggestions.plugin.zsh
+drwxrwxr-x 4 ap ap 4.0K Oct 16 22:20 vendor
+drwxrwxr-x 4 ap ap 4.0K Oct 16 22:20 test
+drwxrwxr-x 3 ap ap 4.0K Oct 16 22:20 src
+Already on 'master'
+Your branch is up-to-date with 'origin/master'.
+total 68K
+-rw-rw-r-- 1 ap ap    7 Oct 16 22:20 VERSION
+-rw-rw-r-- 1 ap ap   49 Oct 16 22:20 URL
+drwxrwxr-x 2 ap ap 4.0K Oct 16 22:20 script
+-rw-rw-r-- 1 ap ap 5.7K Oct 16 22:20 README.md
+-rw-rw-r-- 1 ap ap  872 Oct 16 22:20 Makefile
+-rw-rw-r-- 1 ap ap 1.1K Oct 16 22:20 LICENSE
+-rw-rw-r-- 1 ap ap   52 Oct 16 22:20 DESCRIPTION
+-rw-rw-r-- 1 ap ap 1.1K Oct 16 22:20 CHANGELOG.md
+-rw-rw-r-- 1 ap ap  14K Oct 16 22:20 zsh-autosuggestions.zsh
+-rw-rw-r-- 1 ap ap   40 Oct 16 22:20 zsh-autosuggestions.plugin.zsh
+drwxrwxr-x 4 ap ap 4.0K Oct 16 22:20 vendor
+drwxrwxr-x 4 ap ap 4.0K Oct 16 22:20 test
+drwxrwxr-x 3 ap ap 4.0K Oct 16 22:20 src
+From https://github.com/zsh-users/zsh-autosuggestions
+ * branch            master     -> FETCH_HEAD
+   62cdba4..fedc22e  master     -> origin/master
+Updating 62cdba4..fedc22e
+Fast-forward
+ CHANGELOG.md                      |  7 +++++
+ README.md                         | 11 +++++--
+ VERSION                           |  2 +-
+ src/bind.zsh                      | 14 +++++++--
+ src/config.zsh                    | 13 +++++++++
+ src/strategies/default.zsh        |  9 +-----
+ src/strategies/match_prev_cmd.zsh |  3 ++
+ src/suggestion.zsh                |  2 +-
+ src/widgets.zsh                   | 18 +++++++++---
+ test/strategies_test.zsh          |  7 +++++
+ test/widgets/modify_test.zsh      | 30 +++++++++++++++++++
+ zsh-autosuggestions.zsh           | 61 +++++++++++++++++++++++++++++----------
+ 12 files changed, 143 insertions(+), 34 deletions(-)
+total 68K
+-rw-rw-r-- 1 ap ap   49 Oct 16 22:20 URL
+drwxrwxr-x 2 ap ap 4.0K Oct 16 22:20 script
+-rw-rw-r-- 1 ap ap  872 Oct 16 22:20 Makefile
+-rw-rw-r-- 1 ap ap 1.1K Oct 16 22:20 LICENSE
+-rw-rw-r-- 1 ap ap   52 Oct 16 22:20 DESCRIPTION
+-rw-rw-r-- 1 ap ap   40 Oct 16 22:20 zsh-autosuggestions.plugin.zsh
+drwxrwxr-x 4 ap ap 4.0K Oct 16 22:20 vendor
+-rw-rw-r-- 1 ap ap    7 Oct 17 13:05 VERSION
+drwxrwxr-x 3 ap ap 4.0K Oct 17 13:05 src
+-rw-rw-r-- 1 ap ap 6.4K Oct 17 13:05 README.md
+-rw-rw-r-- 1 ap ap 1.4K Oct 17 13:05 CHANGELOG.md
+-rw-rw-r-- 1 ap ap  15K Oct 17 13:05 zsh-autosuggestions.zsh
+drwxrwxr-x 4 ap ap 4.0K Oct 17 13:05 test
+total 68K
+-rw-rw-r-- 1 ap ap   49 Oct 16 22:20 URL
+drwxrwxr-x 2 ap ap 4.0K Oct 16 22:20 script
+-rw-rw-r-- 1 ap ap  872 Oct 16 22:20 Makefile
+-rw-rw-r-- 1 ap ap 1.1K Oct 16 22:20 LICENSE
+-rw-rw-r-- 1 ap ap   52 Oct 16 22:20 DESCRIPTION
+-rw-rw-r-- 1 ap ap   40 Oct 16 22:20 zsh-autosuggestions.plugin.zsh
+drwxrwxr-x 4 ap ap 4.0K Oct 16 22:20 vendor
+-rw-rw-r-- 1 ap ap    7 Oct 17 13:05 VERSION
+drwxrwxr-x 3 ap ap 4.0K Oct 17 13:05 src
+-rw-rw-r-- 1 ap ap 6.4K Oct 17 13:05 README.md
+-rw-rw-r-- 1 ap ap 1.4K Oct 17 13:05 CHANGELOG.md
+-rw-rw-r-- 1 ap ap  15K Oct 17 13:05 zsh-autosuggestions.zsh
+drwxrwxr-x 4 ap ap 4.0K Oct 17 13:05 test
+fedc22e9bbd046867860e772d7d6787f5dae9d4c
+total 68K
+-rw-rw-r-- 1 ap ap 2.3K Oct 16 22:20 README.md
+-rw-rw-r-- 1 ap ap 1.8K Oct 16 22:20 Makefile
+-rw-rw-r-- 1 ap ap 3.5K Oct 16 22:20 INSTALL.md
+-rw-rw-r-- 1 ap ap 2.3K Oct 16 22:20 HACKING.md
+-rw-rw-r-- 1 ap ap 1.6K Oct 16 22:20 COPYING.md
+drwxrwxr-x 3 ap ap 4.0K Oct 16 22:20 docs
+-rw-rw-r-- 1 ap ap 5.3K Oct 16 22:20 changelog.md
+drwxrwxr-x 8 ap ap 4.0K Oct 16 22:20 highlighters
+-rw-rw-r-- 1 ap ap  16K Oct 16 22:20 zsh-syntax-highlighting.zsh
+-rw-rw-r-- 1 ap ap   57 Oct 16 22:20 zsh-syntax-highlighting.plugin.zsh
+drwxrwxr-x 2 ap ap 4.0K Oct 16 22:20 tests
+-rw-rw-r-- 1 ap ap  680 Oct 16 22:20 release.md
+drwxrwxr-x 2 ap ap 4.0K Oct 16 22:20 images
+094329eb145e00b810e65415ed4b9ad58aa7c34a
+total 68K
+-rw-rw-r-- 1 ap ap 2.3K Oct 16 22:20 README.md
+-rw-rw-r-- 1 ap ap 1.8K Oct 16 22:20 Makefile
+-rw-rw-r-- 1 ap ap 3.5K Oct 16 22:20 INSTALL.md
+-rw-rw-r-- 1 ap ap 2.3K Oct 16 22:20 HACKING.md
+-rw-rw-r-- 1 ap ap 1.6K Oct 16 22:20 COPYING.md
+drwxrwxr-x 3 ap ap 4.0K Oct 16 22:20 docs
+-rw-rw-r-- 1 ap ap 5.3K Oct 16 22:20 changelog.md
+drwxrwxr-x 8 ap ap 4.0K Oct 16 22:20 highlighters
+-rw-rw-r-- 1 ap ap  16K Oct 16 22:20 zsh-syntax-highlighting.zsh
+-rw-rw-r-- 1 ap ap   57 Oct 16 22:20 zsh-syntax-highlighting.plugin.zsh
+drwxrwxr-x 2 ap ap 4.0K Oct 16 22:20 tests
+-rw-rw-r-- 1 ap ap  680 Oct 16 22:20 release.md
+drwxrwxr-x 2 ap ap 4.0K Oct 16 22:20 images
+Already on 'master'
+Your branch is up-to-date with 'origin/master'.
+total 68K
+-rw-rw-r-- 1 ap ap 2.3K Oct 16 22:20 README.md
+-rw-rw-r-- 1 ap ap 1.8K Oct 16 22:20 Makefile
+-rw-rw-r-- 1 ap ap 3.5K Oct 16 22:20 INSTALL.md
+-rw-rw-r-- 1 ap ap 2.3K Oct 16 22:20 HACKING.md
+-rw-rw-r-- 1 ap ap 1.6K Oct 16 22:20 COPYING.md
+drwxrwxr-x 3 ap ap 4.0K Oct 16 22:20 docs
+-rw-rw-r-- 1 ap ap 5.3K Oct 16 22:20 changelog.md
+drwxrwxr-x 8 ap ap 4.0K Oct 16 22:20 highlighters
+-rw-rw-r-- 1 ap ap  16K Oct 16 22:20 zsh-syntax-highlighting.zsh
+-rw-rw-r-- 1 ap ap   57 Oct 16 22:20 zsh-syntax-highlighting.plugin.zsh
+drwxrwxr-x 2 ap ap 4.0K Oct 16 22:20 tests
+-rw-rw-r-- 1 ap ap  680 Oct 16 22:20 release.md
+drwxrwxr-x 2 ap ap 4.0K Oct 16 22:20 images
+From https://github.com/zsh-users/zsh-syntax-highlighting
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+total 68K
+-rw-rw-r-- 1 ap ap 2.3K Oct 16 22:20 README.md
+-rw-rw-r-- 1 ap ap 1.8K Oct 16 22:20 Makefile
+-rw-rw-r-- 1 ap ap 3.5K Oct 16 22:20 INSTALL.md
+-rw-rw-r-- 1 ap ap 2.3K Oct 16 22:20 HACKING.md
+-rw-rw-r-- 1 ap ap 1.6K Oct 16 22:20 COPYING.md
+drwxrwxr-x 3 ap ap 4.0K Oct 16 22:20 docs
+-rw-rw-r-- 1 ap ap 5.3K Oct 16 22:20 changelog.md
+drwxrwxr-x 8 ap ap 4.0K Oct 16 22:20 highlighters
+-rw-rw-r-- 1 ap ap  16K Oct 16 22:20 zsh-syntax-highlighting.zsh
+-rw-rw-r-- 1 ap ap   57 Oct 16 22:20 zsh-syntax-highlighting.plugin.zsh
+drwxrwxr-x 2 ap ap 4.0K Oct 16 22:20 tests
+-rw-rw-r-- 1 ap ap  680 Oct 16 22:20 release.md
+drwxrwxr-x 2 ap ap 4.0K Oct 16 22:20 images
+total 68K
+-rw-rw-r-- 1 ap ap 2.3K Oct 16 22:20 README.md
+-rw-rw-r-- 1 ap ap 1.8K Oct 16 22:20 Makefile
+-rw-rw-r-- 1 ap ap 3.5K Oct 16 22:20 INSTALL.md
+-rw-rw-r-- 1 ap ap 2.3K Oct 16 22:20 HACKING.md
+-rw-rw-r-- 1 ap ap 1.6K Oct 16 22:20 COPYING.md
+drwxrwxr-x 3 ap ap 4.0K Oct 16 22:20 docs
+-rw-rw-r-- 1 ap ap 5.3K Oct 16 22:20 changelog.md
+drwxrwxr-x 8 ap ap 4.0K Oct 16 22:20 highlighters
+-rw-rw-r-- 1 ap ap  16K Oct 16 22:20 zsh-syntax-highlighting.zsh
+-rw-rw-r-- 1 ap ap   57 Oct 16 22:20 zsh-syntax-highlighting.plugin.zsh
+drwxrwxr-x 2 ap ap 4.0K Oct 16 22:20 tests
+-rw-rw-r-- 1 ap ap  680 Oct 16 22:20 release.md
+drwxrwxr-x 2 ap ap 4.0K Oct 16 22:20 images
+094329eb145e00b810e65415ed4b9ad58aa7c34a
+Cloning into '/home/ap/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-syntax-highlighting.git'...
+fatal: unable to access 'https://github.com/zsh-users/zsh-syntax-highlighting.git/': Could not resolve host: github.com
+Cloning into '/home/ap/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions.git'...
+fatal: unable to access 'https://github.com/zsh-users/zsh-autosuggestions.git/': Could not resolve host: github.com
+Cloning into '/home/ap/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git'...
+fatal: unable to access 'https://github.com/robbyrussell/oh-my-zsh.git/': Could not resolve host: github.com
+Cloning into '/home/ap/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git'...
+fatal: unable to access 'https://github.com/robbyrussell/oh-my-zsh.git/': Could not resolve host: github.com
+Cloning into '/home/ap/.antigen/repos/git@github.com-COLON-zsh-users-SLASH-zsh-syntax-highlighting'...
+ssh: Could not resolve hostname github.com: Temporary failure in name resolution
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+Cloning into '/home/ap/.antigen/repos/git@github.com-COLON-zsh-users-SLASH-zsh-autosuggestions.git'...
+ssh: Could not resolve hostname github.com: Temporary failure in name resolution
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
