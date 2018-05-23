@@ -8,7 +8,8 @@ function app() {
 }
 
 function chpwd(){
-     ll
+     # ll
+    k --no-vcs
     tmux rename-window ${PWD//*\//} 
 }
 

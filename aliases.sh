@@ -47,6 +47,9 @@ alias deer="ssh aprakash@deerstalker.cs.brandeis.edu"
 alias hpc="ssh aprakash@hpc64.brandeis.edu"
 alias html="cd /var/www/html"
 alias big1="ssh bigdata1@deerstalker.cs.brandeis.edu"
+
+# alias ls='~/dotfiles/pilsner'
+#alias ls='k -h'
 alias lsd="ls -lartd */"
 
 alias c="pygmentize -g"
