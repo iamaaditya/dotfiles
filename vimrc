@@ -251,7 +251,7 @@ set shortmess=at
 " set cursorline
 " autocmd InsertEnter * highlight CursorLine guibg=#000050 guifg=fg
 " autocmd InsertLeave * highlight CursorLine guibg=#004000 guifg=fg
-autocmd BufEnter * silent! lcd %:p:h
+" autocmd BufEnter * silent! lcd %:p:h
 
 " for the vimdiff hide the common lines
 set diffopt=filler,context:0

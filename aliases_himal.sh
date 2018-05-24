@@ -5,9 +5,7 @@ alias ff="find . -name"
 alias t="/home/ap/helper_libs/todo.txt_cli-2.10/todo.sh"
 alias tt="/usr/bin/time"
 alias vtop="vtop --theme becca"
-# alias tm="TERM=xterm-256color /usr/bin/tmux-next"
 alias tm="TERM=xterm-256color /usr/bin/tmux"
-
 
 alias df="pydf"
 # alias top="htop"
@@ -31,12 +29,11 @@ alias tp="top -b -n 1 -p "
 
 # alias vi='vim'
 # now is the time
-alias vim='/usr/local/bin/vim'
+# alias vim='/usr/local/bin/vim'
 # alias vimdiff='/usr/local/bin/vimdiff'
-alias vimdiff='vi -d'
 # alias vi='/usr/local/bin/vim'
 alias vi='nvim'
-# alias tmuxa=TERM=xterm-256color /usr/bin/tmux attach
+alias tmuxa=TERM=xterm-256color /usr/bin/tmux attach
 alias hourModified="find . -mmin -60"
 alias hourCreated="find . -cmin -60"
 alias dayModified="find . -mtime -1"
@@ -106,7 +103,6 @@ nvp() {
 
 alias sap='sudo apt-get install -y '
 alias whogpu='python ~/dotfiles/who_is_using_gpu.py'
-alias wg='python ~/dotfiles/who_is_using_gpu.py'
 alias kb='~/dotfiles/kanban'
 
 function p {
@@ -124,64 +120,17 @@ alias ps_by_time="ps -eo start_time,pid,euser,args:100 --sort start_time"
 alias mv_ten="ls . | shuf -n 10 | xargs -I '{}' mv '{}' ../../test/`basename $PWD`/"
 
 alias lp='ll *.py'
-alias grep_all="git branch -a | tr -d \* | xargs git grep"
 
-findtime() {
- find . -name $1 -printf "%T+\t%p\n" | sort
-}
+# google calendar terminal interface
+alias g='gcalcli --calendar="aaditya prakash"'
 
-run(){
-    CUDA_VISIBLE_DEVICES=3 python3 $1 
-}
+alias run='python3 '
 
-bashcompinit(){
-            # undefined
-            builtin autoload -XU
-}
+export LIBRARY_PATH=$LIBRARY_PATH:${CUDA_HOME}/lib64
+export PATH=$PATH:/home/ap/.bashhub/bin/
 
-alias ds="du -sh * | sort -h"
-
-alias ax="axel -n 20 -a"
-
-count_uniq(){
-cat $1 | tr " " "\n" | sort | uniq| wc -l
-}
-
-fix_backspace(){
-    cat $1 | col -b | tee $1_
-    /bin/mv $1_ $1
-}
-
-fix_backspace_many(){
-    for var in "$@"
-    do
-        fix_backspace $var
-    done
-}
-alias fbs=fix_backspace
-alias pp=ptipython
-
-latest(){
-    l=$(ls -Art | tail -n 1)
-    tail -F $l
-}
-alias lt=latest
-
-
-organize(){
-  for x in *; do
-    d=$(date -r "$x" +%m-%d)
-    mkdir -p "$d"
-    mv -- "$x" "$d/"
-  done
-}
-
-# alias tag="~/dotfiles/tag"
-
-alias delete_zero="find . -size  0 -print0 | xargs -0 rm"
-
-alias lw='~/dotfiles/line_watch.sh'
-
-hl(){
-    ls -lrth $1 | head
-}
+# CUDA
+export CUDA_HOME=/usr/local/cuda
+export CUDA_ROOT=/usr/local/cuda
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${CUDA_HOME}/lib64
+export PATH=$PATH:${CUDA_HOME}/bin
