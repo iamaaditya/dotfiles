@@ -121,7 +121,7 @@ Plugin 'ap/vim-buftabline'
 let g:buftabline_show = 1 " 0 no show, 1 show only if more than 1 buf, 2 always show
 let g:buftabline_numbers = 1
 let g:buftabline_indicators = 1
-let g:buftabline_separators = 1
+let g:buftabline_separators = 0
 "
 " Plugin 'bling/vim-bufferline'
 
@@ -251,7 +251,7 @@ set shortmess=at
 " set cursorline
 " autocmd InsertEnter * highlight CursorLine guibg=#000050 guifg=fg
 " autocmd InsertLeave * highlight CursorLine guibg=#004000 guifg=fg
-autocmd BufEnter * silent! lcd %:p:h
+" autocmd BufEnter * silent! lcd %:p:h
 
 " for the vimdiff hide the common lines
 set diffopt=filler,context:0
@@ -771,3 +771,5 @@ let g:grammarous#show_first_error = 1
 set clipboard+=unnamedplus
 
 nnoremap <silent> ,s "=nr2char(getchar())<cr>P
+
+highlight Pmenu ctermbg=black ctermfg=white

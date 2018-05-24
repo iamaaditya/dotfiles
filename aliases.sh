@@ -1,5 +1,7 @@
 
-alias ll='ls -lrth --color=auto --hide="*.pyc"'
+# alias ll='ls -lrth --color=auto --hide="*.pyc"'
+alias ll='k -h --no-vcs'
+
 alias nv="nvidia-smi"
 alias ff="find . -name"
 alias t="/home/ap/helper_libs/todo.txt_cli-2.10/todo.sh"
