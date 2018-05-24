@@ -121,7 +121,7 @@ Plugin 'ap/vim-buftabline'
 let g:buftabline_show = 1 " 0 no show, 1 show only if more than 1 buf, 2 always show
 let g:buftabline_numbers = 1
 let g:buftabline_indicators = 1
-let g:buftabline_separators = 1
+let g:buftabline_separators = 0
 "
 " Plugin 'bling/vim-bufferline'
 
@@ -193,7 +193,7 @@ let g:Powerline_symbols = 'fancy'
 
 syntax on
 " enables mouse scroll when using iterm
-set mouse=a
+" set mouse=a
 set ssop-=options
 set encoding=utf-8
 set history=2707
@@ -263,19 +263,19 @@ let g:SimpylFold_fold_docstring = 0
 " nmap <leader>i <plug>(vimtex-cmd-create)
 
 " allows cursor change in tmux mode
-if exists('$TMUX')
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
+" if exists('$TMUX')
+"     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+"     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+" else
+"     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+" endif
 
 " theme configs
 " let g:solarized_termcolors=256
 " set background=dark
 set background=light
-colorscheme desert
+" colorscheme desert
 
 " setting for vim-visual-page-percent
 " set statusline+=%{VisualPercent()}
@@ -769,3 +769,7 @@ Plugin 'rhysd/vim-grammarous'
 let g:grammarous#show_first_error = 1
 
 set clipboard+=unnamedplus
+
+nnoremap <silent> ,s "=nr2char(getchar())<cr>P
+
+highlight Pmenu ctermbg=black ctermfg=white

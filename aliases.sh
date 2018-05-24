@@ -1,5 +1,7 @@
 
-alias ll='ls -lrth --color=auto --hide="*.pyc"'
+# alias ll='ls -lrth --color=auto --hide="*.pyc"'
+alias ll='k -h --no-vcs'
+
 alias nv="nvidia-smi"
 alias ff="find . -name"
 alias t="/home/ap/helper_libs/todo.txt_cli-2.10/todo.sh"
@@ -31,7 +33,7 @@ alias tp="top -b -n 1 -p "
 
 # alias vi='vim'
 # now is the time
-alias vim='/usr/local/bin/vim'
+alias vim='vi'
 # alias vimdiff='/usr/local/bin/vimdiff'
 alias vimdiff='vi -d'
 # alias vi='/usr/local/bin/vim'
@@ -47,6 +49,9 @@ alias deer="ssh aprakash@deerstalker.cs.brandeis.edu"
 alias hpc="ssh aprakash@hpc64.brandeis.edu"
 alias html="cd /var/www/html"
 alias big1="ssh bigdata1@deerstalker.cs.brandeis.edu"
+
+# alias ls='~/dotfiles/pilsner'
+#alias ls='k -h'
 alias lsd="ls -lartd */"
 
 alias c="pygmentize -g"
@@ -56,7 +61,7 @@ alias e="dirs -v | head -10"
 alias fl="find . -name"
 
 # fasd
-alias v='f -e vim'
+alias v='f -e nvim'
 
 
 # cuts https://github.com/arielf/cuts
@@ -131,7 +136,7 @@ findtime() {
 }
 
 run(){
-    CUDA_VISIBLE_DEVICES=3 python3 $1 
+    CUDA_VISIBLE_DEVICES=3 python $1 
 }
 
 bashcompinit(){
