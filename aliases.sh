@@ -190,3 +190,7 @@ alias lw='~/dotfiles/line_watch.sh'
 hl(){
     ls -lrth $1 | head
 }
+
+alias g='gcalcli --calendar="aaditya prakash"'
+
+alias v='f -e vim'

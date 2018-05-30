@@ -28,7 +28,7 @@ source ~/dotfiles/my_functions.sh
 # source ~/dotfiles/history.sh # works only with BASH and not ZSH 
 
 # source ~/.oh-my-zsh/custom/plugins/zsh-wakatime/zsh-wakatime.plugin.zsh
-plugins=(zsh-wakatime)
+# plugins=(zsh-wakatime)
 # source ~/.oh-my-zsh/oh-my-zsh.sh
 
 export KEYTIMEOUT=1
@@ -133,3 +133,6 @@ fi
 
 # antigen theme minimal
 unsetopt correct_all
+setopt promptsubst
+NEWLINE=$'\n'
+PS1=$'${(r:$COLUMNS::_:)}'$COLUMNS$PS1

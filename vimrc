@@ -240,10 +240,10 @@ set autowrite
 "set list
 "set listchars=tab:>.,trail:.,extends:#,nbsp:.
 "folding settings"
-"set foldmethod=indent
+set foldmethod=indent
 set foldnestmax=2
-set nofoldenable
-set foldlevel=1
+" set nofoldenable
+set foldlevel=0
 set shortmess=at
 
 " since i find it useful at other times too
@@ -256,9 +256,6 @@ set shortmess=at
 " for the vimdiff hide the common lines
 set diffopt=filler,context:0
 
-" Folding plugin settings
-"let g:SimpylFold_docstring_preview = 1
-let g:SimpylFold_fold_docstring = 0
 " let localleader=","
 " nmap <leader>i <plug>(vimtex-cmd-create)
 
@@ -773,3 +770,8 @@ set clipboard+=unnamedplus
 nnoremap <silent> ,s "=nr2char(getchar())<cr>P
 
 highlight Pmenu ctermbg=black ctermfg=white
+
+Plugin 'Konfekt/FastFold'
+let g:fastfold_savehook = 1
+let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
