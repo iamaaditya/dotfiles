@@ -135,4 +135,4 @@ fi
 unsetopt correct_all
 setopt promptsubst
 NEWLINE=$'\n'
-PS1=$'${(r:$COLUMNS::_:)}'$COLUMNS$PS1
+PS1='${(r:$COLUMNS::_:)}'$NEWLINE$PS1
