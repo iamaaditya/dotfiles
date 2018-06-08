@@ -1,7 +1,7 @@
 # Changes to custom zshrc by Adi Prakash#
 #
 # most import change
-bindkey -v
+# bindkey -v
 bindkey '^P' up-history
 bindkey '^N' down-history
 bindkey '^w' backward-kill-word
@@ -74,7 +74,7 @@ eval `dircolors ~/dotfiles/dir_colors`
 # configuration for hstr
 export HH_CONFIG=hicolor,rawhistory        # get more colors
 
-# bindkey -s "\C-r" "hh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
+bindkey -s "\C-r" "hh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
 
 # fasd
 eval "$(fasd --init auto)"

@@ -48,6 +48,7 @@ Plugin 'zchee/deoplete-jedi'
 let g:deoplete#enable_at_startup = 1
 autocmd CompleteDone * pclose!
 let g:deoplete#auto_complete_delay = 10
+let g:deoplete#sources#jedi#server_timeout = 30
 " closes the preview window after completion is done
 
 
@@ -267,12 +268,6 @@ set diffopt=filler,context:0
 "     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 "     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " endif
-
-" theme configs
-" let g:solarized_termcolors=256
-" set background=dark
-set background=light
-" colorscheme desert
 
 " setting for vim-visual-page-percent
 " set statusline+=%{VisualPercent()}
@@ -734,7 +729,8 @@ nmap <C-g> <Plug>IMAP_JumpForward
 
 
 " fixes the colors of the matching parenthesis/braces
-hi MatchParen cterm=underline ctermbg=white ctermfg=black
+" hi MatchParen cterm=underline ctermbg=white ctermfg=black
+hi MatchParen cterm=none ctermbg=black ctermfg=grey
 
 " let g:bufferline_echo = 0
 " autocmd VimEnter *
@@ -755,10 +751,9 @@ map <F3> <leader>vl
 Plugin 'kshenoy/vim-signature'
 
 
-Plugin 'rakr/vim-one'
-let g:airline_theme='one'
-colorscheme one
-set background=light
+" Plugin 'rakr/vim-one'
+" let g:airline_theme='one'
+" colorscheme one
 hi Search cterm=NONE ctermbg=lightblue ctermfg=black
 
 
@@ -775,3 +770,8 @@ Plugin 'Konfekt/FastFold'
 let g:fastfold_savehook = 1
 let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
 let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
+
+set background=dark
+colorscheme solarized
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"

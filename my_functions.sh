@@ -9,7 +9,11 @@ function app() {
 
 function chpwd(){
      # ll
-    k --no-vcs
+    count=`ls | wc -l`
+    if [ $count -lt 15 ]
+    then
+        k --no-vcs
+    fi
     tmux rename-window ${PWD//*\//} 
 }
 
