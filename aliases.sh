@@ -14,6 +14,7 @@ alias tm="TERM=xterm-256color /usr/bin/tmux"
 alias df="pydf"
 # alias top="htop"
 # alias tail="multitail"
+alias t1='tail -n 1 '
 
 alias wnv="watch -d -n 5 -t -c nvidia-smi"
 
@@ -33,11 +34,11 @@ alias tp="top -b -n 1 -p "
 
 # alias vi='vim'
 # now is the time
-alias vim='vi'
+# alias vim='vi'
 # alias vimdiff='/usr/local/bin/vimdiff'
 alias vimdiff='vi -d'
 # alias vi='/usr/local/bin/vim'
-alias vi='nvim'
+# alias vi='nvim'
 # alias tmuxa=TERM=xterm-256color /usr/bin/tmux attach
 alias hourModified="find . -mmin -60"
 alias hourCreated="find . -cmin -60"

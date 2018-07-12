@@ -36,6 +36,8 @@ Plugin 'majutsushi/tagbar'
     let g:tagbar_width=40
     let g:tagbar_show_linenumbers=1
 
+" Plugin 'airblade/vim-gitgutter'
+
 Plugin 'haya14busa/incsearch.vim'
 
 " Plugin 'terryma/vim-expand-region'
@@ -43,7 +45,14 @@ Plugin 'haya14busa/incsearch.vim'
 " vmap <C-v> <Plug>(expand_region_shrink)
 
 
-Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+if has('nvim')
+  Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plugin 'Shougo/deoplete.nvim'
+  Plugin 'roxma/nvim-yarp'
+  Plugin 'roxma/vim-hug-neovim-rpc'
+endif
+
 Plugin 'zchee/deoplete-jedi'
 let g:deoplete#enable_at_startup = 1
 autocmd CompleteDone * pclose!
@@ -334,7 +343,7 @@ map <C-c> :nohlsearch<CR>
 " map <C-n> :tabnew<CR>
 
 " binding for folding (,)
-nmap , 0za
+nmap <BS> 0za
 
 " make - as quit without saving 
 nnoremap - :q<CR>
@@ -771,7 +780,9 @@ let g:fastfold_savehook = 1
 let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
 let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 
-set background=dark
-colorscheme solarized
+set background=light
+" colorscheme solarized
+colorscheme solarized8_high
+
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
