@@ -32,7 +32,7 @@ alias tp="top -b -n 1 -p "
 
 
 
-# alias vi='vim'
+alias vi='vim'
 # now is the time
 # alias vim='vi'
 # alias vimdiff='/usr/local/bin/vimdiff'
