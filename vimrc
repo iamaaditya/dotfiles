@@ -125,15 +125,17 @@ Plugin 'L9'
 " repeat
 " # remvoing as it hijacks ; and breaks sneak
 " Plugin 'spiiph/vim-space'
-"
+
 "add buffers at the tabline
 Plugin 'ap/vim-buftabline'
 let g:buftabline_show = 1 " 0 no show, 1 show only if more than 1 buf, 2 always show
 let g:buftabline_numbers = 1
 let g:buftabline_indicators = 1
-let g:buftabline_separators = 0
-"
+" let g:buftabline_separators = 0
+
 " Plugin 'bling/vim-bufferline'
+"
+" Plugin 'bagrat/vim-workspace'
 
 " better solarized using erb
 Plugin 'ericbn/vim-solarized'
@@ -786,3 +788,18 @@ colorscheme solarized8_high
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+
+" vim-workspace
+" let g:workspace_powerline_separators = 1
+" let g:workspace_tab_icon = "#"
+" function! g:WorkspaceSetCustomColors()
+"   hi! WorkspaceBufferTruncDefault cterm=bold ctermbg=10 ctermfg=8 guibg=#999999 guifg=#000000
+"   hi! WorkspaceIconDefault cterm=NONE ctermbg=5 ctermfg=10 guibg=#FF0000 guifg=#999999
+"   highlight WorkspaceBufferCurrent ctermbg=green ctermfg=black guibg=green
+"   highlight WorkspaceBufferActive ctermbg=darkgreen ctermfg=black guibg=darkgreen
+"   highlight WorkspaceBufferHidden ctermbg=black ctermfg=white guibg=black
+  " highlight WorkspaceTabHidden ctermbg=darkblue ctermfg=black guibg=darkblue
+"   highlight WorkspaceTabCurrent ctermbg=blue ctermfg=white guibg=black
+"   highlight WorkspaceFill ctermbg=black ctermfg=white guibg=black
+" endfunction
