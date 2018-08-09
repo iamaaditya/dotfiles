@@ -22,6 +22,7 @@ source ~/dotfiles/z.sh
 source ~/dotfiles/aliases.sh
 source ~/dotfiles/git_aliases.sh
 source ~/dotfiles/my_functions.sh
+source ~/dotfiles/k.sh
 # source ~/helper_libs/bash-wakatime/bash-wakatime.sh
 # source ~/dotfiles/antigen.zsh
 # source ~/dotfiles/installed_libs.sh

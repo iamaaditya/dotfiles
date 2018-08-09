@@ -784,7 +784,7 @@ let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 
 set background=light
 " colorscheme solarized
-colorscheme solarized8_high
+colorscheme solarized
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
