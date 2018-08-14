@@ -136,3 +136,6 @@ unsetopt correct_all
 setopt promptsubst
 NEWLINE=$'\n'
 PS1='${(r:$COLUMNS::.:)}'$NEWLINE$PS1
+
+PATH=$PATH:/home/ap/.local/bin
+
