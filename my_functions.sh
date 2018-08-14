@@ -9,13 +9,14 @@ function app() {
 
 function chpwd(){
      # ll
-    count=`ls | wc -l`
-    if [ $count -lt 15 ]
-    then
-        k --no-vcs
-    fi
-    tmux rename-window ${PWD//*\//} 
-}
+     count=`ls | wc -l`
+     if [ $count -lt 15 ]
+     then
+         ~/dotfiles/k.sh --no-vcs
+         ls
+     fi
+     tmux rename-window ${PWD//*\//} 
+ }
 
 # A shortcut function that simplifies usage of xclip.
 # - Accepts input from either stdin (pipe), or params.

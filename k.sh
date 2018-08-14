@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 zmodload zsh/datetime
 zmodload -F zsh/stat b:zstat
 
