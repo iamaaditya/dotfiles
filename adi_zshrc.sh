@@ -23,6 +23,7 @@ source ~/dotfiles/aliases.sh
 source ~/dotfiles/git_aliases.sh
 source ~/dotfiles/my_functions.sh
 source ~/dotfiles/k.sh
+# source /usr/lib/google-cloud-sdk/completion.bash.inc
 # source ~/helper_libs/bash-wakatime/bash-wakatime.sh
 # source ~/dotfiles/antigen.zsh
 # source ~/dotfiles/installed_libs.sh
@@ -140,3 +141,4 @@ PS1='${(r:$COLUMNS::.:)}'$NEWLINE$PS1
 
 PATH=$PATH:/home/ap/.local/bin
 
+source ~/dotfiles/completion.zsh.inc

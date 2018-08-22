@@ -8,7 +8,7 @@ alias t="/home/ap/helper_libs/todo.txt_cli-2.10/todo.sh"
 alias tt="/usr/bin/time"
 alias vtop="vtop --theme becca"
 # alias tm="TERM=xterm-256color /usr/bin/tmux-next"
-alias tm="TERM=xterm-256color /home/310248981/helper_libs/usr/local/bin/tmux"
+alias tm="TERM=xterm-256color ~/helper_libs/usr/local/bin/tmux"
 
 
 alias df="pydf"
@@ -197,3 +197,4 @@ alias g='gcalcli --calendar="aaditya prakash"'
 alias v='f -e vim'
 
 
+alias zz='ls -larthS'
