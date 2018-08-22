@@ -16,7 +16,7 @@ export PATH=$PATH:~/bazel/output
 export LIBRARY_DIRS=$LIBRARY_DIRS:/home/ap/anaconda2/lib/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ap/anaconda2/lib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_HOME
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ap/torch/install/include/
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ap/torch/install/include/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 
