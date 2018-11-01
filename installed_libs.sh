@@ -2,13 +2,11 @@
 export CUDA_HOME=/usr/local/cuda
 export CUDA_ROOT=/usr/local/cuda
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${CUDA_HOME}/lib64
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${CUDA_HOME}/extras/CUPTI/lib64
 export PATH=$PATH:${CUDA_HOME}/bin
 export PYTHON_INCLUDE_DIRS=$PYTHON_INCLUDE_DIRS:/usr/include/python2.7 
 export PYTHON_LIBRARY=$PYTHON_LIBRARY:/usr/lib/python2.7/config/libpython2.7.so
 export PYTHON_LIBRARIES=$PYTHON_LIBRARIES:/usr/lib/python2.7/config/libpython2.7.so
-
-#CUDNN
-# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ap/cuda_cudnn7.0
 
 #bazel (from google)
 export PATH=$PATH:~/bazel/output

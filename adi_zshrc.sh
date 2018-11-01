@@ -141,4 +141,4 @@ PS1='${(r:$COLUMNS::.:)}'$NEWLINE$PS1
 
 PATH=$PATH:/home/ap/.local/bin
 
-source ~/dotfiles/completion.zsh.inc
+# source ~/dotfiles/completion.zsh.inc

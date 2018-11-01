@@ -111,6 +111,7 @@ nvp() {
 }
 
 alias sap='sudo apt-get install -y '
+alias sip='sudo pip3 install --upgrade '
 alias whogpu='python ~/dotfiles/who_is_using_gpu.py'
 alias wg='python ~/dotfiles/who_is_using_gpu.py'
 alias kb='~/dotfiles/kanban'
