@@ -8,7 +8,7 @@ alias t="/home/ap/helper_libs/todo.txt_cli-2.10/todo.sh"
 alias tt="/usr/bin/time"
 alias vtop="vtop --theme becca"
 # alias tm="TERM=xterm-256color /usr/bin/tmux-next"
-alias tm="TERM=xterm-256color $HOME/helper_libs/usr/local/bin/tmux"
+alias tm="TERM=xterm-256color /usr/local/bin/tmux"
 
 
 alias df="pydf"
@@ -31,8 +31,9 @@ alias top5_="ps -eo pcpu,pid,user,args --no-headers| sort -t. -nk1,2 -k4,4 -r |h
 alias tp="top -b -n 1 -p "
 
 
+alias ag='rg'
 
-alias vi='vim'
+alias vi='nvim'
 # now is the time
 # alias vim='vi'
 # alias vimdiff='/usr/local/bin/vimdiff'
@@ -195,7 +196,17 @@ hl(){
 
 alias g='gcalcli --calendar="aaditya prakash"'
 
-alias v='f -e vim'
+alias v='f -e vi'
 
 
 alias zz='ls -larthS'
+
+# aliases for fasd
+alias a='fasd -a'        # any
+alias s='fasd -si'       # show / search / select
+alias d='fasd -d'        # directory
+alias f='fasd -f'        # file
+alias sd='fasd -sid'     # interactive directory selection
+alias sf='fasd -sif'     # interactive file selection
+alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+alias zz='fasd_cd -d -i' # cd with interactive selection

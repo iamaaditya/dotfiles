@@ -65,8 +65,8 @@ setopt EXTENDED_HISTORY
 
 
 
-eval `dircolors ~/dotfiles/dir_colors`
-
+# this command does not work on OSX (or FreeBSD) only on GNU
+# eval `dircolors ~/dotfiles/dir_colors`
 
 
 # . /home/ap/torch/install/bin/torch-activate
@@ -89,20 +89,6 @@ export PYLEARN2_DATA_PATH=~/data
 export LESS='-R'
 export LESSOPEN='|pygmentize -g %s'
 
-# Codi
-# Usage: codi [filetype] [filename]
-codi() {
-  local syntax="${1:-python}"
-  shift
-  vim -c \
-    "let g:startify_disable_at_vimenter = 1 |\
-    set bt=nofile ls=0 noru nonu nornu |\
-    hi ColorColumn ctermbg=NONE |\
-    hi VertSplit ctermbg=NONE |\
-    hi NonText ctermfg=0 |\
-    Codi $syntax" "$@"
-}
-
 # Antigen commands
 
 # antigen bundle git@github.com:zsh-users/zsh-syntax-highlighting
@@ -124,7 +110,6 @@ tohimal() {
 }
 
 
-
 export PYTHONDONTWRITEBYTECODE=1
 
 # https://github.com/aykamko/tag
@@ -141,4 +126,5 @@ PS1='${(r:$COLUMNS::.:)}'$NEWLINE$PS1
 
 PATH=$PATH:/home/ap/.local/bin
 
+# this is gcloud completion
 # source ~/dotfiles/completion.zsh.inc
