@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/zsh
 zmodload zsh/datetime
 zmodload -F zsh/stat b:zstat
 
@@ -46,22 +46,22 @@ k () {
   fi
 
   # changed by adi, remove this later
-  o_human=1
+  #o_human=1
   # Check which numfmt available (if any), warn user if not available
-  # typeset -i numfmt_available=0
-  # typeset -i gnumfmt_available=0
-  # if [[ "$o_human" != "" ]]; then
-  #   if [[ $+commands[numfmt] == 1 ]]; then
-  #     numfmt_available=1
-  #   elif [[ $+commands[gnumfmt] == 1 ]]; then
-  #     gnumfmt_available=1
-  #   else
-  #     print -u2 "'numfmt' or 'gnumfmt' command not found, human readable output will not work."
-  #     print -u2 "\tFalling back to normal file size output"
-  #     # Set o_human to off
-  #     o_human=""
-  #   fi
-  # fi
+  typeset -i numfmt_available=0
+  typeset -i gnumfmt_available=0
+  if [[ "$o_human" != "" ]]; then
+    if [[ $+commands[numfmt] == 1 ]]; then
+      numfmt_available=1
+    elif [[ $+commands[gnumfmt] == 1 ]]; then
+      gnumfmt_available=1
+    else
+      print -u2 "'numfmt' or 'gnumfmt' command not found, human readable output will not work."
+      print -u2 "\tFalling back to normal file size output"
+      # Set o_human to off
+      o_human=""
+    fi
+  fi
 
   # Create numfmt local function
   numfmt_local () {

@@ -31,7 +31,7 @@ alias top5_="ps -eo pcpu,pid,user,args --no-headers| sort -t. -nk1,2 -k4,4 -r |h
 alias tp="top -b -n 1 -p "
 
 
-alias ag='rg'
+# alias ag='rg'
 
 alias vi='nvim'
 # now is the time
@@ -92,7 +92,7 @@ alias va='~/dotfiles/select_file.sh'
 alias fpp='~/helper_libs/fpp'
 
 # search in history
-alias hag='history | ag '
+alias hag='history -E | ag '
 
 
 # compare jsons
@@ -196,7 +196,7 @@ hl(){
 
 alias g='gcalcli --calendar="aaditya prakash"'
 
-alias v='f -e vi'
+alias v='f -e nvim'
 
 
 alias zz='ls -larthS'
