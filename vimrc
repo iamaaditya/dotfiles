@@ -2,6 +2,7 @@ set nocompatible
 filetype off
 " set clipboard=exclude:.*
 set clipboard=
+set hidden
 
 let mapleader="\<Space>"       " leader is comma
 "Setting up Vundle - the vim plugin bundler
@@ -434,7 +435,8 @@ nnoremap <leader>a :Ack<space>
 nnoremap <leader>s O<Esc>j
 
 " highlighted uncommnted print statements in python code
-nnoremap <leader>c /^[^#]*\s*print<CR>
+" nnoremap <leader>c /^[^#]*\s*print<CR>
+nnoremap <leader>c :VimuxInterruptRunner<CR>
 nnoremap <leader>b :bu 
 " nnoremap <leader>b :Startify<CR>
 nnoremap <leader>r :up<CR>:b#<CR>
@@ -553,9 +555,10 @@ endfunction
 
 " vimux vs send the paragraph
 vmap <Leader>vs "vy:call VimuxSlime()<CR>
-nmap <Leader>vs vip<Leader>vs<CR>
+" nmap <Leader>vs vip<Leader>vs<CR>
+nmap <Leader>vs V<Leader>vs<CR>
 
-nmap <leader>vv :VimuxRunCommand("")
+nmap <Leader>vm :VimuxRunCommand("make")<CR>
 " map <C-j> <C-k>:VimuxRunCommand("clear; p; gcc " .bufname("%") ."; ./a.out; p")<CR>
 " imap <C-j> <Esc><C-k>:VimuxRunCommand("p; gcc " .bufname("%") ."; ./a.out; p")<CR>i
 " map <Leader>vc map <C-j> :!gcc -o %.out %; ./%.out<CR>
@@ -709,7 +712,9 @@ nnoremap <leader>9 :bu 9<CR>
 
 map <C-s> :w<CR>
 
-map <leader><leader> <C-w><C-w>
+" map <leader><leader> <C-w><C-w>
+nnoremap <leader><leader> :VimuxPromptCommand<CR>
+
 
 vnoremap <leader>i c[<C-r>"]()<Esc>i
 "
@@ -782,7 +787,8 @@ let g:fastfold_savehook = 1
 let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
 let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 
-set background=light
+" set background=light
+set background=dark
 " colorscheme solarized
 colorscheme solarized
 
@@ -803,3 +809,5 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "   highlight WorkspaceTabCurrent ctermbg=blue ctermfg=white guibg=black
 "   highlight WorkspaceFill ctermbg=black ctermfg=white guibg=black
 " endfunction
+nnoremap dx "d_
+
