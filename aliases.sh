@@ -105,7 +105,7 @@ alias c2=CUDA_VISIBLE_DEVICES=2
 alias c3=CUDA_VISIBLE_DEVICES=3
 alias cnull=CUDA_VISIBLE_DEVICES=''
 
-alias pypy='/home/ap/helper_libs/pypy-c-jit-86749-24d11640c483-linux64/bin/pypy'
+# alias pypy='/home/ap/helper_libs/pypy-c-jit-86749-24d11640c483-linux64/bin/pypy'
 
 nvp() { 
     ps f -o user,pgrp,pid,pcpu,pmem,start,time,command -p `lsof -n -w -t /dev/nvidia*`

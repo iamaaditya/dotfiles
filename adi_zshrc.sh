@@ -6,6 +6,7 @@ bindkey '^P' up-history
 bindkey '^N' down-history
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
+bindkey "^R" history-incremental-search-backward
 
 # History related settings
 #set history size
@@ -77,6 +78,7 @@ setopt EXTENDED_HISTORY
 export HH_CONFIG=hicolor,rawhistory        # get more colors
 
 bindkey -s "\C-r" "hh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
+# bindkey -s "\C-r": "\e0ihstr -- \C-j" # bind hh in vi mode 
 
 # fasd
 eval "$(fasd --init auto)"

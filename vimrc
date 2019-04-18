@@ -256,7 +256,7 @@ set autowrite
 set foldmethod=indent
 set foldnestmax=2
 " set nofoldenable
-set foldlevel=0
+set foldlevel=1
 set shortmess=at
 
 " since i find it useful at other times too
@@ -809,5 +809,5 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "   highlight WorkspaceTabCurrent ctermbg=blue ctermfg=white guibg=black
 "   highlight WorkspaceFill ctermbg=black ctermfg=white guibg=black
 " endfunction
-nnoremap dx "d_
+nnoremap dx "_d
 
