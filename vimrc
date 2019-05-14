@@ -130,7 +130,7 @@ Plugin 'L9'
 "add buffers at the tabline
 Plugin 'ap/vim-buftabline'
 let g:buftabline_show = 1 " 0 no show, 1 show only if more than 1 buf, 2 always show
-let g:buftabline_numbers = 1
+let g:buftabline_numbers = 2
 let g:buftabline_indicators = 1
 " let g:buftabline_separators = 0
 
@@ -286,7 +286,7 @@ set diffopt=filler,context:0
 set statusline=%<\ %n:%F\ %m%r%y%=%-35.(L:\ %l\ /\ %L,\ C:\ %c%V\ (%P)%)
 
 " CtrlP settings
-let g:ctrlp_map = '<C-o>'
+let g:ctrlp_map = '<C-p>'
 let g:ctrlp_user_command = 'ag %s -l --smart-case -g ""'
 
 " The option below works only if ctrlp default globfiles() is used to get the
@@ -329,7 +329,7 @@ nnoremap Y y$
 " map M m$
 " 
 " map ,g :call NERDComment(0,"toggle")<CR>
-" map ,g gcc
+map <leader>g gcc
 
 " map <leader>t :NERDTreeToggle<CR>
 " let NERDTreeHighlightCursorline=1
@@ -365,6 +365,7 @@ nnoremap <leader>vi :e ~/.vimrc<CR>
 
 " save using leader key
 map <leader>w :w<CR>
+map <leader>f :w<CR>
 " stupid to map leader (,) in insert mode, slows the typing of , and god
 " forbid we type the key after the , that is mapped to some command
 " imap <leader>w <Esc>:w<CR>
@@ -378,7 +379,7 @@ map <leader>m :MRU<CR>
 map <leader>j :!python %<CR>
 
 " map <leader>j %!python -m json.tool<CR>
-map <leader>d :bd<CR>
+map <leader>x :bd<CR>
 " imap <leader>d <Esc>:bd<CR>
 " syntastic check
 nnoremap <leader>l :SyntasticCheck<CR>
@@ -387,7 +388,7 @@ nnoremap <leader>l :SyntasticCheck<CR>
 
 "replace the word under the cursor
 
-nnoremap <leader>f :%s/\<<C-r><C-w>\>/
+nnoremap <leader>s :%s/\<<C-r><C-w>\>/
 
 " map <F1> :exec '!make' <CR>
 " imap <F1> :exec '!make' <CR>
@@ -432,7 +433,9 @@ let g:gundo_preview_height=20
 " Wed 28 Sep 2016 02:38:25 PM EDT 
 let g:ackprg = 'ag --vimgrep'
 nnoremap <leader>a :Ack<space> 
-nnoremap <leader>s O<Esc>j
+nnoremap <leader>q : ~/mp/pathai/ <C-b>Ack<space> 
+
+" nnoremap <leader>s O<Esc>j
 
 " highlighted uncommnted print statements in python code
 " nnoremap <leader>c /^[^#]*\s*print<CR>
@@ -554,9 +557,9 @@ function! VimuxSlimeGCC()
 endfunction
 
 " vimux vs send the paragraph
-vmap <Leader>vs "vy:call VimuxSlime()<CR>
+vnoremap <Leader><Leader> "vy:call VimuxSlime()<CR>
 " nmap <Leader>vs vip<Leader>vs<CR>
-nmap <Leader>vs V<Leader>vs<CR>
+nnoremap <Leader><Leader> V"vy:call VimuxSlime()<CR>
 
 nmap <Leader>vm :VimuxRunCommand("make")<CR>
 " map <C-j> <C-k>:VimuxRunCommand("clear; p; gcc " .bufname("%") ."; ./a.out; p")<CR>
@@ -700,25 +703,36 @@ map <F9> :s/\v<(.)(\w*)/\u\1\L\2/g
 " C-n as next buffer
 " current not C-p as that is for CtrlP
 nnoremap <C-n> :bnext<CR>
-nnoremap <leader>1 :bu 1<CR>
-nnoremap <leader>2 :bu 2<CR>
-nnoremap <leader>3 :bu 3<CR>
-nnoremap <leader>4 :bu 4<CR>
-nnoremap <leader>5 :bu 5<CR>
-nnoremap <leader>6 :bu 6<CR>
-nnoremap <leader>7 :bu 7<CR>
-nnoremap <leader>8 :bu 8<CR>
-nnoremap <leader>9 :bu 9<CR>
+" nnoremap <leader>1 :bu 1<CR>
+" nnoremap <leader>2 :bu 2<CR>
+" nnoremap <leader>3 :bu 3<CR>
+" nnoremap <leader>4 :bu 4<CR>
+" nnoremap <leader>5 :bu 5<CR>
+" nnoremap <leader>6 :bu 6<CR>
+" nnoremap <leader>7 :bu 7<CR>
+" nnoremap <leader>8 :bu 8<CR>
+" nnoremap <leader>9 :bu 9<CR>
+nmap <leader>1 <Plug>BufTabLine.Go(1)
+nmap <leader>2 <Plug>BufTabLine.Go(2)
+nmap <leader>3 <Plug>BufTabLine.Go(3)
+nmap <leader>4 <Plug>BufTabLine.Go(4)
+nmap <leader>5 <Plug>BufTabLine.Go(5)
+nmap <leader>6 <Plug>BufTabLine.Go(6)
+nmap <leader>7 <Plug>BufTabLine.Go(7)
+nmap <leader>8 <Plug>BufTabLine.Go(8)
+nmap <leader>9 <Plug>BufTabLine.Go(9)
+nmap <leader>0 <Plug>BufTabLine.Go(10)
+
 
 map <C-s> :w<CR>
 
 " map <leader><leader> <C-w><C-w>
-nnoremap <leader><leader> :VimuxPromptCommand<CR>
+nnoremap <leader><Enter> :VimuxPromptCommand<CR>
 
 
 vnoremap <leader>i c[<C-r>"]()<Esc>i
 "
-" vp doesn't replace paste buffer
+" vap doesn't replace paste buffer
 function! RestoreRegister()
   let @" = s:restore_reg
   return ''
@@ -730,8 +744,8 @@ endfunction
 vmap <silent> <expr> p <sid>Repl()
 
 " map q: :q
-map <leader>g gcc
-map <leader><Enter> za
+" map <leader>g gcc
+" map <leader><Enter> za
 " map <C-j> :w<CR>:VimuxRunCommand("run " .bufname("%"))<CR>
 " imap <C-j> <Esc>:w<CR>:VimuxRunCommand("run " .bufname("%"))<CR>
 
@@ -756,7 +770,8 @@ hi MatchParen cterm=none ctermbg=black ctermfg=grey
 Plugin 'christoomey/vim-tmux-navigator'
 
 
-map <C-b> :CtrlPMRUFiles<CR>
+map <C-m> :CtrlPMRUFiles<CR>
+map <C-b> :CtrlPBuffer<CR>
 " imap <C-b> <Esc>:CtrlPMRUFiles<CR>
 
 
@@ -809,5 +824,9 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "   highlight WorkspaceTabCurrent ctermbg=blue ctermfg=white guibg=black
 "   highlight WorkspaceFill ctermbg=black ctermfg=white guibg=black
 " endfunction
-nnoremap dx "_d
+map <leader>] <Plug>SpeedDatingUp
+nnoremap <leader>d "_d
 
+" insert date/time
+nnoremap <leader>t "=strftime("%c")<CR>P
+" inoremap <leader>t <C-R>=strftime("%c")<CR>
