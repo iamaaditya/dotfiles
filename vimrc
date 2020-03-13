@@ -4,6 +4,19 @@ filetype off
 set clipboard=
 set hidden
 
+set termguicolors
+ if has('nvim')
+" https://github.com/neovim/neovim/wiki/FAQ
+set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+endif
+
+
+" colon mapping
+nnoremap ; :
+" nnoremap : ;
+vnoremap ; :
+" vnoremap : ;
+
 let mapleader="\<Space>"       " leader is comma
 "Setting up Vundle - the vim plugin bundler
 let iCanHazVundle=1
@@ -19,32 +32,46 @@ set rtp+=~/.vim/bundle/vundle/
 set rtp+=$GOROOT/misc/vim
 call vundle#rc()
 Plugin 'gmarik/vundle'
-" Plugin 'Valloric/YouCompleteMe'
-" Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 " Plugin 'tmhedberg/SimpylFold'
 " Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
 " Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-eunuch'
 " Plugin 'svermeulen/vim-easyclip'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'sjl/gundo.vim'
+" Plugin 'sjl/gundo.vim'
 " Plugin 'rking/ag.vim'
-Plugin 'mileszs/ack.vim'
+
+" Replaced with wincent/ferret (see below)
+" Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar'
     nmap <Bar> :TagbarToggle<CR>
-    let g:tagbar_width=40
-    let g:tagbar_show_linenumbers=1
+    let g:tagbar_width=30
+    let g:tagbar_show_linenumbers=0
 
 " Plugin 'airblade/vim-gitgutter'
 
-Plugin 'haya14busa/incsearch.vim'
+" Plugin 'haya14busa/incsearch.vim'
 
 " Plugin 'terryma/vim-expand-region'
 " vmap v <Plug>(expand_region_expand)
 " vmap <C-v> <Plug>(expand_region_shrink)
 
+" CtrlP the most useful plugin
+Plugin 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_map = '<C-p>'
+map <C-o> :CtrlPMRUFiles<CR>
+map <C-b> :CtrlPBuffer<CR>
+" imap <C-b> <Esc>:CtrlPMRUFiles<CR>
+" CtrlP settings
+let g:ctrlp_user_command = 'ag %s -l --smart-case -g ""'
+let g:ctrlp_working_path_mode = 'ca'
+
+" The option below works only if ctrlp default globfiles() is used to get the
+" files, not when user_command (ag above) is used 
+" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 if has('nvim')
   Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -65,22 +92,19 @@ let g:deoplete#sources#jedi#server_timeout = 30
 " Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mtth/scratch.vim'
 Plugin 'wellle/targets.vim'
-" Plugin 'scrooloose/nerdtree'
-Plugin 'vim-scripts/mru.vim'
+" Plugin 'vim-scripts/mru.vim'
 " Plugin 'wakatime/vim-wakatime'
 
-" Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
 
 " Plugin for latex support
 " Plugin 'lervag/vimtex'
-Plugin 'vim-latex/vim-latex'
+" Plugin 'vim-latex/vim-latex'
 
 " Plugin for folding in latex
 " Plugin 'matze/vim-tex-fold'
 
 " Plugin to run the terminal commands in async
-Plugin 'skywind3000/asyncrun.vim'
+" Plugin 'skywind3000/asyncrun.vim'
 
 " Plugin to auto-complete 
 " Plugin 'maralla/completor.vim'
@@ -118,9 +142,6 @@ Plugin 'benmills/vimux'
 " Plugin to visually show location in the file in the status bar (see right)
 " Plugin 'naddeoa/vim-visual-page-percent'
 
-Plugin 'justinmk/vim-sneak'
-Plugin 'FuzzyFinder'
-Plugin 'L9'
 
 " increases the utility of space to enchance the repeat command. Use space to
 " repeat
@@ -139,7 +160,9 @@ let g:buftabline_indicators = 1
 " Plugin 'bagrat/vim-workspace'
 
 " better solarized using erb
-Plugin 'ericbn/vim-solarized'
+" Plugin 'ericbn/vim-solarized'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'lifepillar/vim-solarized8'
 
 " add things to status line
 " Plugin 'maciakl/vim-neatstatus'
@@ -152,7 +175,7 @@ au InsertEnter * set nocursorline
 
 
 " Plugin interactive scratchpad (show live results for python)
-Plugin 'metakirby5/codi.vim'
+" Plugin 'metakirby5/codi.vim'
 
 " Plugin emacs like orgmode in Vim
 Plugin 'jceb/vim-orgmode'
@@ -199,7 +222,10 @@ filetype indent on
 filetype plugin indent on
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 " Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-let g:Powerline_symbols = 'fancy'
+" let g:Powerline_symbols = 'fancy'
+" let g:Powerline_dividers_override = ["\Ue0b0", "\Ue0b1", "\Ue0b2", "\Ue0b3"]
+" let g:Powerline_symbols_override = { 'BRANCH': "\Ue0a0", 'LINE': "\Ue0a1", 'RO': "\Ue0a2" }
+" let g:Powerline_symbols = 'fancy'
 " source ~/.vim/bundle/powerline/build/lib/powerline/ext/vim/source_plugin.vim
 "python from powerline.ext.vim import source_plugin; source_plugin()
 " let $PAGER=''
@@ -220,9 +246,9 @@ set nowrap
 set noswapfile
 "set nobackup
 set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupdir=~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 set autoindent
 set copyindent
@@ -243,7 +269,7 @@ set lazyredraw
 set expandtab
 set modelines=0
 set backspace=start,indent,eol
-set t_Co=256
+" set t_Co=256
 set showtabline=0
 set noshowmode
 set scrolloff=10
@@ -285,13 +311,6 @@ set diffopt=filler,context:0
 " set statusline+=%{VisualPercent()}
 set statusline=%<\ %n:%F\ %m%r%y%=%-35.(L:\ %l\ /\ %L,\ C:\ %c%V\ (%P)%)
 
-" CtrlP settings
-let g:ctrlp_map = '<C-p>'
-let g:ctrlp_user_command = 'ag %s -l --smart-case -g ""'
-
-" The option below works only if ctrlp default globfiles() is used to get the
-" files, not when user_command (ag above) is used 
-" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " easymotion configs
 " let g:EasyMotion_leader_key = '<Leader>'
 " session configs
@@ -331,14 +350,16 @@ nnoremap Y y$
 " map ,g :call NERDComment(0,"toggle")<CR>
 map <leader>g gcc
 
-" map <leader>t :NERDTreeToggle<CR>
-" let NERDTreeHighlightCursorline=1
-" let NERDTreeIgnore = ['\.out$', '\.bin$', '\.pyc$']
-" let g:NERDTreeWinSize = 20
+" file explorer plugin
+Plugin 'scrooloose/nerdtree'
+map <leader>o :NERDTreeToggle<CR>
+let NERDTreeHighlightCursorline=1
+let NERDTreeIgnore = ['\.out$', '\.bin$', '\.pyc$']
+let g:NERDTreeWinSize = 30
 "vmap <C-f> :fold<CR>
 set rnu
 " nmap <CR> :set rnu!<CR>
-map <C-c> :nohlsearch<CR>
+" map <C-c> :nohlsearch<CR>
 "map <C-S-l> :set rl<CR>
 "map <C-S-k> :set norl<CR>
 " map <C-l> :tabn<CR>
@@ -352,6 +373,7 @@ nmap <BS> 0za
 nnoremap - :q<CR>
 " open vimrc
 nnoremap <leader>vi :e ~/.vimrc<CR>
+nnoremap <leader>vc :e ~/pathai.zsh<CR>
 "
 " command -nargs=0 -bar Update if &modified 
 "                            \|    if empty(bufname('%'))
@@ -364,16 +386,14 @@ nnoremap <leader>vi :e ~/.vimrc<CR>
 " inoremap <C-k> <Esc>:up<CR>i
 
 " save using leader key
-map <leader>w :w<CR>
-map <leader>f :w<CR>
-" stupid to map leader (,) in insert mode, slows the typing of , and god
-" forbid we type the key after the , that is mapped to some command
+" map <leader>w :w<CR>
+map <leader><leader> :w<CR>
 " imap <leader>w <Esc>:w<CR>
 
 " Make copy of previous line and comment the previous one, like backup line
 map <leader>e yypgcck<CR>
 
-map <leader>m :MRU<CR>
+" map <leader>m :MRU<CR>
 " FIXME
 " map <leader>j OFIXME<ESC>,gj
 map <leader>j :!python %<CR>
@@ -387,8 +407,7 @@ nnoremap <leader>l :SyntasticCheck<CR>
 
 
 "replace the word under the cursor
-
-nnoremap <leader>s :%s/\<<C-r><C-w>\>/
+" nnoremap <leader>s :%s/\<<C-r><C-w>\>/
 
 " map <F1> :exec '!make' <CR>
 " imap <F1> :exec '!make' <CR>
@@ -401,8 +420,21 @@ map <F1> :silent make\|redraw!\|cc<CR>
 " map <C-j> :!gcc -o %.out %; ./%.out<CR>
 " imap <C-j> :!gcc -o %.out %; ./%.out<CR>
 
+" Jedi is better
+" Plugin 'Valloric/YouCompleteMe'
 " map <F2> :YcmCompleter GetDoc<CR>
 " imap <F2> <Esc>:YcmCompleter GetDoc<CR>
+" YCM configs
+" let g:ycm_auto_trigger = 1
+"let g:ycm_semantic_triggers = {'haskell' : ['.']}
+" let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" This is to fix the ValueError:  still no compile flags, no completions yet
+" for the  C and CPP codes
+" let g:ycm_global_ycm_extra_conf = "~/dotfiles/vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+" If the current buffer has never been saved, it will have no name,
+" call the file browser to save it, otherwise just save it.
 
 map <F5> :exec '!python' shellescape(@%, 1)<CR>
 " imap <F5> <Esc>:exec '!python' shellescape(@%, 1)<CR>
@@ -412,35 +444,38 @@ map <F5> :exec '!python' shellescape(@%, 1)<CR>
 "map <leader>c :Calc<CR> 
 
 "haya14busa incremental search
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+" map /  <Plug>(incsearch-forward)
+" map ?  <Plug>(incsearch-backward)
+" map g/ <Plug>(incsearch-stay)
 
 " insert one character only and return back to normal mode
-nmap <leader>o i_<Esc>r
+" nmap <leader>o i_<Esc>r
 " nmap <space> :noh<CR>
-"nmap <space> <C-f>
-"nmap <S-space> <C-b>
-"nnoremap <space> za 
-"vnoremap <space> zf
+" nmap <space> <C-f>
+" nmap <S-space> <C-b>
+" nnoremap <space> za 
+" vnoremap <space> zf
 
 " settigns for gundo
-nnoremap <leader>u :GundoToggle<CR>
-let g:gundo_width=50
-let g:gundo_preview_height=20
+" nnoremap <leader>u :GundoToggle<CR>
+" let g:gundo_width=50
+" let g:gundo_preview_height=20
 " open ag.vim
 " changed from ag.vim to ack.vim as ag is deprecated
 " Wed 28 Sep 2016 02:38:25 PM EDT 
-let g:ackprg = 'ag --vimgrep'
-nnoremap <leader>a :Ack<space> 
-nnoremap <leader>q : ~/mp/pathai/ <C-b>Ack<space> 
+" let g:ackprg = 'ag --vimgrep'
+" nnoremap <leader>a :Ack<space> 
+nnoremap <leader>q : ~/ml-platform/pathai/ <C-b>Ack<space> 
+let g:ack_autoclose = 1
 
 " nnoremap <leader>s O<Esc>j
 
 " highlighted uncommnted print statements in python code
 " nnoremap <leader>c /^[^#]*\s*print<CR>
-nnoremap <leader>c :VimuxInterruptRunner<CR>
-nnoremap <leader>b :bu 
+" 
+" nnoremap <leader>c :VimuxInterruptRunner<CR>
+
+" nnoremap <leader>b :bu 
 " nnoremap <leader>b :Startify<CR>
 nnoremap <leader>r :up<CR>:b#<CR>
 
@@ -450,35 +485,25 @@ cmap w!! %!sudo tee > /dev/null %
 nnoremap <F4> "=strftime("%c")<CR>P
 inoremap <F4> <C-R>=strftime("%c")<CR>
 
-nmap s <Plug>Sneak_s
-nmap S <Plug>Sneak_S
+" Useful plugin but never used it.
+" Needs changing habits
+" Plugin 'justinmk/vim-sneak'
+" Plugin 'FuzzyFinder'
+" Plugin 'L9'
+" nmap s <Plug>Sneak_s
+" nmap S <Plug>Sneak_S
 " visual-mode
-xmap s <Plug>Sneak_s
-xmap S <Plug>Sneak_S
+" xmap s <Plug>Sneak_s
+" xmap S <Plug>Sneak_S
 " operator-pending-mode
-omap s <Plug>Sneak_s
-omap S <Plug>Sneak_S
+" omap s <Plug>Sneak_s
+" omap S <Plug>Sneak_S
 
-map gn :bn<CR>
-map gp :bp<CR>
-map gd :bd<CR> 
-map gb :ls<CR>:buffer<Space>
 
 "improve autocomplete menu color
 highlight Pmenu ctermbg=gray ctermfg=black gui=bold
 
 
-" YCM configs
-let g:ycm_auto_trigger = 1
-"let g:ycm_semantic_triggers = {'haskell' : ['.']}
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
-" This is to fix the ValueError:  still no compile flags, no completions yet
-" for the  C and CPP codes
-" let g:ycm_global_ycm_extra_conf = "~/dotfiles/vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
-" If the current buffer has never been saved, it will have no name,
-" call the file browser to save it, otherwise just save it.
 
 
 " Code to rename the file
@@ -492,22 +517,18 @@ function! RenameFile()
     endif
 endfunction
 " map <leader>r :call RenameFile()<cr>
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_dividers_override = ["\Ue0b0", "\Ue0b1", "\Ue0b2", "\Ue0b3"]
-let g:Powerline_symbols_override = { 'BRANCH': "\Ue0a0", 'LINE': "\Ue0a1", 'RO': "\Ue0a2" }
 
 
 " settings for dragvisuals.vim
-runtime plugin/dragvisuals.vim
+" runtime plugin/dragvisuals.vim
 
-vmap  <expr>  <LEFT>   DVB_Drag('left')                     
-vmap  <expr>  <RIGHT>  DVB_Drag('right')                    
-vmap  <expr>  <DOWN>   DVB_Drag('down')                     
-vmap  <expr>  <UP>     DVB_Drag('up')                       
-vmap  <expr>  D        DVB_Duplicate()                      
-
+" vmap  <expr>  <LEFT>   DVB_Drag('left')                     
+" vmap  <expr>  <RIGHT>  DVB_Drag('right')                    
+" vmap  <expr>  <DOWN>   DVB_Drag('down')                     
+" vmap  <expr>  <UP>     DVB_Drag('up')                       
+" vmap  <expr>  D        DVB_Duplicate()                      
 " Remove any introduced trailing whitespace after moving... 
-let g:DVB_TrimWS = 1
+" let g:DVB_TrimWS = 1
 
 
 
@@ -557,9 +578,9 @@ function! VimuxSlimeGCC()
 endfunction
 
 " vimux vs send the paragraph
-vnoremap <Leader><Leader> "vy:call VimuxSlime()<CR>
+vnoremap <Leader>f "vy:call VimuxSlime()<CR>
 " nmap <Leader>vs vip<Leader>vs<CR>
-nnoremap <Leader><Leader> V"vy:call VimuxSlime()<CR>
+nnoremap <Leader>f V"vy:call VimuxSlime()<CR>j
 
 nmap <Leader>vm :VimuxRunCommand("make")<CR>
 " map <C-j> <C-k>:VimuxRunCommand("clear; p; gcc " .bufname("%") ."; ./a.out; p")<CR>
@@ -645,14 +666,15 @@ endfunction
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
 " settings for ultisnips
 "
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
+" let g:UltiSnipsExpandTrigger="<c-j>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsEditSplit="vertical"
 
 
 " copy to buffer
@@ -664,8 +686,10 @@ map <leader>p :r ~/.vimbuffer<CR>
 let maplocalleader = "\\"
 
 
-" make the 's' and 'S' insert a single character
+"make the 's' and 'S' insert a single character
+" nmap <silent> ,s "=nr2char(getchar())<cr>P
 " nnoremap s :exec "normal i".nr2char(getchar())."\e"<CR>
+nnoremap s i_<Esc>r
 nnoremap S :exec "normal a".nr2char(getchar())."\e"<CR>
 
 " map <Space> :noh<CR>
@@ -712,6 +736,7 @@ nnoremap <C-n> :bnext<CR>
 " nnoremap <leader>7 :bu 7<CR>
 " nnoremap <leader>8 :bu 8<CR>
 " nnoremap <leader>9 :bu 9<CR>
+let g:buftabline_plug_max = 20
 nmap <leader>1 <Plug>BufTabLine.Go(1)
 nmap <leader>2 <Plug>BufTabLine.Go(2)
 nmap <leader>3 <Plug>BufTabLine.Go(3)
@@ -721,10 +746,24 @@ nmap <leader>6 <Plug>BufTabLine.Go(6)
 nmap <leader>7 <Plug>BufTabLine.Go(7)
 nmap <leader>8 <Plug>BufTabLine.Go(8)
 nmap <leader>9 <Plug>BufTabLine.Go(9)
-nmap <leader>0 <Plug>BufTabLine.Go(10)
+nmap <leader>00 <Plug>BufTabLine.Go(10)
+nmap <leader>01 <Plug>BufTabLine.Go(11)
+nmap <leader>02 <Plug>BufTabLine.Go(12)
+nmap <leader>03 <Plug>BufTabLine.Go(13)
+nmap <leader>04 <Plug>BufTabLine.Go(14)
+nmap <leader>05 <Plug>BufTabLine.Go(15)
+nmap <leader>06 <Plug>BufTabLine.Go(16)
+nmap <leader>07 <Plug>BufTabLine.Go(17)
+nmap <leader>08 <Plug>BufTabLine.Go(18)
+nmap <leader>09 <Plug>BufTabLine.Go(19)
 
+map gn :bn<CR>
+map gp :bp<CR>
+map gd :bd<CR> 
+" map gb :ls<CR>:buffer<Space>
+map gb :buffer<Space>
 
-map <C-s> :w<CR>
+" map <C-s> :w<CR>
 
 " map <leader><leader> <C-w><C-w>
 nnoremap <leader><Enter> :VimuxPromptCommand<CR>
@@ -770,14 +809,11 @@ hi MatchParen cterm=none ctermbg=black ctermfg=grey
 Plugin 'christoomey/vim-tmux-navigator'
 
 
-map <C-m> :CtrlPMRUFiles<CR>
-map <C-b> :CtrlPBuffer<CR>
-" imap <C-b> <Esc>:CtrlPMRUFiles<CR>
 
 
 
-map ! <leader>vp
-map <F3> <leader>vl
+" map ! <leader>vp
+" map <F3> <leader>vl
 
 Plugin 'kshenoy/vim-signature'
 
@@ -802,10 +838,12 @@ let g:fastfold_savehook = 1
 let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
 let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 
-" set background=light
-set background=dark
-" colorscheme solarized
+set background=light
+" set background=dark
 colorscheme solarized
+" colorscheme Atelier_SulphurpoolDark
+" colorscheme Atelier_SulphurpoolLight
+" colorscheme solarized8_high
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -826,7 +864,65 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " endfunction
 map <leader>] <Plug>SpeedDatingUp
 nnoremap <leader>d "_d
+" nnoremap <leader>
 
 " insert date/time
-nnoremap <leader>t "=strftime("%c")<CR>P
+nnoremap <leader>t "=strftime("%c")<CR>P0i#<ESC>j
 " inoremap <leader>t <C-R>=strftime("%c")<CR>
+"
+" Plugin 'python/black'
+
+" Plugin 'Shougo/unite.vim'
+" Plugin 'devjoe/vim-codequery'
+
+set diffopt=filler,context:0
+
+hi Comment guifg=#b0b0b0
+
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'alok/notational-fzf-vim'
+let g:nv_search_paths = ['./notes.md', '~/notes/']
+nnoremap <silent> <c-s> :NV<CR>
+
+command! -complete=file -nargs=1 Remove :echo 'Remove: '.'<f-args>'.' '.(delete(<f-args>) == 0 ? 'SUCCEEDED' : 'FAILED')
+
+" let g:VimuxRunnerIndex=2
+"
+Plugin 'vimwiki/vimwiki'
+
+" Insert a line and return to Normal Mode
+" nmap <leader>o i_<Esc>r
+nnoremap <silent><leader>b :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+" https://vim.fandom.com/wiki/Redirect_g_search_output 
+command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=nofile | put! a
+
+Plugin 'wincent/ferret'  
+
+nnoremap <leader>q : ~/ml-platform/pathai/ <C-b>Ack<space> 
+" Ack (leader a)
+" Lack (search but use location-list instead of quickfix-list
+" Back (& Black) search in open buffers only
+" Quack search the current files in the quickfix list
+" Acks (leader r)
+" Qargs put the quickfix files in the args
+
+" Autosave on textchanged
+autocmd TextChanged,TextChangedI <buffer> silent write
+
+
+Plugin 'wincent/loupe'
+" <leader>n Clear
+
+
+nnoremap <leader>c :e ~/code/ml-platform/pathai/
+
+
+
+au BufRead,BufNewFile *.conf setfiletype config
+
+" Make the command to get the UUID of the last run Jabba command
+command Uid r!tail -n 1 out | cut -d' ' -f 5
+
+

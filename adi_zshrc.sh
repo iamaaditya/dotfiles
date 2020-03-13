@@ -18,6 +18,9 @@ export HISTFILE=~/.zhistory
 
 export EDITOR=vim
 
+# git completion for zsh
+fpath=(~/dotfiles/git_completion.zsh $fpath)
+
 # https://raw.githubusercontent.com/rupa/z/master/z.sh (like autojump)
 source ~/dotfiles/z.sh
 source ~/dotfiles/aliases.sh
@@ -126,10 +129,18 @@ setopt promptsubst
 NEWLINE=$'\n'
 PS1='${(r:$COLUMNS::.:)}'$NEWLINE$PS1
 
-PATH=$PATH:/home/ap/.local/bin
+PATH=$PATH:$HOME/.local/bin
 
 # this is gcloud completion
 # source ~/dotfiles/completion.zsh.inc
 
 
 source ~/dotfiles/hstr.sh
+
+# TRAPWINCH() {
+#   zle && { zle reset-prompt; zle -R }
+# }
+
+bindkey '^X' zaw
+# bindkey "^8" zaw-history
+

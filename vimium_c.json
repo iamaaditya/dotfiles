@@ -1,0 +1,76 @@
+{
+	"name": "Vimium C",
+	"@time": "3/13/2020, 10:28:10 AM",
+	"time": 1584109690581,
+	"environment": {
+		"extension": "1.80.3",
+		"platform": "mac",
+		"chrome": 80
+	},
+	"exclusionRules": [
+		{
+			"pattern": ":https://mail.google.com/",
+			"passKeys": ""
+		},
+		{
+			"pattern": "^https?://localhost:8989/",
+			"passKeys": ""
+		},
+		{
+			"pattern": "^https?://localhost:8888/",
+			"passKeys": ""
+		}
+	],
+	"extAllowList": [
+		"# modified versions of X New Tab and PDF Viewer,",
+		"# NewTab Adapter, and Shortcuts Forwarding Tool",
+		"hdnehngglnbnehkfcidabjckinphnief",
+		"nacjakoppgmdcpemlfnfegmlhipddanj",
+		"cglpcedifkgalfdklahhcchnjepcckfn",
+		"clnalilglegcjmlgenoppklmfppddien",
+		"cglpcedifkgalfdklahhcchnjepcckfn",
+		""
+	],
+	"grabBackFocus": true,
+	"keyMappings": [
+		"map a Vomnibar.activateTabSelection",
+		"map s scrollDown",
+		"#map es createTab url=\"https://app.slack.com/client/T6FV1NCCR/unreads/thread/CU54YT0G3-1584106414.013000\"",
+		"map M Marks.activateCreateMode swap",
+		""
+	],
+	"newTabUrl": "pages/blank.html",
+	"nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
+	"previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
+	"searchEngines": [
+		"g|go|gg|google: https://www.google.com/search?q=%s Google",
+		"js\\:|Js: javascript:\\ $S; JavaScript",
+		"w|wiki:\\",
+		"  https://www.wikipedia.org/w/index.php?search=%s Wikipedia",
+		"v.m|math: vimium://math\\ $S re= Calculate",
+		"",
+		"",
+		"",
+		"",
+		"# More examples.",
+		"#",
+		"# (Vimium C supports search completion Google, Wikipedia,",
+		"# and so on, as above, and for these.)",
+		"#",
+		"l: https://www.google.com/search?q=%s&btnI I'm feeling lucky",
+		"y: https://www.youtube.com/results?search_query=%s YouTube",
+		"gm: https://www.google.com/maps?q=%s Google maps",
+		"# d: https://duckduckgo.com/?q=%s DuckDuckGo",
+		"az: https://www.amazon.com/s/?field-keywords=%s Amazon",
+		"qw: https://www.qwant.com/?q=%s Qwant",
+		""
+	],
+	"showAdvancedCommands": true,
+	"showAdvancedOptions": true,
+	"vomnibarOptions": {
+		"maxMatches": 20,
+		"queryInterval": 500,
+		"sizes": "77,3,44",
+		"styles": "mono-url"
+	}
+}
