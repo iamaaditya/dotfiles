@@ -31,6 +31,7 @@ endif
 set rtp+=~/.vim/bundle/vundle/
 set rtp+=$GOROOT/misc/vim
 call vundle#rc()
+
 Plugin 'gmarik/vundle'
 Plugin 'tpope/vim-fugitive'
 " Plugin 'tmhedberg/SimpylFold'
@@ -40,6 +41,16 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-eunuch'
+
+" Plugin 'maxbrunsfeld/vim-yankstack' " use meta-p and meta-shift-p to cycle over the yank
+" nnoremap <Leader>p <Plug>yankstack_substitute_older_paste
+" nnoremap <Leader>P <Plug>yankstack_substitute_newer_paste
+
+Plugin 'mg979/vim-yanktools'
+let g:yanktools_main_key = 's'
+nmap      S s$
+nnoremap  Y y$
+
 " Plugin 'svermeulen/vim-easyclip'
 " Plugin 'sjl/gundo.vim'
 " Plugin 'rking/ag.vim'
@@ -87,7 +98,6 @@ autocmd CompleteDone * pclose!
 let g:deoplete#auto_complete_delay = 10
 let g:deoplete#sources#jedi#server_timeout = 30
 " closes the preview window after completion is done
-
 
 " Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mtth/scratch.vim'
@@ -178,7 +188,7 @@ au InsertEnter * set nocursorline
 " Plugin 'metakirby5/codi.vim'
 
 " Plugin emacs like orgmode in Vim
-Plugin 'jceb/vim-orgmode'
+" Plugin 'jceb/vim-orgmode'
 Plugin 'tpope/vim-speeddating'
 
 " plugin to show history of yanks
@@ -271,7 +281,7 @@ set modelines=0
 set backspace=start,indent,eol
 " set t_Co=256
 set showtabline=0
-set noshowmode
+set showmode
 set scrolloff=10
 "set guifont=Monaco:h13
 set nolist  "hide invisible characters
@@ -344,11 +354,14 @@ nnoremap gV `[v`]
 nmap n :norm! nzzzv<CR>
 nmap N :norm! Nzzzv<CR>
 
-nnoremap Y y$
+nnoremap M J
+nnoremap J 10j
+nnoremap K 10k
+
 " map M m$
 " 
 " map ,g :call NERDComment(0,"toggle")<CR>
-map <leader>g gcc
+" map <leader>g gcc
 
 " file explorer plugin
 Plugin 'scrooloose/nerdtree'
@@ -465,7 +478,7 @@ map <F5> :exec '!python' shellescape(@%, 1)<CR>
 " Wed 28 Sep 2016 02:38:25 PM EDT 
 " let g:ackprg = 'ag --vimgrep'
 " nnoremap <leader>a :Ack<space> 
-nnoremap <leader>q : ~/ml-platform/pathai/ <C-b>Ack<space> 
+nnoremap <leader>q : ~/code/ml-platform/pathai/ <C-b>Ack<space> 
 let g:ack_autoclose = 1
 
 " nnoremap <leader>s O<Esc>j
@@ -567,6 +580,12 @@ function! VimuxSlime()
     call VimuxSendKeys("Enter")
 endfunction
 
+function! VimuxWf()
+    call VimuxSendText("wf ")
+    call VimuxSendText(@v)
+    call VimuxSendKeys("Enter")
+endfunction
+
 "let g:VimuxWidth = "35" "default is 20
 let g:VimuxOrientation = 'v'
 let g:VimuxUseNearest = 1
@@ -581,6 +600,9 @@ endfunction
 vnoremap <Leader>f "vy:call VimuxSlime()<CR>
 " nmap <Leader>vs vip<Leader>vs<CR>
 nnoremap <Leader>f V"vy:call VimuxSlime()<CR>j
+
+vnoremap <leader>j "vy:call VimuxWf()<CR>
+nnoremap <Leader>j V"vy:call VimuxWf()<CR>j
 
 nmap <Leader>vm :VimuxRunCommand("make")<CR>
 " map <C-j> <C-k>:VimuxRunCommand("clear; p; gcc " .bufname("%") ."; ./a.out; p")<CR>
@@ -611,7 +633,8 @@ nmap <Leader>vq :VimuxCloseRunner<CR>
 nmap <Leader>vg :VimuxInspectRunner<CR>
 " vimux run previous command
 nmap <Leader>vl :VimuxRunLastCommand<CR>
-nmap <Leader>vp :VimuxPromptCommand<CR>
+" nmap <Leader>vp :VimuxPromptCommand<CR>
+nnoremap <leader><Enter> :VimuxPromptCommand<CR>
 
 "settings for targets.vim
 let g:targets_aiAI = 'aiAI'
@@ -678,10 +701,10 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 
 " copy to buffer
-vmap <leader>y :w! ~/.vimbuffer<CR>
-nmap <leader>y :.w! ~/.vimbuffer<CR>
+" vmap <leader>y :w! ~/.vimbuffer<CR>
+" nmap <leader>y :.w! ~/.vimbuffer<CR>
 " paste from buffer
-map <leader>p :r ~/.vimbuffer<CR>
+" map <leader>p :r ~/.vimbuffer<CR>
 
 let maplocalleader = "\\"
 
@@ -689,8 +712,8 @@ let maplocalleader = "\\"
 "make the 's' and 'S' insert a single character
 " nmap <silent> ,s "=nr2char(getchar())<cr>P
 " nnoremap s :exec "normal i".nr2char(getchar())."\e"<CR>
-nnoremap s i_<Esc>r
-nnoremap S :exec "normal a".nr2char(getchar())."\e"<CR>
+" nnoremap s i_<Esc>r
+" nnoremap S :exec "normal a".nr2char(getchar())."\e"<CR>
 
 " map <Space> :noh<CR>
 " hi CursorLine cterm=NONE ctermbg=black ctermfg=white guibg=darkblue guifg=white
@@ -714,7 +737,7 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <F7> mzgg=G`z
 
 " mappings for org-mode
-let g:org_agenda_files=['~/org/*.org']
+" let g:org_agenda_files=['~/org/*.org']
 
 " nnoremap m ]m
 " nnoremap M [m
@@ -766,7 +789,6 @@ map gb :buffer<Space>
 " map <C-s> :w<CR>
 
 " map <leader><leader> <C-w><C-w>
-nnoremap <leader><Enter> :VimuxPromptCommand<CR>
 
 
 vnoremap <leader>i c[<C-r>"]()<Esc>i
@@ -788,8 +810,8 @@ vmap <silent> <expr> p <sid>Repl()
 " map <C-j> :w<CR>:VimuxRunCommand("run " .bufname("%"))<CR>
 " imap <C-j> <Esc>:w<CR>:VimuxRunCommand("run " .bufname("%"))<CR>
 
-nmap <leader>j :up<CR>:VimuxRunCommand("run " .expand('%:p'))<CR>
-
+" nmap <leader>j :up<CR>:VimuxRunCommand("run " .expand('%:p'))<CR>
+ 
 nmap <leader>l :up<CR>:VimuxRunCommand("!! ")<CR>:VimuxRunCommand(" ")<CR>
 
 
@@ -807,10 +829,6 @@ hi MatchParen cterm=none ctermbg=black ctermfg=grey
 " 	  \ .bufferline#get_status_string()
 
 Plugin 'christoomey/vim-tmux-navigator'
-
-
-
-
 
 " map ! <leader>vp
 " map <F3> <leader>vl
@@ -898,7 +916,7 @@ nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 " https://vim.fandom.com/wiki/Redirect_g_search_output 
 command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=nofile | put! a
 
-Plugin 'wincent/ferret'  
+Plugin 'wincent/ferret'  " Search :Ack 
 
 nnoremap <leader>q : ~/ml-platform/pathai/ <C-b>Ack<space> 
 " Ack (leader a)
@@ -909,7 +927,7 @@ nnoremap <leader>q : ~/ml-platform/pathai/ <C-b>Ack<space>
 " Qargs put the quickfix files in the args
 
 " Autosave on textchanged
-autocmd TextChanged,TextChangedI <buffer> silent write
+" autocmd TextChanged,TextChangedI <buffer> write
 
 
 Plugin 'wincent/loupe'
@@ -924,5 +942,28 @@ au BufRead,BufNewFile *.conf setfiletype config
 
 " Make the command to get the UUID of the last run Jabba command
 command Uid r!tail -n 1 out | cut -d' ' -f 5
+nmap <Leader>vu :Uid<CR>ysiW"kMx
+command Json %!python -m json.tool
 
 
+"Vimwiki mappings
+nmap <Leader>wj <Plug>VimwikiDiaryNextDay
+nmap <Leader>wk <Plug>VimwikiDiaryPrevDay
+
+nmap <Leader>wv <Plug>VimwikiToggleListItem
+nmap <Leader>wu <Plug>VimwikiDiaryGenerateLinks
+nmap <Leader>wo <Plug>VimwikiMakeDiaryNote
+
+" nnoremap <Leader>" ysiw"
+
+set completeopt-=menuone   " show the popup menu even when there is only 1 match
+set completeopt-=noinsert  " don't insert any text until user chooses a match
+set completeopt+=longest   " don't insert the longest common text
+set completeopt+=preview
+
+highlight PmenuSel ctermbg=LightYellow guibg=LightYellow
+
+Plugin 'Valodim/vim-zsh-completion'
+
+
+Plugin 'wellle/tmux-complete.vim'

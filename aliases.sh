@@ -18,12 +18,13 @@ alias t1='tail -n 1 '
 
 alias wnv="watch -d -n 5 -t -c nvidia-smi"
 
-alias ggpush="git push origin master"
-alias gcm="git commit -am "
-alias gst="git status -sb"
-alias glog='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
-alias gdiff='git difftool'
-alias gitorigin="git remote show origin"
+# See git_aliases.sh
+# alias ggpush="git push origin master"
+# alias gcm="git commit -am "
+# alias gst="git status -sb"
+# alias glog='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
+# alias gdiff='git difftool'
+# alias gitorigin="git remote show origin"
 
 alias reddit="python ~/Dropbox/codes/Python/TIL/r.py"
 alias top5="ps aux | sort -rk 3,3 | head -n 6"
@@ -37,7 +38,7 @@ alias vi='nvim'
 # now is the time
 # alias vim='vi'
 # alias vimdiff='/usr/local/bin/vimdiff'
-alias vimdiff='vi -d'
+alias vimdiff='nvim -d'
 # alias vi='/usr/local/bin/vim'
 # alias vi='nvim'
 # alias tmuxa=TERM=xterm-256color /usr/bin/tmux attach

@@ -16,7 +16,7 @@ export SAVEHIST=10000
 #history file
 export HISTFILE=~/.zhistory
 
-export EDITOR=vim
+export EDITOR=nvim
 
 # git completion for zsh
 fpath=(~/dotfiles/git_completion.zsh $fpath)
@@ -76,11 +76,13 @@ setopt EXTENDED_HISTORY
 # . /home/ap/torch/install/bin/torch-activate
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+bindkey '^T' fzf-history-widget
 
 # configuration for hstr
 export HH_CONFIG=hicolor,rawhistory        # get more colors
 
-bindkey -s "\C-r" "hh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
+bindkey -s "\C-t" "hh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
+bindkey '^R' fzf-history-widget
 # bindkey -s "\C-r": "\e0ihstr -- \C-j" # bind hh in vi mode 
 
 # fasd
@@ -144,3 +146,10 @@ source ~/dotfiles/hstr.sh
 bindkey '^X' zaw
 # bindkey "^8" zaw-history
 
+PROMPT="%(?:%{$fg_bold[green]%}:%{$fg_bold[red]%})"
+PROMPT+='%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)➜ '
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%} %{$fg[yellow]%}✗"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}"
