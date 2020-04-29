@@ -76,14 +76,16 @@ setopt EXTENDED_HISTORY
 # . /home/ap/torch/install/bin/torch-activate
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-bindkey '^T' fzf-history-widget
+#bindkey '^T' fzf-history-widget
 
+# alias hh=hstr                    # hh to be alias for hstr
 # configuration for hstr
-export HH_CONFIG=hicolor,rawhistory        # get more colors
+export HH_CONFIG=hicolor,rawhistory,raw-history-view,keywords-matching        # get more colors
 
-bindkey -s "\C-t" "hh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
-bindkey '^R' fzf-history-widget
+bindkey -s "^T" "hh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
+# bindkey -s '^R' "fzf-history-widget\n"
 # bindkey -s "\C-r": "\e0ihstr -- \C-j" # bind hh in vi mode 
+bindkey -s "\C-r": "\e0ifzf-history-widget -- \C-j" # bind hh in vi mode 
 
 # fasd
 eval "$(fasd --init auto)"
@@ -128,8 +130,6 @@ fi
 # antigen theme minimal
 unsetopt correct_all
 setopt promptsubst
-NEWLINE=$'\n'
-PS1='${(r:$COLUMNS::.:)}'$NEWLINE$PS1
 
 PATH=$PATH:$HOME/.local/bin
 
@@ -137,7 +137,7 @@ PATH=$PATH:$HOME/.local/bin
 # source ~/dotfiles/completion.zsh.inc
 
 
-source ~/dotfiles/hstr.sh
+# source ~/dotfiles/hstr.sh
 
 # TRAPWINCH() {
 #   zle && { zle reset-prompt; zle -R }
@@ -153,3 +153,9 @@ ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%} %{$fg[yellow]%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}"
+
+NEWLINE=$'\n'
+PS1='${(r:$COLUMNS::.:)}'$NEWLINE$PS1
+
+
+export BAT_THEME=ansi-light

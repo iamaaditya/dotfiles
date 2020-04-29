@@ -1,17 +1,13 @@
 {
 	"name": "Vimium C",
-	"@time": "3/13/2020, 10:28:10 AM",
-	"time": 1584109690581,
+	"@time": "4/28/2020, 10:16:50 PM",
+	"time": 1588126610846,
 	"environment": {
-		"extension": "1.80.3",
+		"extension": "1.81.5",
 		"platform": "mac",
-		"chrome": 80
+		"chrome": 81
 	},
 	"exclusionRules": [
-		{
-			"pattern": ":https://mail.google.com/",
-			"passKeys": ""
-		},
 		{
 			"pattern": "^https?://localhost:8989/",
 			"passKeys": ""
@@ -49,6 +45,11 @@
 		"  https://www.wikipedia.org/w/index.php?search=%s Wikipedia",
 		"v.m|math: vimium://math\\ $S re= Calculate",
 		"",
+		"ov: https://slides.pathai.com/overlays/%s",
+		"sl: https://slides.pathai.com/slides/view/%s",
+		"ee: https://app.mle.pathai.com/environments/view/aaditya.prakash/%s/overview",
+		"wf: https://app.mle.pathai.com/jabba/workflows/view/%s",
+		"branch:https://gitlab.services.pathai.com/ml/ml-platform/commits/%s",
 		"",
 		"",
 		"",

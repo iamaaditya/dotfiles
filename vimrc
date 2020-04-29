@@ -57,6 +57,7 @@ nnoremap  Y y$
 
 " Replaced with wincent/ferret (see below)
 " Plugin 'mileszs/ack.vim'
+
 Plugin 'majutsushi/tagbar'
     nmap <Bar> :TagbarToggle<CR>
     let g:tagbar_width=30
@@ -361,7 +362,7 @@ nnoremap K 10k
 " map M m$
 " 
 " map ,g :call NERDComment(0,"toggle")<CR>
-" map <leader>g gcc
+map <leader>g gcc
 
 " file explorer plugin
 Plugin 'scrooloose/nerdtree'
@@ -478,7 +479,7 @@ map <F5> :exec '!python' shellescape(@%, 1)<CR>
 " Wed 28 Sep 2016 02:38:25 PM EDT 
 " let g:ackprg = 'ag --vimgrep'
 " nnoremap <leader>a :Ack<space> 
-nnoremap <leader>q : ~/code/ml-platform/pathai/ <C-b>Ack<space> 
+" nnoremap <leader>q : ~/ml-platform/pathai/ <C-b>Ack<space> 
 let g:ack_autoclose = 1
 
 " nnoremap <leader>s O<Esc>j
@@ -711,7 +712,7 @@ let maplocalleader = "\\"
 
 "make the 's' and 'S' insert a single character
 " nmap <silent> ,s "=nr2char(getchar())<cr>P
-" nnoremap s :exec "normal i".nr2char(getchar())."\e"<CR>
+nnoremap <Leader>s :exec "normal i".nr2char(getchar())."\e"<CR>
 " nnoremap s i_<Esc>r
 " nnoremap S :exec "normal a".nr2char(getchar())."\e"<CR>
 
@@ -908,7 +909,7 @@ command! -complete=file -nargs=1 Remove :echo 'Remove: '.'<f-args>'.' '.(delete(
 "
 Plugin 'vimwiki/vimwiki'
 
-" Insert a line and return to Normal Mode
+" Insert a empty line and return to Normal Mode
 " nmap <leader>o i_<Esc>r
 nnoremap <silent><leader>b :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
@@ -934,7 +935,7 @@ Plugin 'wincent/loupe'
 " <leader>n Clear
 
 
-nnoremap <leader>c :e ~/code/ml-platform/pathai/
+nnoremap <leader>c :e ~/ml-platform/pathai/
 
 
 
@@ -967,3 +968,6 @@ Plugin 'Valodim/vim-zsh-completion'
 
 
 Plugin 'wellle/tmux-complete.vim'
+
+
+
