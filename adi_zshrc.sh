@@ -22,12 +22,12 @@ export EDITOR=nvim
 fpath=(~/dotfiles/git_completion.zsh $fpath)
 
 # https://raw.githubusercontent.com/rupa/z/master/z.sh (like autojump)
-source ~/dotfiles/z.sh
+# source ~/dotfiles/z.sh
 source ~/dotfiles/aliases.sh
 source ~/dotfiles/git_aliases.sh
 source ~/dotfiles/my_functions.sh
-source ~/dotfiles/k.sh
-# source /usr/lib/google-cloud-sdk/completion.bash.inc
+# source ~/dotfiles/k.sh
+# source /->->usr/lib/google-cloud-sdk/completion.bash.inc
 # source ~/helper_libs/bash-wakatime/bash-wakatime.sh
 # source ~/dotfiles/antigen.zsh
 # source ~/dotfiles/installed_libs.sh
@@ -146,16 +146,6 @@ PATH=$PATH:$HOME/.local/bin
 bindkey '^X' zaw
 # bindkey "^8" zaw-history
 
-PROMPT="%(?:%{$fg_bold[green]%}:%{$fg_bold[red]%})"
-PROMPT+='%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)➜ '
-
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%} %{$fg[yellow]%}✗"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}"
-
-NEWLINE=$'\n'
-PS1='${(r:$COLUMNS::.:)}'$NEWLINE$PS1
-
+source ~/dotfiles/custom-prompt.sh
 
 export BAT_THEME=ansi-light

@@ -85,19 +85,19 @@ let g:ctrlp_working_path_mode = 'ca'
 " files, not when user_command (ag above) is used 
 " let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-if has('nvim')
-  Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plugin 'Shougo/deoplete.nvim'
-  Plugin 'roxma/nvim-yarp'
-  Plugin 'roxma/vim-hug-neovim-rpc'
-endif
+" if has('nvim')
+"   Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plugin 'Shougo/deoplete.nvim'
+"   Plugin 'roxma/nvim-yarp'
+"   Plugin 'roxma/vim-hug-neovim-rpc'
+" endif
 
-Plugin 'zchee/deoplete-jedi'
-let g:deoplete#enable_at_startup = 1
-autocmd CompleteDone * pclose!
-let g:deoplete#auto_complete_delay = 10
-let g:deoplete#sources#jedi#server_timeout = 30
+" Plugin 'zchee/deoplete-jedi'
+" let g:deoplete#enable_at_startup = 1
+" autocmd CompleteDone * pclose!
+"let g:deoplete#auto_complete_delay = 10
+" let g:deoplete#sources#jedi#server_timeout = 30
 " closes the preview window after completion is done
 
 " Plugin 'terryma/vim-multiple-cursors'
@@ -147,6 +147,8 @@ Plugin 'rhysd/clever-f.vim'
 Plugin 'ervandew/supertab'
 " Plugin to allow easy data flow b/n vim and tmux
 Plugin 'benmills/vimux'
+"Plugin 'mvanderkamp/vimux'
+" 
 " plugin to automatically generate the tags file
 " Plugin 'ludovicchabant/vim-gutentags'
 
@@ -942,9 +944,13 @@ nnoremap <leader>c :e ~/ml-platform/pathai/
 au BufRead,BufNewFile *.conf setfiletype config
 
 " Make the command to get the UUID of the last run Jabba command
-command Uid r!tail -n 1 out | cut -d' ' -f 5
+command! Uid r!tail -n 1 out | cut -d' ' -f 5
 nmap <Leader>vu :Uid<CR>ysiW"kMx
-command Json %!python -m json.tool
+command! Json %!python -m json.tool
+
+command! Sync ! mle sync % $(cat ~/eee):%
+
+command! Lint ! pycodestyle --ignore=W503,E741,E402,E731,E722,E129 --max-line-length=120  %
 
 
 "Vimwiki mappings
@@ -971,3 +977,10 @@ Plugin 'wellle/tmux-complete.vim'
 
 
 
+set nohls
+" hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+hi CursorLine   cterm=NONE ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
+
+"#########colorscheme Atelier_CaveLight
+hi Search ctermbg=LightYellow
+"hi Search ctermfg=Red
