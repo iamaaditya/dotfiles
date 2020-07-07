@@ -99,6 +99,8 @@ let g:ctrlp_working_path_mode = 'ca'
 "let g:deoplete#auto_complete_delay = 10
 " let g:deoplete#sources#jedi#server_timeout = 30
 " closes the preview window after completion is done
+"
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mtth/scratch.vim'

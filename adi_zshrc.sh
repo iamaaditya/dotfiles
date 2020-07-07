@@ -29,7 +29,7 @@ source ~/dotfiles/my_functions.sh
 # source ~/dotfiles/k.sh
 # source /->->usr/lib/google-cloud-sdk/completion.bash.inc
 # source ~/helper_libs/bash-wakatime/bash-wakatime.sh
-# source ~/dotfiles/antigen.zsh
+source ~/dotfiles/antigen.zsh
 # source ~/dotfiles/installed_libs.sh
 # source ~/dotfiles/history.sh # works only with BASH and not ZSH 
 
@@ -100,13 +100,15 @@ export LESSOPEN='|pygmentize -g %s'
 
 # Antigen commands
 
-# antigen bundle git@github.com:zsh-users/zsh-syntax-highlighting
-# antigen bundle git@github.com:zsh-users/zsh-autosuggestions.git
-# antigen bundle rzzen/calc.plugin.zsh
+antigen bundle git@github.com:zsh-users/zsh-syntax-highlighting
+antigen bundle git@github.com:zsh-users/zsh-autosuggestions.git
+antigen bundle rzzen/calc.plugin.zsh
 
-# antigen bundle https://github.com/sakshamsharma/zpyi zpyi.zsh
-# antigen bundle zsh-users/zsh-history-substring-search
-# antigen bundle command-not-found
+antigen bundle https://github.com/sakshamsharma/zpyi zpyi.zsh
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle command-not-found
+
+antigen apply
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=9'
 bindkey '^ ' autosuggest-accept
