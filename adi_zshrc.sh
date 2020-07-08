@@ -102,7 +102,6 @@ export LESSOPEN='|pygmentize -g %s'
 
 antigen bundle git@github.com:zsh-users/zsh-syntax-highlighting
 antigen bundle git@github.com:zsh-users/zsh-autosuggestions.git
-antigen bundle rzzen/calc.plugin.zsh
 
 antigen bundle https://github.com/sakshamsharma/zpyi zpyi.zsh
 antigen bundle zsh-users/zsh-history-substring-search
