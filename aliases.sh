@@ -215,3 +215,5 @@ alias zz='fasd_cd -d -i' # cd with interactive selection
 alias fixindent="autopep8 --max-line-length=120 --select=E126,E127,E122,E128,E501 --in-place " 
 
 alias h20='head -n 20 '
+
+alias memusage="cat /sys/fs/cgroup/memory/memory.usage_in_bytes | numfmt --to iec --format '%8.4f'"

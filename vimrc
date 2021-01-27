@@ -100,7 +100,9 @@ let g:ctrlp_working_path_mode = 'ca'
 " let g:deoplete#sources#jedi#server_timeout = 30
 " closes the preview window after completion is done
 "
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+" Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Plugin 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 " Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mtth/scratch.vim'
@@ -146,7 +148,10 @@ Plugin 'godlygeek/tabular'
 " Plugin clever f, extends usage of f, F , t And T
 Plugin 'rhysd/clever-f.vim'
 " plugin for the using tab for the name completion
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab'
+" setting for the super tab to start the completion from top and not backwards
+" let g:SuperTabDefaultCompletionType = "<c-n>"
+
 " Plugin to allow easy data flow b/n vim and tmux
 Plugin 'benmills/vimux'
 "Plugin 'mvanderkamp/vimux'
@@ -176,8 +181,8 @@ let g:buftabline_indicators = 1
 
 " better solarized using erb
 " Plugin 'ericbn/vim-solarized'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'lifepillar/vim-solarized8'
+" Plugin 'altercation/vim-colors-solarized'
+" Plugin 'lifepillar/vim-solarized8'
 
 " add things to status line
 " Plugin 'maciakl/vim-neatstatus'
@@ -298,7 +303,7 @@ set foldmethod=indent
 set foldnestmax=2
 " set nofoldenable
 set foldlevel=1
-set shortmess=at
+set shortmess=atc
 
 " since i find it useful at other times too
 " set invcursorline
@@ -331,12 +336,10 @@ set statusline=%<\ %n:%F\ %m%r%y%=%-35.(L:\ %l\ /\ %L,\ C:\ %c%V\ (%P)%)
 " session configs
 let g:session_autosave = 'no'
 
-" setting for the super tab to start the completion from top and not backwards
-let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Syntastic always show the errors
-let g:syntastic_auto_loc_list=1
-let g:syntastic_python_checkers=['flake8']
+" let g:syntastic_auto_loc_list=1
+" let g:syntastic_python_checkers=['flake8']
 " let g:syntastic_python_flake8_args='--ignore=E101,E111,E112,E113,E114,E115,E116,E121,E122,E123,E124,E125,E126,E127,E128,E129,E131,E133,E201,E202,E203,E211,E221,E222,E223,E224,E225,E226,E227,E228,E231,E241,E242,E251,E261,E262,E265,E266,E271,E272,E273,E274,E301,E302,E303,E304,E401,E402,E501,E502,E701,E702,E703,E704,E711,E712,E713,E714,E721,E731,E901,E902,W191,W291,W292,W293,W391,W503,W601,W602,W603,W604,F401'
 
 set pastetoggle=<F3>
@@ -369,7 +372,7 @@ nnoremap K 10k
 map <leader>g gcc
 
 " file explorer plugin
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
 map <leader>o :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['\.out$', '\.bin$', '\.pyc$']
@@ -377,7 +380,7 @@ let g:NERDTreeWinSize = 30
 "vmap <C-f> :fold<CR>
 set rnu
 " nmap <CR> :set rnu!<CR>
-" map <C-c> :nohlsearch<CR>
+map <C-c> :nohlsearch<CR>
 "map <C-S-l> :set rl<CR>
 "map <C-S-k> :set norl<CR>
 " map <C-l> :tabn<CR>
@@ -420,7 +423,7 @@ map <leader>j :!python %<CR>
 map <leader>x :bd<CR>
 " imap <leader>d <Esc>:bd<CR>
 " syntastic check
-nnoremap <leader>l :SyntasticCheck<CR>
+" nnoremap <leader>l :SyntasticCheck<CR>
 
 
 
@@ -467,7 +470,7 @@ map <F5> :exec '!python' shellescape(@%, 1)<CR>
 " map g/ <Plug>(incsearch-stay)
 
 " insert one character only and return back to normal mode
-" nmap <leader>o i_<Esc>r
+nmap <leader>i i_<Esc>r
 " nmap <space> :noh<CR>
 " nmap <space> <C-f>
 " nmap <S-space> <C-b>
@@ -787,16 +790,16 @@ nmap <leader>09 <Plug>BufTabLine.Go(19)
 
 map gn :bn<CR>
 map gp :bp<CR>
-map gd :bd<CR> 
+" map gd :bd<CR> 
 " map gb :ls<CR>:buffer<Space>
-map gb :buffer<Space>
+" map gb :buffer<Space>
 
 " map <C-s> :w<CR>
 
 " map <leader><leader> <C-w><C-w>
 
 
-vnoremap <leader>i c[<C-r>"]()<Esc>i
+" vnoremap <leader>i c[<C-r>"]()<Esc>i
 "
 " vap doesn't replace paste buffer
 function! RestoreRegister()
@@ -838,7 +841,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 " map ! <leader>vp
 " map <F3> <leader>vl
 
-Plugin 'kshenoy/vim-signature'
+" Plugin 'kshenoy/vim-signature'
 
 
 " Plugin 'rakr/vim-one'
@@ -847,10 +850,11 @@ Plugin 'kshenoy/vim-signature'
 hi Search cterm=NONE ctermbg=lightblue ctermfg=black
 
 
-Plugin 'rhysd/vim-grammarous'
-let g:grammarous#show_first_error = 1
+" Plugin 'rhysd/vim-grammarous'
+" let g:grammarous#show_first_error = 1
 
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
+set clipboard+=unnamed
 
 nnoremap <silent> ,s "=nr2char(getchar())<cr>P
 
@@ -863,10 +867,11 @@ let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 
 set background=light
 " set background=dark
-colorscheme solarized
+" colorscheme solarized
 " colorscheme Atelier_SulphurpoolDark
 " colorscheme Atelier_SulphurpoolLight
 " colorscheme solarized8_high
+colorscheme Atelier_DuneDark
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -923,6 +928,7 @@ command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=
 
 Plugin 'wincent/ferret'  " Search :Ack 
 
+" nnoremap <leader>w :Ack <C-r><C-w> ~/ml-platform/pathai/ <CR>
 nnoremap <leader>q : ~/ml-platform/pathai/ <C-b>Ack<space> 
 " Ack (leader a)
 " Lack (search but use location-list instead of quickfix-list
@@ -950,7 +956,7 @@ command! Uid r!tail -n 1 out | cut -d' ' -f 5
 nmap <Leader>vu :Uid<CR>ysiW"kMx
 command! Json %!python -m json.tool
 
-command! Sync ! mle sync % $(cat ~/eee):%
+command! -nargs=1 Sync ! mle sync % <q-args>:%
 
 command! Lint ! pycodestyle --ignore=W503,E741,E402,E731,E722,E129 --max-line-length=120  %
 
@@ -980,9 +986,84 @@ Plugin 'wellle/tmux-complete.vim'
 
 
 set nohls
-" hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-hi CursorLine   cterm=NONE ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
+hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=green guifg=white
+" hi CursorLine   cterm=NONE ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
 
 "#########colorscheme Atelier_CaveLight
 hi Search ctermbg=LightYellow
 "hi Search ctermfg=Red
+"
+
+" Coc.nvim insertsions
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+" inoremap <silent><expr> <TAB>
+      " \ pumvisible() ? "\<C-n>" :
+      " \ <SID>check_back_space() ? "\<TAB>" :
+      " \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+" inoremap <silent><expr> <c-space> coc#refresh()
+
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+" if exists('*complete_info')
+  " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+" else
+  " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" endif
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+" autocmd CursorHold * silent call CocActionAsync('highlight') 
+
+
+nnoremap <leader>y :!mle sync % mrcp2:extra/% <CR>
+
+hi Search    gui=NONE guifg=black guibg=red
+hi IncSearch gui=NONE guifg=black guibg=yellow
+
+Plugin 'Tumbler/highlightMarks'
+let g:highlightMarks_cterm_colors = [255, 255, 0, 0, 0]
+
+
+" map Ctrl V to paste for the nvim error
+map <C-V>       "+gP
+
+" tabline bufline colors
+hi TabLine    gui=NONE guibg=#3e4452 guifg=#abb2bf    cterm=NONE term=NONE ctermfg=black ctermbg=white
+
