@@ -9,6 +9,7 @@ alias tt="/usr/bin/time"
 alias vtop="vtop --theme becca"
 # alias tm="TERM=xterm-256color /usr/bin/tmux-next"
 alias tm="TERM=xterm-256color /usr/local/bin/tmux"
+alias cc="tm a -d"
 
 
 alias df="pydf"
