@@ -78,12 +78,12 @@ setopt EXTENDED_HISTORY
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #bindkey '^T' fzf-history-widget
 
-# alias hh=hstr                    # hh to be alias for hstr
+ alias hh=hstr                    # hh to be alias for hstr
 # configuration for hstr
 export HH_CONFIG=hicolor,rawhistory,raw-history-view,keywords-matching        # get more colors
 
 bindkey -s "^T" "hh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
-# bindkey -s '^R' "fzf-history-widget\n"
+bindkey -s '^R' "fzf-history-widget\n"
 # bindkey -s "\C-r": "\e0ihstr -- \C-j" # bind hh in vi mode 
 bindkey -s "\C-r": "\e0ifzf-history-widget -- \C-j" # bind hh in vi mode 
 
@@ -151,3 +151,5 @@ bindkey '^X' zaw
 source ~/dotfiles/custom-prompt.sh
 
 export BAT_THEME=ansi-light
+
+

@@ -8,4 +8,4 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}"
 
 NEWLINE=$'\n'
-PS1='${(r:$COLUMNS::.:)}'$NEWLINE-LAP-$PS1
+PS1='${(r:99::.:)}'$NEWLINE-$PS1

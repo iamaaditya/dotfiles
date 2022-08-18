@@ -30,6 +30,7 @@ if !filereadable(vundle_readme)
 endif
 set rtp+=~/.vim/bundle/vundle/
 set rtp+=$GOROOT/misc/vim
+set rtp+=/usr/local/opt/fzf
 call vundle#rc()
 
 Plugin 'gmarik/vundle'
@@ -100,9 +101,9 @@ let g:ctrlp_working_path_mode = 'ca'
 " let g:deoplete#sources#jedi#server_timeout = 30
 " closes the preview window after completion is done
 "
-" Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plugin 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+" Plugin 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 " Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mtth/scratch.vim'
@@ -643,6 +644,7 @@ nmap <Leader>vg :VimuxInspectRunner<CR>
 nmap <Leader>vl :VimuxRunLastCommand<CR>
 " nmap <Leader>vp :VimuxPromptCommand<CR>
 nnoremap <leader><Enter> :VimuxPromptCommand<CR>
+nmap <Leader>vz :VimuxZoomRunner<CR>
 
 "settings for targets.vim
 let g:targets_aiAI = 'aiAI'
@@ -871,7 +873,10 @@ set background=light
 " colorscheme Atelier_SulphurpoolDark
 " colorscheme Atelier_SulphurpoolLight
 " colorscheme solarized8_high
-colorscheme Atelier_DuneDark
+" colorscheme Atelier_DuneDark
+Plugin 'overcache/NeoSolarized'
+colorscheme NeoSolarized
+
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -909,7 +914,7 @@ hi Comment guifg=#b0b0b0
 
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'alok/notational-fzf-vim'
-let g:nv_search_paths = ['./notes.md', '~/notes/']
+let g:nv_search_paths = ['~/notes/']
 nnoremap <silent> <c-s> :NV<CR>
 
 command! -complete=file -nargs=1 Remove :echo 'Remove: '.'<f-args>'.' '.(delete(<f-args>) == 0 ? 'SUCCEEDED' : 'FAILED')
@@ -986,7 +991,7 @@ Plugin 'wellle/tmux-complete.vim'
 
 
 set nohls
-hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=green guifg=white
+hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=gray guifg=white
 " hi CursorLine   cterm=NONE ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
 
 "#########colorscheme Atelier_CaveLight
@@ -1073,3 +1078,11 @@ augroup disable_paste
     au!
     au InsertLeave * set nopaste
 augroup END
+
+" cursor color
+highlight Cursor guifg=white guibg=black
+highlight iCursor guifg=white guibg=steelblue
+set guicursor=n-v-c:block-Cursor
+set guicursor+=i:ver100-iCursor
+set guicursor+=n-v-c:blinkon0
+set guicursor+=i:blinkwait10
