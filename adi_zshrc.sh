@@ -153,3 +153,4 @@ source ~/dotfiles/custom-prompt.sh
 export BAT_THEME=ansi-light
 
 
+

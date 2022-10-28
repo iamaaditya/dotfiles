@@ -3,6 +3,13 @@ function fl() {
     find . -iname "*$1*";
 }
 
+function sgs(){
+    # send a file to gcloud
+    name="$(basename $1)"
+    echo "Coping: " "$1" "as" "$name"
+    gsutil cp "$1" gs://adi-logs/"$name"
+}
+
 function app() {
     mv $1 _$1;
 }

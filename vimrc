@@ -308,7 +308,7 @@ set shortmess=atc
 
 " since i find it useful at other times too
 " set invcursorline
-" set cursorline
+set cursorline
 " autocmd InsertEnter * highlight CursorLine guibg=#000050 guifg=fg
 " autocmd InsertLeave * highlight CursorLine guibg=#004000 guifg=fg
 " autocmd BufEnter * silent! lcd %:p:h
@@ -867,8 +867,8 @@ let g:fastfold_savehook = 1
 let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
 let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 
-set background=light
-" set background=dark
+" set background=light
+set background=dark
 " colorscheme solarized
 " colorscheme Atelier_SulphurpoolDark
 " colorscheme Atelier_SulphurpoolLight
@@ -991,8 +991,8 @@ Plugin 'wellle/tmux-complete.vim'
 
 
 set nohls
-hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=gray guifg=white
-" hi CursorLine   cterm=NONE ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
+" hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=gray guifg=white
+hi CursorLine   cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
 
 "#########colorscheme Atelier_CaveLight
 hi Search ctermbg=LightYellow
