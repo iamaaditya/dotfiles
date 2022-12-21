@@ -180,10 +180,22 @@ let g:buftabline_indicators = 1
 "
 " Plugin 'bagrat/vim-workspace'
 
+" Color themes
 " better solarized using erb
 " Plugin 'ericbn/vim-solarized'
 " Plugin 'altercation/vim-colors-solarized'
 " Plugin 'lifepillar/vim-solarized8'
+Plugin 'ayu-theme/ayu-vim'
+"let ayucolor="dark"
+"let ayucolor="mirage"
+let ayucolor='light'
+" colorscheme ayu
+" colorscheme default
+
+Plugin 'agude/vim-eldar'
+colorscheme eldar
+
+
 
 " add things to status line
 " Plugin 'maciakl/vim-neatstatus'
@@ -875,7 +887,7 @@ set background=dark
 " colorscheme solarized8_high
 " colorscheme Atelier_DuneDark
 Plugin 'overcache/NeoSolarized'
-colorscheme NeoSolarized
+" colorscheme NeoSolarized
 
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -992,7 +1004,7 @@ Plugin 'wellle/tmux-complete.vim'
 
 set nohls
 " hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=gray guifg=white
-hi CursorLine   cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
+hi CursorLine   cterm=NONE ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
 
 "#########colorscheme Atelier_CaveLight
 hi Search ctermbg=LightYellow
