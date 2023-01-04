@@ -410,6 +410,26 @@
                             },
                             {
                                 "from": {
+                                    "key_code": "r",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open '/Applications/Safari.app'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+,
+                            {
+                                "from": {
                                     "key_code": "b",
                                     "modifiers": {
                                         "mandatory": [
