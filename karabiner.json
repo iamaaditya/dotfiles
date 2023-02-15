@@ -2,7 +2,8 @@
     "global": {
         "check_for_updates_on_startup": true,
         "show_in_menu_bar": true,
-        "show_profile_name_in_menu_bar": false
+        "show_profile_name_in_menu_bar": false,
+        "unsafe_ui": false
     },
     "profiles": [
         {
@@ -273,6 +274,31 @@
                         ]
                     },
                     {
+                        "description": "Command + H - remove hide and make it F1 @adi",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f1"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Launch apps by left control & option+letters.",
                         "manipulators": [
                             {
@@ -346,7 +372,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open '/Applications/PyCharm.app'"
+                                        "shell_command": "open '/Applications/PyCharm 2023.1 EAP.app'"
                                     }
                                 ],
                                 "type": "basic"
@@ -410,7 +436,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "r",
+                                    "key_code": "q",
                                     "modifiers": {
                                         "mandatory": [
                                             "fn"
