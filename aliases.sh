@@ -1,6 +1,7 @@
 
 # alias ll='ls -lrth --color=auto --hide="*.pyc"'
-alias ll='k -h --no-vcs'
+# alias ll='k -h --no-vcs'
+alias ll='exa -l'
 
 alias nv="nvidia-smi"
 alias ff="find . -name"

@@ -1003,8 +1003,8 @@ Plugin 'wellle/tmux-complete.vim'
 
 
 set nohls
-" hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=gray guifg=white
-hi CursorLine   cterm=NONE ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
+hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=gray guifg=white
+"hi CursorLine   cterm=NONE ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
 
 "#########colorscheme Atelier_CaveLight
 hi Search ctermbg=LightYellow
@@ -1092,8 +1092,8 @@ augroup disable_paste
 augroup END
 
 " cursor color
-highlight Cursor guifg=white guibg=black
-highlight iCursor guifg=white guibg=steelblue
+highlight Cursor guifg=blue guibg=black
+highlight iCursor guifg=blue guibg=steelblue
 set guicursor=n-v-c:block-Cursor
 set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon0
