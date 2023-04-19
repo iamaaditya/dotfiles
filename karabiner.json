@@ -220,12 +220,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "left_control (which is command) 9 to End, modified by @adi",
-                        "manipulators": [
+                            },
                             {
                                 "from": {
                                     "key_code": "9",
@@ -245,12 +240,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "left_control (which is command) 8 to Home, modified by @adi",
-                        "manipulators": [
+                            },
                             {
                                 "from": {
                                     "key_code": "8",
@@ -271,6 +261,7 @@
                                 ],
                                 "type": "basic"
                             }
+
                         ]
                     },
                     {
