@@ -1,0 +1,127 @@
+{
+	"name": "Vimium C",
+	"@time": "6/27/2023, 2:13:48 PM",
+	"time": 1687889628031,
+	"environment": {
+		"extension": "1.99.992",
+		"platform": "mac",
+		"chromium": 115
+	},
+	"allBrowserUrls": true,
+	"exclusionRules": [
+		{
+			"passKeys": "^ <c-j> <c-k> <c-u> <c-y> ",
+			"pattern": "^https?://localhost:8888/"
+		},
+		{
+			"passKeys": "^ <c-j> <c-k> <c-u> <c-y> ",
+			"pattern": "^https?://localhost:*"
+		},
+		{
+			"passKeys": "^ <c-j> <c-k> <c-u> <c-y> ",
+			"pattern": ":https://nb.spr.ng/"
+		},
+		{
+			"passKeys": "^ <c-j> <c-k> <c-u> <c-y> ",
+			"pattern": ":https://colab.research.google.com/"
+		},
+		{
+			"passKeys": "^ <c-j> <c-k> <c-u> <c-y> ",
+			"pattern": "^https?://127\\.0\\.0\\.1:8889/"
+		},
+		{
+			"passKeys": "^ <c-j> <c-k> <c-u> <c-y> ",
+			"pattern": ":https://remotedesktop.google.com/"
+		},
+		{
+			"passKeys": "^ <c-j> <c-k> <c-u> <c-y> ",
+			"pattern": ":https://docs.google.com/"
+		}
+	],
+	"extAllowList": [
+		"# modified versions of X New Tab and PDF Viewer,",
+		"# NewTab Adapter, and Shortcuts Forwarding Tool",
+		"hdnehngglnbnehkfcidabjckinphnief",
+		"nacjakoppgmdcpemlfnfegmlhipddanj",
+		"cglpcedifkgalfdklahhcchnjepcckfn",
+		"clnalilglegcjmlgenoppklmfppddien",
+		"# EdgeTranslate",
+		"bocbaocobfecmglnmeaeppambideimao",
+		"bfdogplmndidlpjfhoijckpakkdjkkil",
+		"# SalaDict",
+		"cdonnmffkdaoajfknoeeecmchibpmkmg",
+		"idghocbbahafpfhjnfhpbfbmpegphmmp",
+		"clnalilglegcjmlgenoppklmfppddien",
+		""
+	],
+	"keyLayout": 12,
+	"keyMappings": [
+		"#!no-check",
+		"map a Vomnibar.activateTabSelection",
+		"map s scrollDown",
+		"",
+		"#shortcut xxx Marks.activateCreateMode swap",
+		"#shortcut yyy Marks.activate swap",
+		"",
+		"map ` Marks.activate swap",
+		"map m Marks.activateCreateMode swap",
+		"",
+		"shortcut userCustomized1 command=\"Vomnibar.activateTabSelection\"",
+		"shortcut userCustomized2 command=\"Vomnibar.activate\"",
+		"shortcut userCustomized3 command=\"visitPreviousTab\"",
+		"shortcut userCustomized4 command=\"nextTab\"",
+		"shortcut userCustomized5 command=\"previousTab\"",
+		"shortcut userCustomized6 command=\"Marks.activateCreateMode\" swap",
+		"shortcut userCustomized7 command=\"Marks.activate\" swap",
+		"shortcut userCustomized8 command=\"Vomnibar.activateHistory\"",
+		""
+	],
+	"keyupTime": 150,
+	"scrollStepSize": 50,
+	"searchEngines": [
+		"g|go|gg|google|Google: https://www.google.com/search?q=%s \\",
+		"  www.google.com re=/^(?:\\.[a-z]{2,4})?\\/search\\b.*?[#&?]q=([^#&]*)/i\\",
+		"  blank=https://www.google.com/ Google",
+		"",
+		"l|luc|lucky: https://www.google.com/search?q=%s&btnI=Im+Feeling+Lucky",
+		"",
+		"d|dd|ddg|duckduckgo: https://duckduckgo.com/?q=%s DuckDuckGo",
+		"",
+		"qw|qwant: https://www.qwant.com/?q=%s Qwant",
+		"",
+		"ya|yd|yandex: https://yandex.com/search/?text=%s Yandex",
+		"",
+		"y|you: https://you.com/search?q=%s You",
+		"",
+		"g.m|gm|g.map|gmap: https://www.google.com/maps?q=%s \\",
+		"  blank=https://www.google.com/maps Google Maps",
+		"",
+		"y|yt: https://www.youtube.com/results?search_query=%s \\",
+		"  blank=https://www.youtube.com/ YouTube",
+		"",
+		"w|wiki: https://www.wikipedia.org/w/index.php?search=%s Wikipedia",
+		"",
+		"g.s|gs|gscholar: https://scholar.google.com/scholar?q=$s \\",
+		"  scholar.google.com re=/^(?:\\.[a-z]{2,4})?\\/scholar\\b.*?[#&?]q=([^#&]*)/i\\",
+		"  blank=https://scholar.google.com/ Google Scholar",
+		"",
+		"az|amazon: https://www.amazon.com/s?k=%s \\",
+		"  blank=https://www.amazon.com/ Amazon",
+		"",
+		"\\:i: vimium://sed/s/^//,lower\\ $S re= Lower case",
+		"v.m|math: vimium://math\\ $S re= Calculate",
+		"v.p: vimium://parse\\ $S re= Redo Search",
+		"",
+		"gh|github: https://github.com/search?q=$s \\",
+		"  blank=https://github.com/ GitHub Repo",
+		"",
+		"js\\:|Js: javascript:\\ $S; JavaScript",
+		"",
+		"slogs: https://console.cloud.google.com/storage/browser/springdisc-logs/%s;tab=objects?authuser=1&project=vibrant-abbey-184901&prefix=&forceOnObjectsSortingFiltering=false",
+		"",
+		"sls: https://console.cloud.google.com/storage/browser/%s;tab=objects?authuser=1&project=vibrant-abbey-184901&prefix=&forceOnObjectsSortingFiltering=false",
+		""
+	],
+	"vimSync": true,
+	"ignoreKeyboardLayout": 1
+}

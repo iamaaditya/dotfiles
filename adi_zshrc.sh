@@ -16,7 +16,8 @@ export SAVEHIST=10000
 #history file
 export HISTFILE=~/.zhistory
 
-export EDITOR=nvim
+# export EDITOR=nvim
+export EDITOR="code -w"
 
 # git completion for zsh
 fpath=(~/dotfiles/git_completion.zsh $fpath)
@@ -59,7 +60,7 @@ setopt EXTENDED_HISTORY
 #export TERM=xterm-256color
 #export TERM=xterm-256color
 # making code place as variable
-# export c=~/Dropbox/codes
+
 
 # makes VIM as the viewer (pager) for the man pages
 # export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
@@ -150,7 +151,7 @@ bindkey '^X' zaw
 
 source ~/dotfiles/custom-prompt.sh
 
-export BAT_THEME=ansi-light
+export BAT_THEME="Solarized (dark)"
 
 
 

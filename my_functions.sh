@@ -77,14 +77,6 @@ cdd()
 # alias hll="hdfs dfs -ls"
 # alias hh="hdfs dfs"
 
-code()
-{
-
-    cd ~/Dropbox/codes/;
-    cd "$1" ;
-    ls -lrth
-
-}
 
 # Make a backup with current date
 backup()
@@ -163,6 +155,7 @@ alias calc="="
 
 
 # Codi
+# interactive scratchpad for hackers
 # Usage: codi [filetype] [filename]
 codi() {
   local syntax="${1:-python}"
@@ -175,3 +168,16 @@ codi() {
     hi NonText ctermfg=0 |\
     Codi $syntax" "$@"
 }
+
+# function to find the latest file of a given filetype
+# Usage: latest [filetype]
+lf() {
+  /bin/ls -t *."$1"  | /usr/bin/head -n 1
+}
+
+lfc() {
+  file=$(/bin/ls -t *."$1"  | /usr/bin/head -n 1)
+  echo Opening: "$file"
+  open "$file"
+}
+

@@ -101,7 +101,7 @@ let g:ctrlp_working_path_mode = 'ca'
 " let g:deoplete#sources#jedi#server_timeout = 30
 " closes the preview window after completion is done
 "
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+"Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Plugin 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
@@ -201,9 +201,9 @@ colorscheme eldar
 " Plugin 'maciakl/vim-neatstatus'
 " hi CursorLine ctermbg=black cterm=none
 " hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
-set cursorline
-au InsertLeave * set cursorline
-au InsertEnter * set nocursorline
+" set cursorline
+" au InsertLeave * set cursorline
+" au InsertEnter * set nocursorline
 
 
 
@@ -320,7 +320,7 @@ set shortmess=atc
 
 " since i find it useful at other times too
 " set invcursorline
-set cursorline
+" set cursorline
 " autocmd InsertEnter * highlight CursorLine guibg=#000050 guifg=fg
 " autocmd InsertLeave * highlight CursorLine guibg=#004000 guifg=fg
 " autocmd BufEnter * silent! lcd %:p:h
@@ -1003,7 +1003,7 @@ Plugin 'wellle/tmux-complete.vim'
 
 
 set nohls
-hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=gray guifg=white
+" hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=gray guifg=white
 "hi CursorLine   cterm=NONE ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
 
 "#########colorscheme Atelier_CaveLight
@@ -1015,11 +1015,11 @@ hi Search ctermbg=LightYellow
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -1027,46 +1027,46 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+" inoremap <silent><expr> <c-space> coc#refresh()
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
 " <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+" if exists('*complete_info')
+  " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+" else
+  " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" endif
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocAction('doHover')
+"   endif
+" endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight') 
+" autocmd CursorHold * silent call CocActionAsync('highlight') 
 
 
 nnoremap <leader>y :!mle sync % mrcp2:extra/% <CR>

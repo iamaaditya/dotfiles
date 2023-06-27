@@ -239,7 +239,7 @@ c.TerminalInteractiveShell.autocall = 2
 # c.TerminalInteractiveShell.screen_length = 0
 
 # Set the editor used by IPython (default to $EDITOR/vi/notepad).
-c.TerminalInteractiveShell.editor = 'vim'
+c.TerminalInteractiveShell.editor = 'code'
 
 #
 # c.TerminalInteractiveShell.prompts_pad_left = True

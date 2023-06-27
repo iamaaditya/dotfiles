@@ -9,7 +9,7 @@ alias t="/home/ap/helper_libs/todo.txt_cli-2.10/todo.sh"
 alias tt="/usr/bin/time"
 alias vtop="vtop --theme becca"
 # alias tm="TERM=xterm-256color /usr/bin/tmux-next"
-alias tm="TERM=xterm-256color /usr/local/bin/tmux"
+alias tm="TERM=xterm-256color /opt/homebrew/bin/tmux"
 alias cc="tm a -d"
 
 
@@ -223,3 +223,10 @@ alias memusage="cat /sys/fs/cgroup/memory/memory.usage_in_bytes | numfmt --to ie
 alias rgf='rg --files | rg'
 
 alias kk='kubectl'
+
+
+alias chrome='open -a /Applications/Google\ Chrome\ Beta.app'
+
+alias b='bat'
+
+alias ww='which'
