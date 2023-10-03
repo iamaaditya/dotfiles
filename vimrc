@@ -407,7 +407,6 @@ nmap <BS> 0za
 nnoremap - :q<CR>
 " open vimrc
 nnoremap <leader>vi :e ~/.vimrc<CR>
-nnoremap <leader>vc :e ~/pathai.zsh<CR>
 "
 " command -nargs=0 -bar Update if &modified 
 "                            \|    if empty(bufname('%'))
@@ -421,7 +420,7 @@ nnoremap <leader>vc :e ~/pathai.zsh<CR>
 
 " save using leader key
 " map <leader>w :w<CR>
-map <leader><leader> :w<CR>
+" map <leader><leader> :w<CR>
 " imap <leader>w <Esc>:w<CR>
 
 " Make copy of previous line and comment the previous one, like backup line
@@ -499,7 +498,6 @@ nmap <leader>i i_<Esc>r
 " Wed 28 Sep 2016 02:38:25 PM EDT 
 " let g:ackprg = 'ag --vimgrep'
 " nnoremap <leader>a :Ack<space> 
-" nnoremap <leader>q : ~/ml-platform/pathai/ <C-b>Ack<space> 
 let g:ack_autoclose = 1
 
 " nnoremap <leader>s O<Esc>j
@@ -618,9 +616,11 @@ function! VimuxSlimeGCC()
 endfunction
 
 " vimux vs send the paragraph
-vnoremap <Leader>f "vy:call VimuxSlime()<CR>
+" vnoremap <Leader>f "vy:call VimuxSlime()<CR>
+vnoremap <Leader><Leader> "vy:call VimuxSlime()<CR>
 " nmap <Leader>vs vip<Leader>vs<CR>
-nnoremap <Leader>f V"vy:call VimuxSlime()<CR>
+" nnoremap <Leader>f V"vy:call VimuxSlime()<CR>
+nnoremap <Leader><Leader> V"vy:call VimuxSlime()<CR>
 
 vnoremap <leader>j "vy:call VimuxWf()<CR>
 nnoremap <Leader>j V"vy:call VimuxWf()<CR>
@@ -945,8 +945,6 @@ command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=
 
 Plugin 'wincent/ferret'  " Search :Ack 
 
-" nnoremap <leader>w :Ack <C-r><C-w> ~/ml-platform/pathai/ <CR>
-nnoremap <leader>q : ~/ml-platform/pathai/ <C-b>Ack<space> 
 " Ack (leader a)
 " Lack (search but use location-list instead of quickfix-list
 " Back (& Black) search in open buffers only
@@ -962,7 +960,7 @@ Plugin 'wincent/loupe'
 " <leader>n Clear
 
 
-nnoremap <leader>c :e ~/ml-platform/pathai/
+nnoremap <leader>c :e ~/notes/
 
 
 

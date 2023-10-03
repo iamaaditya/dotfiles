@@ -181,3 +181,7 @@ lfc() {
   open "$file"
 }
 
+lfdownload(){
+    file=$(/bin/ls -1t /Users/aprakash/Downloads | head -1)
+    echo /Users/aprakash/Downloads/$file
+}
