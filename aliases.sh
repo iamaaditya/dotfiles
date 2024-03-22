@@ -1,7 +1,7 @@
 
 # alias ll='ls -lrth --color=auto --hide="*.pyc"'
 # alias ll='k -h --no-vcs'
-alias ll='exa -l'
+alias ll='eza -l'
 
 alias nv="nvidia-smi"
 alias ff="find . -name"
@@ -230,3 +230,11 @@ alias chrome='open -a /Applications/Google\ Chrome\ Beta.app'
 alias b='bat'
 
 alias ww='which'
+
+# google cloud aliases
+
+alias gc='gcloud compute'
+alias gci='gcloud compute instances'
+alias gcd='gcloud compute disks'
+alias gcs='gcloud compute snapshots'
+alias gcssh='gcloud compute ssh'
