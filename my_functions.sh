@@ -185,3 +185,12 @@ lfdownload(){
     file=$(/bin/ls -1t /Users/aprakash/Downloads | head -1)
     echo /Users/aprakash/Downloads/$file
 }
+
+mlf(){
+    # moves the latest file from the downloads folder the currrent folder
+    latest_file="$(lfdownload)"
+    echo Moving "$latest_file"
+    # get the basename of the file
+    base_name=$(basename "$latest_file")
+    mv "$latest_file" ./"$base_name"
+}

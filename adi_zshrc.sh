@@ -27,6 +27,7 @@ fpath=(~/dotfiles/git_completion.zsh $fpath)
 source ~/dotfiles/aliases.sh
 source ~/dotfiles/git_aliases.sh
 source ~/dotfiles/my_functions.sh
+source ~/dotfiles/gcloud_aliases.sh
 # source ~/dotfiles/k.sh
 # source /->->usr/lib/google-cloud-sdk/completion.bash.inc
 # source ~/helper_libs/bash-wakatime/bash-wakatime.sh
@@ -153,5 +154,8 @@ source ~/dotfiles/custom-prompt.sh
 
 export BAT_THEME="Solarized (dark)"
 
+# google cloud iap tunnel increase bandwidth
+export CLOUDSDK_PYTHON_SITEPACKAGES=1
 
-
+# catpuchin zsh themes
+source /Users/aprakash/dotfiles/zsh/catppuccin_macchiato-zsh-syntax-highlighting.zsh

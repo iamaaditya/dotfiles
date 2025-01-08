@@ -909,6 +909,8 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " endfunction
 map <leader>] <Plug>SpeedDatingUp
 nnoremap <leader>d "_d
+xnoremap <leader>d "_d
+xnoremap <leader>p "_dP
 " nnoremap <leader>
 
 " insert date/time

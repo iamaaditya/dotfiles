@@ -95,7 +95,7 @@ alias va='~/dotfiles/select_file.sh'
 alias fpp='~/helper_libs/fpp'
 
 # search in history
-alias hag='history -E | ag '
+alias hag='history -E | rg '
 
 
 # compare jsons
@@ -238,3 +238,4 @@ alias gci='gcloud compute instances'
 alias gcd='gcloud compute disks'
 alias gcs='gcloud compute snapshots'
 alias gcssh='gcloud compute ssh'
+
