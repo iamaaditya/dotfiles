@@ -442,7 +442,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "z",
+                                    "key_code": "x",
                                     "modifiers": {
                                         "mandatory": [
                                             "fn"
@@ -512,6 +512,25 @@
                                 "to": [
                                     {
                                         "shell_command": "open '/Applications/iTerm.app'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "z",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open '/Applications/ChatGPT.app'"
                                     }
                                 ],
                                 "type": "basic"

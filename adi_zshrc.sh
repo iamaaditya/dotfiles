@@ -158,4 +158,4 @@ export BAT_THEME="Solarized (dark)"
 export CLOUDSDK_PYTHON_SITEPACKAGES=1
 
 # catpuchin zsh themes
-source /Users/aprakash/dotfiles/zsh/catppuccin_macchiato-zsh-syntax-highlighting.zsh
+#source /Users/aprakash/dotfiles/zsh/catppuccin_macchiato-zsh-syntax-highlighting.zsh
