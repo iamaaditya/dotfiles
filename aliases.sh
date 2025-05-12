@@ -239,3 +239,7 @@ alias gcd='gcloud compute disks'
 alias gcs='gcloud compute snapshots'
 alias gcssh='gcloud compute ssh'
 
+alias vim="nvim"
+
+
+alias mlf="mv \"$(ls -t ~/Downloads | head -n 1)\" ."
