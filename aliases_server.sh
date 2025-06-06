@@ -5,4 +5,5 @@ alias gcam="git commit -am "
 alias ggpush="git push origin master"
 alias fd=fdfind
 alias wh=which
+alias c=batcat
 
