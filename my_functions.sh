@@ -194,3 +194,7 @@ mlf(){
     base_name=$(basename "$latest_file")
     mv "$latest_file" ./"$base_name"
 }
+
+gem(){
+    ssh -o StrictHostKeyChecking=accept-new -o LogLevel=QUIET gene "/Users/prakaa17/spring-platform/.venv/bin/python code/gemini2.py $1"
+}

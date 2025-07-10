@@ -1,7 +1,8 @@
 
 # alias ll='ls -lrth --color=auto --hide="*.pyc"'
 # alias ll='k -h --no-vcs'
-alias ll='eza -l'
+# alias ll='eza -l'
+alias ll="eza -l -snew"
 
 alias nv="nvidia-smi"
 alias ff="find . -name"
@@ -59,7 +60,9 @@ alias big1="ssh bigdata1@deerstalker.cs.brandeis.edu"
 #alias ls='k -h'
 alias lsd="ls -lartd */"
 
-alias c="pygmentize -g"
+#alias c="pygmentize -g"
+alias c="bat"
+
 
 alias e="dirs -v | head -10"
 
@@ -197,7 +200,7 @@ hl(){
     ls -lrth $1 | head
 }
 
-alias g='gcalcli --calendar="aaditya prakash"'
+#alias g='gcalcli --calendar="aaditya prakash"'
 
 alias v='f -e nvim'
 

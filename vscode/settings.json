@@ -1,0 +1,201 @@
+{
+    "editor.accessibilitySupport": "off",
+    "editor.inlineSuggest.enabled": true,
+    "jupyter.askForKernelRestart": false,
+    "notebook.output.scrolling": true,
+    "notebook.output.textLineLimit": 20,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python",
+    },
+    //"python.formatting.provider": "black",
+    "git.openRepositoryInParentFolders": "never",
+    "explorer.confirmDelete": false,
+    "editor.minimap.enabled": false,
+    "python.analysis.autoFormatStrings": true,
+    "python.analysis.completeFunctionParens": true,
+    "python.analysis.autoImportCompletions": true,
+    "git.confirmSync": false,
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "explorer.confirmDragAndDrop": false,
+    "git.enableSmartCommit": true,
+    "editor.stickyScroll.enabled": true,
+    "editor.fontSize": 14,
+    "debug.console.fontSize": 14,
+    "chat.editor.fontSize": 14,
+    "notebook.confirmDeleteRunningCell": false,
+    "git.requireGitUserConfig": false,
+    "cSpell.userWords": [
+        "umap"
+    ],
+    "githubPullRequests.createOnPublishBranch": "never",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "scminput": false,
+        "python": true
+    },
+    "files.exclude": {
+        "**/.*": true,
+        "**/.trunk/*actions/": true,
+        "**/.trunk/*logs/": true,
+        "**/.trunk/*notifications/": true,
+        "**/.trunk/*out/": true,
+        "**/.trunk/*plugins/": true,
+        "**/.venv/**": true,
+        "*.ipynb": true
+    },
+    "trunk.trunkGrayOutNonBlockingIssues": false,
+    "files.watcherExclude": {
+        "*.ipynb": true,
+        "**/.trunk/*actions/": true,
+        "**/.trunk/*logs/": true,
+        "**/.trunk/*notifications/": true,
+        "**/.trunk/*out/": true,
+        "**/.trunk/*plugins/": true,
+        "**/.venv/**": true,
+        "**/*.ipynb": true,
+        "**/tmp/**": true
+    },
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "githubPullRequests.terminalLinksHandler": "github",
+    "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
+    "trunk.inlineDecoratorsForAllExtensions": true,
+    "trunk.showBelowThresholdIssues": false,
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingImports": "none",
+    },
+    "python.analysis.addImport.exactMatchOnly": true,
+    "github.branchProtection": false,
+    "github.gitAuthentication": false,
+    "github.gitProtocol": "https",
+    "openInGitHub.providerType": "github",
+    "openInGitHub.gitHubDomain": "github.com",
+    "mypy-type-checker.path": [
+        "${workspaceFolder}/.venv/bin/mypy"
+    ],
+    "black-formatter.path": [
+        "${workspaceFolder}/.venv/bin/black"
+    ],
+    "githubPullRequests.pullBranch": "never",
+    "security.workspace.trust.untrustedFiles": "open",
+    "github.copilot.chat.localeOverride": "en",
+    "github.copilot.chat.welcomeMessage": "never",
+    "cloudcode.project": "vibrant-abbey-184901",
+    "cloudcode.duetAI.project": "vibrant-abbey-184901",
+    "cloudcode.duetAI.inlineSuggestions.enableAuto": true,
+    "python.analysis.enablePytestExtra": false,
+    "python.analysis.enablePytestSupport": false,
+    "python.analysis.exclude": [
+        "**/*.ipynb",
+        ".git",
+        "**/__pycache__",
+        "**/tmp/**",
+        "**/.venv/**",
+        "**/src/**",
+        "**/tests/**",
+        "*.ipynb",
+    ],
+    "terminal.integrated.stickyScroll.enabled": true,
+    "outline.collapseItems": "alwaysCollapse",
+    "notebook.cellFocusIndicator": "border",
+    "output.smartScroll.enabled": false,
+    "workbench.layoutControl.enabled": false,
+    "window.commandCenter": false,
+    "gitlens.advanced.messages": {
+        "suppressLineUncommittedWarning": true
+    },
+    "python.languageServer": "Pylance",
+    "python.analysis.fixAll": [
+        "source.unusedImports",
+        "source.convertImportFormat",
+    ],
+    "python.analysis.diagnosticMode": "openFilesOnly",
+    "files.autoSave": "afterDelay",
+    "terminal.integrated.inheritEnv": false,
+    "path-intellisense.absolutePathToWorkspace": false,
+    "path-intellisense.autoSlashAfterDirectory": true,
+    "path-intellisense.autoTriggerNextSuggestion": true,
+    "path-intellisense.showHiddenFiles": true,
+    "github.copilot.editor.enableAutoCompletions": true,
+    "workbench.editor.enablePreviewFromCodeNavigation": true,
+    "workbench.editorLargeFileConfirmation": 100,
+
+    "workbench.editorAssociations": {   
+        "*.md": "vscode.markdown.preview.editor",
+    },
+    "copyGithubUrl.rootGitFolder": "${workspaceFolder}",
+    "copyGithubUrl.defaultBranchFallback": "master",
+    "ruff.interpreter": [
+        "${workspaceFolder}/.venv/bin/ruff"
+    ],
+    "python.autoComplete.extraPaths": [
+        "spr_platform",
+        "spr_core",
+        "deploy",
+        "services/saas_demo_backend",
+        "saas_platform",
+        "spr_experiments",
+        "spr_data",
+        "spr_inference",
+    ],
+    // "python.analysis.extraPaths": [
+    //     "spr_inference",
+    //     "spr_data",
+    //     "spr_experiments",
+    //     "saas_platform",
+    //     "services/saas_demo_backend",
+    //     "deploy",
+    //     "spr_core",
+    //     "spr_platform"
+    // ],
+    // "python.analysis.include": [
+    //     "spr_platform",
+    //     "spr_core",
+    //     "deploy",
+    //     "services/saas_demo_backend",
+    //     "saas_platform",
+    //     "spr_experiments",
+    //     "spr_data",
+    //     "spr_inference",
+    // ],
+    "python.terminal.activateEnvironment": true,
+    "python.defaultInterpreterPath": ".venv/bin/python",
+    "python.venvPath": "${workspaceFolder}/.venv",
+
+    // On linux use "terminal.integrated.env.linux": {
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "${workspaceFolder}/spr_platform;${workspaceFolder}/spr_core;${workspaceFolder}/deploy;${workspaceFolder}/services/saas_demo_backend;${workspaceFolder}/saas_platform;${workspaceFolder}/spr_experiments;${workspaceFolder}/spr_inference;${workspaceFolder}/spr_data;"
+    },
+    "terminal.integrated.env.osx": {
+        "PYTHONPATH": "${workspaceFolder}/spr_platform;${workspaceFolder}/spr_core;${workspaceFolder}/deploy;${workspaceFolder}/services/saas_demo_backend;${workspaceFolder}/saas_platform;${workspaceFolder}/spr_experiments;${workspaceFolder}/spr_inference;${workspaceFolder}/spr_data;"
+    },
+    // The next line can be omitted, unless you've modified the global default
+    //"python.envFile": "${workspaceFolder}/.venv",
+    "python.analysis.extraPaths": [
+        "spr_platform",
+        "spr_core",
+        "deploy",
+        "services/saas_demo_backend",
+        "saas_platform",
+        "spr_experiments",
+        "spr_data",
+        "spr_inference"
+    ],
+
+    //font size for the terminal
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontFamily": "monospace",
+
+    // solarized dark theme for the terminal
+    "workbench.colorCustomizations" : {
+        "terminal.background": "#002b36",
+        "terminal.foreground": "#839496",
+        "terminalCursor.background": "#839496",
+        //"terminalCursor.foreground": "
+    },
+    "github.copilot.advanced": {
+        
+    },
+    "terminal.integrated.fontLigatures": true,
+}
