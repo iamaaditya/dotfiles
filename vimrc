@@ -47,10 +47,10 @@ Plugin 'tpope/vim-eunuch'
 " nnoremap <Leader>p <Plug>yankstack_substitute_older_paste
 " nnoremap <Leader>P <Plug>yankstack_substitute_newer_paste
 
-Plugin 'mg979/vim-yanktools'
-let g:yanktools_main_key = 's'
-nmap      S s$
-nnoremap  Y y$
+" Plugin 'mg979/vim-yanktools'
+" let g:yanktools_main_key = 's'
+" nmap      S s$
+" nnoremap  Y y$
 
 " Plugin 'svermeulen/vim-easyclip'
 " Plugin 'sjl/gundo.vim'
@@ -315,7 +315,7 @@ set autowrite
 set foldmethod=indent
 set foldnestmax=2
 " set nofoldenable
-set foldlevel=1
+set foldlevel=2
 set shortmess=atc
 
 " since i find it useful at other times too
@@ -875,7 +875,7 @@ nnoremap <silent> ,s "=nr2char(getchar())<cr>P
 highlight Pmenu ctermbg=black ctermfg=white
 
 Plugin 'Konfekt/FastFold'
-let g:fastfold_savehook = 1
+let g:fastfold_savehook = 0
 let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
 let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 
@@ -1092,3 +1092,8 @@ set guicursor+=i:blinkwait10
 
 "# disable continuation of comment
 set formatoptions-=ro
+
+
+" install github copilot
+"
+Plugin 'github/copilot.vim'

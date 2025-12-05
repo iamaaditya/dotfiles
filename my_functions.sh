@@ -181,6 +181,19 @@ lfc() {
   open "$file"
 }
 
+kcp() {
+  if [ -z "$1" ]; then
+    echo "Usage: kcp <local-file>"
+    return 1
+  fi
+
+  if [ -z "$pod" ] || [ -z "$workspace" ]; then
+    echo "Error: \$pod or \$workspace is not set."
+    return 1
+  fi
+
+  kubectl cp "$1" "spr-$workspace/$pod:/app/$(basename "$1")"
+}
 
 gem(){
     ssh -o StrictHostKeyChecking=accept-new -o LogLevel=QUIET gene "/Users/prakaa17/spring-platform/.venv/bin/python code/gemini2.py $1"

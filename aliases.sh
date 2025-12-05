@@ -2,7 +2,7 @@
 # alias ll='ls -lrth --color=auto --hide="*.pyc"'
 # alias ll='k -h --no-vcs'
 # alias ll='eza -l'
-alias ll="eza -l -snew"
+alias ll='eza -l --sort newest'
 
 alias nv="nvidia-smi"
 alias ff="find . -name"
@@ -34,6 +34,7 @@ alias top5="ps aux | sort -rk 3,3 | head -n 6"
 alias top5_="ps -eo pcpu,pid,user,args --no-headers| sort -t. -nk1,2 -k4,4 -r |head -n 5"
 alias tp="top -b -n 1 -p "
 
+#alias g='gcalcli --calendar="aaditya prakash"'
 
 # alias ag='rg'
 
@@ -62,7 +63,6 @@ alias lsd="ls -lartd */"
 
 #alias c="pygmentize -g"
 alias c="bat"
-
 
 alias e="dirs -v | head -10"
 alias fl="find . -name"
@@ -195,7 +195,7 @@ hl(){
     ls -lrth $1 | head
 }
 
-#alias g='gcalcli --calendar="aaditya prakash"'
+
 
 alias v='f -e nvim'
 
@@ -240,3 +240,13 @@ alias gls="gcloud alpha storage ls"
 alias gcp="gcloud alpha storage cp"
 alias edit_espanso="nvim '/Users/aprakash/Library/Application Support/espanso/match/base.yml'"
 
+# GEMINI
+alias g='/Users/prakaa17/code/.venv/bin/python $HOME/code/gemini2.py'
+
+alias sss='source .venv/bin/activate'
+alias ggg="git log --oneline --decorate --graph | head"
+
+# AWS
+#alias s3="aws --profile spring-assumed s3"
+alias als="aws --profile common-usecase-pwrusr-692859908065 s3 ls "
+alias acp="aws --profile common-usecase-pwrusr-692859908065 s3 cp "
