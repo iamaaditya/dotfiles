@@ -10,9 +10,9 @@ bindkey "^R" history-incremental-search-backward
 
 # History related settings
 #set history size
-export HISTSIZE=10000
+export HISTSIZE=50000
 #save history after logout
-export SAVEHIST=10000
+export SAVEHIST=50000
 #history file
 export HISTFILE=~/.zhistory
 
@@ -159,3 +159,4 @@ export CLOUDSDK_PYTHON_SITEPACKAGES=1
 
 # catpuchin zsh themes
 #source /Users/aprakash/dotfiles/zsh/catppuccin_macchiato-zsh-syntax-highlighting.zsh
+

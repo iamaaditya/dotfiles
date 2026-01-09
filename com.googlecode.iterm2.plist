@@ -2,8 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AIFeatureFunctionCalling</key>
+	<true/>
+	<key>AIFeatureHostedCodeInterpeter</key>
+	<true/>
+	<key>AIFeatureHostedFileSearch</key>
+	<true/>
+	<key>AIFeatureHostedWebSearch</key>
+	<true/>
+	<key>AIFeatureStreamingResponses</key>
+	<true/>
+	<key>AITermAPI</key>
+	<integer>2</integer>
+	<key>AIVectorStore</key>
+	<integer>1</integer>
 	<key>AggressiveFocusFollowsMouse</key>
 	<true/>
+	<key>AiMaxTokens</key>
+	<integer>1000000</integer>
+	<key>AiModel</key>
+	<string>gpt-4.1</string>
+	<key>AiResponseMaxTokens</key>
+	<integer>32768</integer>
+	<key>AitermURL</key>
+	<string>https://api.openai.com/v1/responses</string>
 	<key>AllowClipboardAccess</key>
 	<true/>
 	<key>AlwaysOpenWindowAtStartup</key>
@@ -14,6 +36,8 @@
 	<integer>1</integer>
 	<key>BadgeTopMargin</key>
 	<integer>1</integer>
+	<key>BrowserProfiles</key>
+	<false/>
 	<key>CheckTestRelease</key>
 	<false/>
 	<key>Control</key>
@@ -574,8 +598,10 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>D105D5F6-73B2-4728-8927-F470570A3A0F</string>
+	<key>Default Browser Profile Guid</key>
+	<string>04FDF0B6-6B56-489D-BE7F-6E699AF17680</string>
 	<key>DeleteProfile_SilenceUntil</key>
-	<real>772556003.45013499</real>
+	<real>780874001.02476704</real>
 	<key>DeleteProfile_selection</key>
 	<integer>0</integer>
 	<key>DisableFullscreenTransparency</key>

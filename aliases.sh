@@ -42,8 +42,8 @@ alias vi='nvim'
 # alias vim='vi'
 # alias vimdiff='/usr/local/bin/vimdiff'
 alias vimdiff='nvim -d'
-# alias vi='/usr/local/bin/vim'
-# alias vi='nvim'
+alias v='f -e nvim'
+
 # alias tmuxa=TERM=xterm-256color /usr/bin/tmux attach
 alias hourModified="find . -mmin -60"
 alias hourCreated="find . -cmin -60"
@@ -65,12 +65,7 @@ alias c="bat"
 
 
 alias e="dirs -v | head -10"
-
 alias fl="find . -name"
-
-# fasd
-alias v='f -e nvim'
-
 
 # cuts https://github.com/arielf/cuts
 alias cuts='~/command_line_libs/cuts/cuts'
@@ -113,7 +108,7 @@ alias cnull=CUDA_VISIBLE_DEVICES=''
 
 # alias pypy='/home/ap/helper_libs/pypy-c-jit-86749-24d11640c483-linux64/bin/pypy'
 
-nvp() { 
+nvp() {
     ps f -o user,pgrp,pid,pcpu,pmem,start,time,command -p `lsof -n -w -t /dev/nvidia*`
 }
 
@@ -145,7 +140,7 @@ findtime() {
 }
 
 run(){
-    CUDA_VISIBLE_DEVICES=3 python $1 
+    CUDA_VISIBLE_DEVICES=3 python $1
 }
 
 bashcompinit(){
@@ -217,7 +212,7 @@ alias sf='fasd -sif'     # interactive file selection
 alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
 
-alias fixindent="autopep8 --max-line-length=120 --select=E126,E127,E122,E128,E501 --in-place " 
+alias fixindent="autopep8 --max-line-length=120 --select=E126,E127,E122,E128,E501 --in-place "
 
 alias h20='head -n 20 '
 
@@ -241,8 +236,7 @@ alias gci='gcloud compute instances'
 alias gcd='gcloud compute disks'
 alias gcs='gcloud compute snapshots'
 alias gcssh='gcloud compute ssh'
+alias gls="gcloud alpha storage ls"
+alias gcp="gcloud alpha storage cp"
+alias edit_espanso="nvim '/Users/aprakash/Library/Application Support/espanso/match/base.yml'"
 
-alias vim="nvim"
-
-
-alias mlf="mv \"$(ls -t ~/Downloads | head -n 1)\" ."

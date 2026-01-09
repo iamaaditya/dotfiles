@@ -2,8 +2,14 @@ alias ll="ls -lrth"
 alias nv="nvidia-smi"
 alias gst="git status"
 alias gcam="git commit -am "
-alias ggpush="git push origin master"
+alias ggpush="git push origin $branch"
 alias fd=fdfind
 alias wh=which
 alias c=batcat
-
+alias gc='gcloud compute'
+alias gci='gcloud compute instances'
+alias gcd='gcloud compute disks'
+alias gcs='gcloud compute snapshots'
+alias gcssh='gcloud compute ssh'
+alias gls="gcloud alpha storage ls"
+alias gcp="gcloud alpha storage cp"

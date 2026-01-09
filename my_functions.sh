@@ -181,20 +181,14 @@ lfc() {
   open "$file"
 }
 
-lfdownload(){
-    file=$(/bin/ls -1t /Users/aprakash/Downloads | head -1)
-    echo /Users/aprakash/Downloads/$file
-}
-
-mlf(){
-    # moves the latest file from the downloads folder the currrent folder
-    latest_file="$(lfdownload)"
-    echo Moving "$latest_file"
-    # get the basename of the file
-    base_name=$(basename "$latest_file")
-    mv "$latest_file" ./"$base_name"
-}
 
 gem(){
     ssh -o StrictHostKeyChecking=accept-new -o LogLevel=QUIET gene "/Users/prakaa17/spring-platform/.venv/bin/python code/gemini2.py $1"
+}
+
+mvld() {
+  local latest
+  latest=$(ls -t "$HOME/Downloads" | head -n 1) || return 1
+  [[ -n "$latest" ]] || return 1
+  mv "$HOME/Downloads/$latest" .
 }
