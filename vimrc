@@ -935,7 +935,6 @@ command! -complete=file -nargs=1 Remove :echo 'Remove: '.'<f-args>'.' '.(delete(
 
 " let g:VimuxRunnerIndex=2
 "
-Plugin 'vimwiki/vimwiki'
 
 " Insert a empty line and return to Normal Mode
 " nmap <leader>o i_<Esc>r
@@ -977,14 +976,6 @@ command! Sync ! mle sync % $(cat ~/eee):%
 
 command! Lint ! pycodestyle --ignore=W503,E741,E402,E731,E722,E129 --max-line-length=120  %
 
-
-"Vimwiki mappings
-nmap <Leader>wj <Plug>VimwikiDiaryNextDay
-nmap <Leader>wk <Plug>VimwikiDiaryPrevDay
-
-nmap <Leader>wv <Plug>VimwikiToggleListItem
-nmap <Leader>wu <Plug>VimwikiDiaryGenerateLinks
-nmap <Leader>wo <Plug>VimwikiMakeDiaryNote
 
 " nnoremap <Leader>" ysiw"
 
