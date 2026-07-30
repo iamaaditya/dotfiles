@@ -80,7 +80,7 @@ setopt EXTENDED_HISTORY
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #bindkey '^T' fzf-history-widget
 
- alias hh=hstr                    # hh to be alias for hstr
+alias hh=hstr                    # hh to be alias for hstr
 # configuration for hstr
 export HH_CONFIG=hicolor,rawhistory,raw-history-view,keywords-matching        # get more colors
 

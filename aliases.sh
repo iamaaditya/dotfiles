@@ -2,7 +2,11 @@
 # alias ll='ls -lrth --color=auto --hide="*.pyc"'
 # alias ll='k -h --no-vcs'
 # alias ll='eza -l'
-alias ll='eza -l --sort newest'
+# alias ll='eza -l --sort newest'
+alias ee="eza --icons --git --group-directories-first --time-style=long-iso --header --color-scale --sort=modified"
+alias ll="eza -la --icons --git --group-directories-first --time-style=long-iso --header --color-scale --sort=modified"
+alias lsd="eza -laD --icons"
+
 
 alias nv="nvidia-smi"
 alias ff="find . -name"
@@ -56,10 +60,6 @@ alias deer="ssh aprakash@deerstalker.cs.brandeis.edu"
 alias hpc="ssh aprakash@hpc64.brandeis.edu"
 alias html="cd /var/www/html"
 alias big1="ssh bigdata1@deerstalker.cs.brandeis.edu"
-
-# alias ls='~/dotfiles/pilsner'
-#alias ls='k -h'
-alias lsd="ls -lartd */"
 
 #alias c="pygmentize -g"
 alias c="bat"
@@ -219,6 +219,7 @@ alias h20='head -n 20 '
 alias memusage="cat /sys/fs/cgroup/memory/memory.usage_in_bytes | numfmt --to iec --format '%8.4f'"
 
 alias rgf='rg --files | rg'
+alias rgi='rg --no-ignore'
 
 alias kk='kubectl'
 

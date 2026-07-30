@@ -5,7 +5,7 @@ alias nv="nvidia-smi"
 #alias ggpush="git push origin $branch"
 
 # Local additions
-alias fd=fdfind
+#alias fd=fdfind
 alias wh=which
 alias c=batcat
 alias gc='gcloud compute'
