@@ -15,7 +15,7 @@ aaa() {
 
 qq() {
   copilot -sp "$*" \
-    --model claude-haiku-4.5 \
+    --model "auto" \
     --deny-tool='shell,write,read,url,memory' \
     --no-ask-user
 }
@@ -23,7 +23,13 @@ qq() {
 cmd() {
   copilot -sp \
     "Return exactly one zsh command for macOS. No Markdown or explanation. Do not execute it. Task: $*" \
-    --model claude-haiku-4.5 \
+    --model "auto" \
     --deny-tool='shell,write,read,url,memory' \
     --no-ask-user
+}
+
+qc() {
+  codex e --skip-git-repo-check --ephemeral -s read-only \
+    --model gpt-5.6-luna --config 'model_reasoning_effort="low"' \
+    "$*" 2>/dev/null
 }
