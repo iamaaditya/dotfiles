@@ -33,3 +33,11 @@ qc() {
     --model gpt-5.6-luna --config 'model_reasoning_effort="low"' \
     "$*" 2>/dev/null
 }
+
+codex() {
+    command /opt/homebrew/bin/codex \
+      --model gpt-5.6-sol \
+      --config 'model_reasoning_effort="medium"' \
+      "$@"
+}
+
